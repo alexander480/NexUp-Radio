@@ -8,20 +8,27 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
 
 class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     var songs = [[String: Any]]()
     var timer = Timer()
     
+    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        banner.adUnitID = bannerID
+        banner.rootViewController = self
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.banner.load(GADRequest())
         
         if account.recents.isEmpty { account.fetchRecents() }
         
@@ -29,6 +36,10 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         else { self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit"); self.backgroundImage?.blur() }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

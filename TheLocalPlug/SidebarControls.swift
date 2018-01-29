@@ -13,7 +13,7 @@ import UIKit
 class Sidebar: UIViewController
 {
     @IBOutlet weak var hipHopButton: UIButton!
-    @IBAction func hipHopAction(_ sender: Any) { self.startStation(StationName: "HipHop") }
+    @IBAction func hipHopAction(_ sender: Any) { self.startStation(StationName: "Hip Hop") }
     
     @IBOutlet weak var rbButton: UIButton!
     @IBAction func rbAction(_ sender: Any) { self.startStation(StationName: "R&B") }
@@ -35,6 +35,8 @@ class Sidebar: UIViewController
     private func startStation(StationName: String)
     {
         audio.setup(playlist: StationName)
+        audio.metadata = audio.fetchMetadata()
+        
         self.hide()
     }
     

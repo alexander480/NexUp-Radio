@@ -7,8 +7,11 @@
 //
 
 import Foundation
+
 import UIKit
+import GoogleMobileAds
 import AVFoundation
+
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
@@ -17,12 +20,17 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 {
     let options = ["Favorites", "Dislikes", "Recently Played", "Premium"]
     
+    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        banner.adUnitID = bannerID
+        banner.rootViewController = self
+        self.banner.load(GADRequest())
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -38,10 +46,15 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
+    
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(true)
-        self.updateHeaderCell()
+        if let user = auth.currentUser { if let email = user.email { self.updateHeaderCell(UserEmail: email) } }
+        else { if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) } }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,31 +70,13 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    private func isAuthorized() -> User?
-    {
-        if let usr = auth.currentUser
-        {
-            print("[INFO] User \(usr.uid) Is Logged In")
-            return usr
-        }
-        else
-        {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
-            else { print("Error Initalizing AuthVC") }
-            return nil
-        }
-    }
-    
-    private func updateHeaderCell()
+    private func updateHeaderCell(UserEmail: String)
     {
         let row = IndexPath(row: 0, section: 0)
         if let headerCell = self.tableView.cellForRow(at: row) as? AccountHeaderCell
         {
-            if let email = self.isAuthorized()?.email
-            {
-                headerCell.cellDetail.text = email
-                self.tableView.reloadRows(at: [row], with: UITableViewRowAnimation.automatic)
-            }
+            headerCell.cellDetail.text = UserEmail
+            self.tableView.reloadRows(at: [row], with: UITableViewRowAnimation.automatic)
         }
     }
     
@@ -106,14 +101,49 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC") { present(vc, animated: true, completion: nil) }
+        if indexPath.row == 0
+        {
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
+        }
+        if indexPath.row == 1
+        {
+            if auth.currentUser == nil {
+                self.alert(Title: "Please Login or Sign up", Description: nil)
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
+                    present(vc, animated: true, completion: nil)
+                }
+            }
+            else {
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC") {
+                    present(vc, animated: true, completion: nil)
+                }
+            }
         }
         else if indexPath.row == 2 {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DislikeVC") { present(vc, animated: true, completion: nil) }
+            if auth.currentUser == nil {
+                self.alert(Title: "Please Login or Sign up", Description: nil)
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
+                    present(vc, animated: true, completion: nil)
+                }
+            }
+            else {
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DislikeVC") {
+                    present(vc, animated: true, completion: nil)
+                }
+            }
         }
         else if indexPath.row == 3 {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecentVC") { present(vc, animated: true, completion: nil) }
+            if auth.currentUser == nil {
+                self.alert(Title: "Please Login or Sign up", Description: nil)
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
+                    present(vc, animated: true, completion: nil)
+                }
+            }
+            else {
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecentVC") {
+                    present(vc, animated: true, completion: nil)
+                }
+            }
         }
     }
 }

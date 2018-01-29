@@ -7,8 +7,11 @@
 //
 
 import Foundation
+
 import UIKit
+import GoogleMobileAds
 import AVFoundation
+
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
@@ -20,7 +23,7 @@ import FirebaseStorage
 
 class AuthVC: UIViewController
 {
-    
+    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
@@ -68,6 +71,14 @@ class AuthVC: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        banner.adUnitID = bannerID
+        banner.rootViewController = self
+        self.banner.load(GADRequest())
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
     }
 }
 

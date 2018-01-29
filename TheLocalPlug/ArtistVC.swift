@@ -7,8 +7,11 @@
 //
 
 import Foundation
+
 import UIKit
+import GoogleMobileAds
 import AVFoundation
+
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
@@ -25,6 +28,7 @@ var artistSelected = [String: Any]()
 
 class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -32,8 +36,13 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var artists = [[String: Any]]()
     var timer = Timer()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        banner.adUnitID = bannerID
+        banner.rootViewController = self
+        self.banner.load(GADRequest())
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -49,6 +58,10 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
             self.backgroundImage?.blur()
         }
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
     }
     
     private func updateUserInterface()

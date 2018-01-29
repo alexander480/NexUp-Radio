@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import UIKit
 
+import UIKit
+import GoogleMobileAds
 import AVFoundation
 
 import FirebaseAuth
@@ -24,6 +25,8 @@ class ArtistInfoVC: UIViewController
     var timer = Timer()
     var artist = artistSelected
     
+    @IBOutlet weak var banner: GADBannerView!
+    
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var artistCircleImage: ImageViewClass!
@@ -32,7 +35,16 @@ class ArtistInfoVC: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        banner.adUnitID = bannerID
+        banner.rootViewController = self
+        self.banner.load(GADRequest())
+        
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
     }
     
     private func updateUserInterface()

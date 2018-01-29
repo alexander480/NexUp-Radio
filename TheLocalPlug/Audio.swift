@@ -37,6 +37,9 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     
     var currentPlaylist = ""
     
+    var limitReached = false
+    var shouldDisplayAd = false
+    
     var progress = 0.0
     var skipCount = 0
     var count = 0
@@ -236,11 +239,11 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     
     func skip(didFinish: Bool)
     {
+        print("[INFO] Skipping To Next Song")
+        self.count = self.count + 1
+        
         if didFinish
         {
-            print("[INFO] Skipping To Next Song")
-            self.count = self.count + 1
-            
             if self.count % 20 == 0 { self.repopulate() }
             else if self.urls.isEmpty { self.repopulate() }
             else { self.player.advanceToNextItem() }
@@ -249,13 +252,14 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         }
         else
         {
-            if self.skipCount > 299 { print("[INFO] Skip Limit Reached") }
+            if self.skipCount > 9
+            {
+                print("[INFO] Skip Limit Reached")
+                self.limitReached = true
+            }
             else
             {
-                print("[INFO] Skipping To Next Song")
                 self.skipCount = self.skipCount + 1
-                self.count = self.count + 1
-                
                 if self.count % 20 == 0 { self.repopulate() }
                 else if self.urls.isEmpty { self.repopulate() }
                 else { self.player.advanceToNextItem() }
@@ -263,6 +267,8 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
                 self.metadata = self.fetchMetadata()
             }
         }
+        
+        if self.count % 3 == 0 { self.shouldDisplayAd = true }
     }
 }
 

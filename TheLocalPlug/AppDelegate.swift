@@ -16,12 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
+        // Hide Status Bar From UIViewControllers
+        UIApplication.shared.isStatusBarHidden = true
+        
         // Override point for customization after application launch.
         // FirebaseConfiguration.shared.setLoggerLevel()
         FirebaseApp.configure()
         
         // Initialize the Google Mobile Ads SDK.
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-2842660068756659~9751922390")
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-6543648439575950~2582292311")
         
         return true
     }

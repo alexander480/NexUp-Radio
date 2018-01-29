@@ -19,8 +19,8 @@
 		1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */; };
 		14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E26A151F4CBE5200FFC55D /* Audio.swift */; };
 		53E366EF20059EEA0086C82F /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E366EE20059EEA0086C82F /* CustomCells.swift */; };
+		7EF2F44DB054C19120DF1A4D /* Pods_TheLocalPlug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */; };
 		E51B22AB200316DC009F09A1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B22AA200316DC009F09A1 /* Account.swift */; };
-		E53C4A2B2001C1A700D38465 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2A2001C1A700D38465 /* GoogleService-Info.plist */; };
 		E53C4A2D2001C1BB00D38465 /* UserAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */; };
 		E53C4A2F2001C1D500D38465 /* ArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2E2001C1D500D38465 /* ArtistVC.swift */; };
 		E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */; };
@@ -36,6 +36,7 @@
 		E57675DC2015C2900093C820 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DB2015C2900093C820 /* Int.swift */; };
 		E57675DE2015C2A40093C820 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* Array.swift */; };
 		E57675E02015C2AE0093C820 /* AVQueuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */; };
+		E5921125201F19B700138E28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5921124201F19B700138E28 /* GoogleService-Info.plist */; };
 		E5AC882D200DEABC0046F4BF /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AC882C200DEABC0046F4BF /* Save.swift */; };
 		E5AC8830200DEB530046F4BF /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */; };
 		E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1920196CAF00777E67 /* FavoriteVC.swift */; };
@@ -61,11 +62,11 @@
 		1489A7BB1F33CCFC00A6E404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E26A151F4CBE5200FFC55D /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		53E366EE20059EEA0086C82F /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCells.swift; path = ../CustomCells.swift; sourceTree = "<group>"; };
+		711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC00A1E168C684F412697B4 /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38860878C7D3A0D1FC77964 /* Pods-TheLocalPlug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheLocalPlug.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug.release.xcconfig"; sourceTree = "<group>"; };
 		D6A4D75DF1B867032C3FDC5F /* Pods-TheLocalPlug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheLocalPlug.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug.debug.xcconfig"; sourceTree = "<group>"; };
 		E51B22AA200316DC009F09A1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		E53C4A2A2001C1A700D38465 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountVC.swift; sourceTree = "<group>"; };
 		E53C4A2E2001C1D500D38465 /* ArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVC.swift; sourceTree = "<group>"; };
 		E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoVC.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		E57675DB2015C2900093C820 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E57675DD2015C2A40093C820 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVQueuePlayer.swift; sourceTree = "<group>"; };
+		E5921124201F19B700138E28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/iCloud/iDownloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5AC882C200DEABC0046F4BF /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 		E5AC882F200DEB530046F4BF /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		E5B87E1920196CAF00777E67 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				144B8A861F3BE81000CF749F /* iAd.framework in Frameworks */,
 				144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */,
 				0A450299A7B578CABE922173 /* Pods_TheLocalPlug.framework in Frameworks */,
+				7EF2F44DB054C19120DF1A4D /* Pods_TheLocalPlug.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,12 +139,12 @@
 		1471DF3C1F5F9FD000D5FD6F /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */,
 				E57675E12015C2FC0093C820 /* Extensions */,
 				E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */,
-				1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */,
 				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
 				1489A7BB1F33CCFC00A6E404 /* Info.plist */,
-				E53C4A2A2001C1A700D38465 /* GoogleService-Info.plist */,
+				E5921124201F19B700138E28 /* GoogleService-Info.plist */,
 				14805ADB1F43B6E3002C10E0 /* TheLocalPlug.entitlements */,
 			);
 			name = Other;
@@ -153,6 +156,7 @@
 				1489A7AE1F33CCFC00A6E404 /* TheLocalPlug */,
 				1489A7AD1F33CCFC00A6E404 /* Products */,
 				D3C59EAC0CD00A29F88298E6 /* Pods */,
+				9E13DDD962C84BC0D2881B30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +196,14 @@
 				144B8A851F3BE81000CF749F /* iAd.framework */,
 				144B8A831F3BE7CD00CF749F /* AdSupport.framework */,
 				9DC00A1E168C684F412697B4 /* Pods_TheLocalPlug.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E13DDD962C84BC0D2881B30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -327,6 +339,7 @@
 			files = (
 				145E5F711FF588AF00C8E37C /* AvenirLTStd-Light.otf in Resources */,
 				1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */,
+				E5921125201F19B700138E28 /* GoogleService-Info.plist in Resources */,
 				1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */,
 				1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */,
 			);
@@ -409,7 +422,6 @@
 				E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */,
 				14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */,
 				E553162020132C77006EA053 /* CircleControls.swift in Sources */,
-				E53C4A2B2001C1A700D38465 /* GoogleService-Info.plist in Sources */,
 				E53C4A392001C22C00D38465 /* AuthVC.swift in Sources */,
 				E53C4A2D2001C1BB00D38465 /* UserAccountVC.swift in Sources */,
 				E553161E2012C68D006EA053 /* BottomControls.swift in Sources */,
@@ -569,7 +581,7 @@
 				DEVELOPMENT_TEAM = VWSMFUQHS2;
 				INFOPLIST_FILE = TheLocalPlug/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LAGBTECH.TheLocalPlug;
+				PRODUCT_BUNDLE_IDENTIFIER = LAGBTECH.NEXUP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -586,7 +598,7 @@
 				DEVELOPMENT_TEAM = VWSMFUQHS2;
 				INFOPLIST_FILE = TheLocalPlug/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LAGBTECH.TheLocalPlug;
+				PRODUCT_BUNDLE_IDENTIFIER = LAGBTECH.NEXUP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

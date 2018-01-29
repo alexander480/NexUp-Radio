@@ -146,21 +146,23 @@ class Account: NSObject
             if let metadata = audio.metadata {
                 let dbRef = db.reference(withPath: "users/\(user.uid)/recents")
                 let storageRef = storage.reference(withPath: "users/\(user.uid)/recents")
-                let songName = String(describing: metadata["Name"]!)
-                let songArtist = String(describing: metadata["Artist"]!)
-                if let imageData = UIImageJPEGRepresentation((metadata["Image"]! as! UIImage), 1.0) {
-                    storageRef.child(songName).putData(imageData, metadata: nil, completion: { (meta, err) in
-                        if let metadata = meta {
-                            let url = (metadata.downloadURL()?.absoluteString)!
-                            dbRef.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": url])
-                            print("[INFO] \(songName) Added To User Dislikes With an Image")
-                        }
-                        else if let error = err {
-                            print("[ERROR] \(error.localizedDescription)")
-                            dbRef.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": ""])
-                            print("[INFO] \(songName) Added To User Dislikes Without an Image")
-                        }
-                    })
+                if let songName = metadata["Name"] as? String, let songArtist = metadata["Artist"] as? String
+                {
+                    if let imageData = UIImageJPEGRepresentation((metadata["Image"]! as! UIImage), 1.0) ?? UIImageJPEGRepresentation(#imageLiteral(resourceName: "nexup"), 1.0)
+                    {
+                        storageRef.child(songName).putData(imageData, metadata: nil, completion: { (meta, err) in
+                            if let metadata = meta {
+                                let url = (metadata.downloadURL()?.absoluteString)!
+                                dbRef.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": url])
+                                print("[INFO] \(songName) Added To User Dislikes With an Image")
+                            }
+                            else if let error = err {
+                                print("[ERROR] \(error.localizedDescription)")
+                                dbRef.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": ""])
+                                print("[INFO] \(songName) Added To User Dislikes Without an Image")
+                            }
+                        })
+                    }
                 }
             }
         }

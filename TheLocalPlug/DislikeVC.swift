@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
 
 class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -15,12 +16,17 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var timer = Timer()
     
+    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        banner.adUnitID = bannerID
+        banner.rootViewController = self
+        self.banner.load(GADRequest())
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -31,6 +37,10 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         else { self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit"); self.backgroundImage?.blur() }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
