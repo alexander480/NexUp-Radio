@@ -34,11 +34,7 @@ class Sidebar: UIViewController
     
     private func startStation(StationName: String)
     {
-        audio.player.pause()
-        audio.player.removeAllItems()
-        
-        audio = Audio(FromPlaylist: StationName)
-        
+        audio.setup(playlist: StationName)
         self.hide()
     }
     

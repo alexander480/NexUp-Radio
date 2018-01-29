@@ -109,6 +109,7 @@
 		143C42851F33CE5800638D57 /* Root Files */ = {
 			isa = PBXGroup;
 			children = (
+				1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */,
 				1489A7B31F33CCFC00A6E404 /* Main.storyboard */,
 				1489A7B61F33CCFC00A6E404 /* Assets.xcassets */,
 				1471DF3C1F5F9FD000D5FD6F /* Other */,
@@ -120,8 +121,13 @@
 			isa = PBXGroup;
 			children = (
 				E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */,
-				E5D5F325201009BE0071C9B2 /* Artist Information */,
-				E5D5F323201009910071C9B2 /* Account Information */,
+				E53C4A2E2001C1D500D38465 /* ArtistVC.swift */,
+				E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */,
+				E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */,
+				E5B87E1920196CAF00777E67 /* FavoriteVC.swift */,
+				E5B87E1B20196CC600777E67 /* DislikeVC.swift */,
+				E5B87E1D20196CE300777E67 /* RecentVC.swift */,
+				E53C4A382001C22C00D38465 /* AuthVC.swift */,
 				E5D5F324201009B00071C9B2 /* Other */,
 			);
 			name = "View Controllers";
@@ -131,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				E57675E12015C2FC0093C820 /* Extensions */,
-				1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */,
 				E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */,
 				1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */,
 				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
@@ -226,18 +231,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		E5D5F323201009910071C9B2 /* Account Information */ = {
-			isa = PBXGroup;
-			children = (
-				E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */,
-				E5B87E1920196CAF00777E67 /* FavoriteVC.swift */,
-				E5B87E1B20196CC600777E67 /* DislikeVC.swift */,
-				E5B87E1D20196CE300777E67 /* RecentVC.swift */,
-				E53C4A382001C22C00D38465 /* AuthVC.swift */,
-			);
-			name = "Account Information";
-			sourceTree = "<group>";
-		};
 		E5D5F324201009B00071C9B2 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,15 +240,6 @@
 				E553162120132C81006EA053 /* SidebarControls.swift */,
 			);
 			name = Other;
-			sourceTree = "<group>";
-		};
-		E5D5F325201009BE0071C9B2 /* Artist Information */ = {
-			isa = PBXGroup;
-			children = (
-				E53C4A2E2001C1D500D38465 /* ArtistVC.swift */,
-				E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */,
-			);
-			name = "Artist Information";
 			sourceTree = "<group>";
 		};
 		E5D5F32620100A060071C9B2 /* Future Updates */ = {

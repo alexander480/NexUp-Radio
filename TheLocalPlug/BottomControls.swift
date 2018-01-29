@@ -39,7 +39,7 @@ class BottomControls: UIViewController
     {
         super.viewDidLoad()
         
-        self.circleButton.setImage(nil, for: .normal)
+        self.circleButton.setImage(#imageLiteral(resourceName: "nexup"), for: .normal)
         self.progress.progress = 0.0
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
