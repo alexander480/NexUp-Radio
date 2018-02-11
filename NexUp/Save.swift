@@ -14,13 +14,9 @@ import WebKit
 class Save: NSObject
 {
     let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-    
-    // ------ Save New Login Data ------ //
-    // ------------------------------ //
-    
+ 
     func storePlaylist(PlaylistName: String, PlaylistItems: [AVPlayerItem])
     {
-
         let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Song", in: context)!
         

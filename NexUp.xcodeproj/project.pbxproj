@@ -19,16 +19,16 @@
 		1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */; };
 		14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E26A151F4CBE5200FFC55D /* Audio.swift */; };
 		53E366EF20059EEA0086C82F /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E366EE20059EEA0086C82F /* CustomCells.swift */; };
-		7EF2F44DB054C19120DF1A4D /* Pods_TheLocalPlug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */; };
+		561D869DD46E6F8A05F306D6 /* Pods_NexUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */; };
 		E51B22AB200316DC009F09A1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B22AA200316DC009F09A1 /* Account.swift */; };
 		E53C4A2D2001C1BB00D38465 /* UserAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */; };
 		E53C4A2F2001C1D500D38465 /* ArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2E2001C1D500D38465 /* ArtistVC.swift */; };
 		E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */; };
 		E53C4A392001C22C00D38465 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A382001C22C00D38465 /* AuthVC.swift */; };
-		E5432DAB202041C10021C004 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1489A7BB1F33CCFC00A6E404 /* Info.plist */; };
 		E553161E2012C68D006EA053 /* BottomControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553161D2012C68D006EA053 /* BottomControls.swift */; };
 		E553162020132C77006EA053 /* CircleControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553161F20132C77006EA053 /* CircleControls.swift */; };
 		E553162220132C81006EA053 /* SidebarControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553162120132C81006EA053 /* SidebarControls.swift */; };
+		E5634ED5202D8CBA0091E153 /* ProductHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5634ED4202D8CBA0091E153 /* ProductHandler.swift */; };
 		E569F389200590A300E5F07D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569F388200590A300E5F07D /* Artist.swift */; };
 		E57675D42015C2330093C820 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D32015C2330093C820 /* UIViewController.swift */; };
 		E57675D62015C24E0093C820 /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D52015C24E0093C820 /* AVPlayerItem.swift */; };
@@ -37,8 +37,10 @@
 		E57675DC2015C2900093C820 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DB2015C2900093C820 /* Int.swift */; };
 		E57675DE2015C2A40093C820 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* Array.swift */; };
 		E57675E02015C2AE0093C820 /* AVQueuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */; };
+		E57C4F462022729E00341FE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57C4F452022729E00341FE4 /* GoogleService-Info.plist */; };
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
-		E58A2FBD20203F8E00A22C55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58A2FBC20203F8E00A22C55 /* GoogleService-Info.plist */; };
+		E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */; };
+		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
 		E5AC882D200DEABC0046F4BF /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AC882C200DEABC0046F4BF /* Save.swift */; };
 		E5AC8830200DEB530046F4BF /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */; };
 		E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1920196CAF00777E67 /* FavoriteVC.swift */; };
@@ -63,6 +65,7 @@
 		1489A7BB1F33CCFC00A6E404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E26A151F4CBE5200FFC55D /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		53E366EE20059EEA0086C82F /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCells.swift; path = ../CustomCells.swift; sourceTree = "<group>"; };
+		654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC00A1E168C684F412697B4 /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38860878C7D3A0D1FC77964 /* Pods-TheLocalPlug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheLocalPlug.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		E553161D2012C68D006EA053 /* BottomControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControls.swift; sourceTree = "<group>"; };
 		E553161F20132C77006EA053 /* CircleControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleControls.swift; sourceTree = "<group>"; };
 		E553162120132C81006EA053 /* SidebarControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarControls.swift; sourceTree = "<group>"; };
+		E5634ED4202D8CBA0091E153 /* ProductHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHandler.swift; sourceTree = "<group>"; };
 		E569F388200590A300E5F07D /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E57675D32015C2330093C820 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E57675D52015C24E0093C820 /* AVPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
@@ -83,10 +87,11 @@
 		E57675DB2015C2900093C820 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E57675DD2015C2A40093C820 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVQueuePlayer.swift; sourceTree = "<group>"; };
+		E57C4F452022729E00341FE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/iCloud/iDownloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E58A2FB620203E4400A22C55 /* NexUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NexUp.entitlements; sourceTree = SOURCE_ROOT; };
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		E58A2FBA20203F6900A22C55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E58A2FBC20203F8E00A22C55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHandler.swift; sourceTree = "<group>"; };
+		E59BA252202D17700050588D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E5AC882C200DEABC0046F4BF /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 		E5AC882F200DEB530046F4BF /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		E5B87E1920196CAF00777E67 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
@@ -95,6 +100,8 @@
 		E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingVC.swift; sourceTree = "<group>"; };
 		E5DE659520183967004CF0BC /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		E5F52548201C379D001DBAD7 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		E66128AB9646E79A24F019ED /* Pods-NexUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.release.xcconfig"; sourceTree = "<group>"; };
+		EA4CBFB232D7B01B5292ACF1 /* Pods-NexUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +112,10 @@
 				144B8A881F3BE88700CF749F /* AVFoundation.framework in Frameworks */,
 				144B8A861F3BE81000CF749F /* iAd.framework in Frameworks */,
 				144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */,
+				E59BA253202D17700050588D /* StoreKit.framework in Frameworks */,
 				0A450299A7B578CABE922173 /* Pods_TheLocalPlug.framework in Frameworks */,
-				7EF2F44DB054C19120DF1A4D /* Pods_TheLocalPlug.framework in Frameworks */,
 				E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */,
+				561D869DD46E6F8A05F306D6 /* Pods_NexUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +182,7 @@
 			children = (
 				143C42851F33CE5800638D57 /* Root Files */,
 				14AF7D9A1F5A650A00B74133 /* Audio API */,
+				E59BA24F202D0EF10050588D /* Subscription API */,
 				143C42861F33CE6500638D57 /* View Controllers */,
 			);
 			path = NexUp;
@@ -185,7 +194,7 @@
 				14E26A151F4CBE5200FFC55D /* Audio.swift */,
 				E569F388200590A300E5F07D /* Artist.swift */,
 				E51B22AA200316DC009F09A1 /* Account.swift */,
-				E5D5F32620100A060071C9B2 /* Future Updates */,
+				E5AC882C200DEABC0046F4BF /* Save.swift */,
 			);
 			name = "Audio API";
 			sourceTree = "<group>";
@@ -204,8 +213,10 @@
 		9E13DDD962C84BC0D2881B30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E59BA252202D17700050588D /* StoreKit.framework */,
 				E58A2FB720203E4500A22C55 /* AudioToolbox.framework */,
 				711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */,
+				654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,6 +227,8 @@
 				46301654B96E8327179189FA /* Frameworks */,
 				D6A4D75DF1B867032C3FDC5F /* Pods-TheLocalPlug.debug.xcconfig */,
 				C38860878C7D3A0D1FC77964 /* Pods-TheLocalPlug.release.xcconfig */,
+				EA4CBFB232D7B01B5292ACF1 /* Pods-NexUp.debug.xcconfig */,
+				E66128AB9646E79A24F019ED /* Pods-NexUp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -248,14 +261,22 @@
 		E58A2FB920203F6900A22C55 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
-				E58A2FBC20203F8E00A22C55 /* GoogleService-Info.plist */,
-				E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */,
 				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
+				E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */,
 				1489A7BB1F33CCFC00A6E404 /* Info.plist */,
-				E58A2FBA20203F6900A22C55 /* GoogleService-Info.plist */,
+				E57C4F452022729E00341FE4 /* GoogleService-Info.plist */,
 				E58A2FB620203E4400A22C55 /* NexUp.entitlements */,
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		E59BA24F202D0EF10050588D /* Subscription API */ = {
+			isa = PBXGroup;
+			children = (
+				E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */,
+				E5634ED4202D8CBA0091E153 /* ProductHandler.swift */,
+			);
+			name = "Subscription API";
 			sourceTree = "<group>";
 		};
 		E5D5F324201009B00071C9B2 /* Other */ = {
@@ -267,14 +288,6 @@
 				E553162120132C81006EA053 /* SidebarControls.swift */,
 			);
 			name = Other;
-			sourceTree = "<group>";
-		};
-		E5D5F32620100A060071C9B2 /* Future Updates */ = {
-			isa = PBXGroup;
-			children = (
-				E5AC882C200DEABC0046F4BF /* Save.swift */,
-			);
-			name = "Future Updates";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,16 +320,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "LAGB Technologies";
 				TargetAttributes = {
 					1489A7AB1F33CCFC00A6E404 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = VWSMFUQHS2;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.InterAppAudio = {
@@ -354,10 +370,9 @@
 			files = (
 				145E5F711FF588AF00C8E37C /* AvenirLTStd-Light.otf in Resources */,
 				1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */,
-				E5432DAB202041C10021C004 /* Info.plist in Resources */,
-				E58A2FBD20203F8E00A22C55 /* GoogleService-Info.plist in Resources */,
 				1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */,
 				1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */,
+				E57C4F462022729E00341FE4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +390,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheLocalPlug-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NexUp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -388,9 +403,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -398,12 +414,13 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7629AF8766DE6964045C382E /* [CP] Copy Pods Resources */ = {
@@ -418,7 +435,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -433,6 +450,7 @@
 				E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */,
 				E57675DA2015C2860093C820 /* URL.swift in Sources */,
 				E57675D42015C2330093C820 /* UIViewController.swift in Sources */,
+				E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */,
 				E569F389200590A300E5F07D /* Artist.swift in Sources */,
 				E5DE659620183967004CF0BC /* UIImageView.swift in Sources */,
 				E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */,
@@ -453,6 +471,7 @@
 				E553162220132C81006EA053 /* SidebarControls.swift in Sources */,
 				E57675D82015C27E0093C820 /* String.swift in Sources */,
 				E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */,
+				E5634ED5202D8CBA0091E153 /* ProductHandler.swift in Sources */,
 				E57675DE2015C2A40093C820 /* Array.swift in Sources */,
 				E5AC8830200DEB530046F4BF /* Store.xcdatamodeld in Sources */,
 				E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */,
@@ -590,16 +609,19 @@
 		};
 		1489A7BF1F33CCFC00A6E404 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A4D75DF1B867032C3FDC5F /* Pods-TheLocalPlug.debug.xcconfig */;
+			baseConfigurationReference = EA4CBFB232D7B01B5292ACF1 /* Pods-NexUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NexUp.entitlements;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VWSMFUQHS2;
 				INFOPLIST_FILE = "$(SRCROOT)/NexUp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LAGBTECH.NEXUP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lagbtech.nexup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				PROVISIONING_PROFILE = "69b09cdc-1ece-4713-9e53-ca22e349a052";
+				PROVISIONING_PROFILE_SPECIFIER = "Nexup Provisioning Profile";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -607,16 +629,19 @@
 		};
 		1489A7C01F33CCFC00A6E404 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C38860878C7D3A0D1FC77964 /* Pods-TheLocalPlug.release.xcconfig */;
+			baseConfigurationReference = E66128AB9646E79A24F019ED /* Pods-NexUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NexUp.entitlements;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = VWSMFUQHS2;
 				INFOPLIST_FILE = "$(SRCROOT)/NexUp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LAGBTECH.NEXUP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lagbtech.nexup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				PROVISIONING_PROFILE = "69b09cdc-1ece-4713-9e53-ca22e349a052";
+				PROVISIONING_PROFILE_SPECIFIER = "Nexup Provisioning Profile";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

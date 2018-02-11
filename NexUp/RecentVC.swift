@@ -30,7 +30,7 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.dataSource = self
         self.banner.load(GADRequest())
         
-        if account.recents.isEmpty { account.fetchRecents() }
+        account.fetchRecents()
         
         if let image = audio.metadata?["Image"] as? UIImage { self.backgroundImage?.image = image; self.backgroundImage?.blur() }
         else { self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit"); self.backgroundImage?.blur() }
@@ -82,11 +82,10 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func updateUserInterface() {
-        self.songs = account.recents
-        self.tableView.reloadData()
-        
-        if account.recents.isEmpty { self.timer.invalidate() }
         if self.songs.count == account.recents.count { self.timer.invalidate() }
+        else { self.songs = account.recents.reversed() }
+
+        self.tableView.reloadData()
     }
 }
 

@@ -45,19 +45,21 @@ class CircleControls: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
-        
     }
     
     private func updateUserInterface()
     {
         if let info = audio.metadata
         {
-            if let name = info["Name"] as? String, let label = self.songName { label.text = name }
-            if let artist = info["Artist"] as? String, let label = self.songArtist { label.text = artist }
-            if let skips = self.skipsRemaining { skips.text = "\(10 - audio.skipCount) Skips Remaining" }
-            if audio.player.rate == 1.0 { self.pauseButton?.setImage(#imageLiteral(resourceName: "pause"), for: .normal) } else { self.pauseButton?.setImage(#imageLiteral(resourceName: "play"), for: .normal) }
+            if let name = (info["Name"] as? String) { self.songName?.text = name }
+            if let artist = (info["Artist"] as? String) { self.songArtist?.text = artist }
+            
+            if account.isPremium { self.skipsRemaining?.text = "∞ Skips Remaining" }
+            else { self.skipsRemaining?.text = "\(10 - audio.skipCount) Skips Remaining" }
+    
+            if audio.player.rate == 1.0 { self.pauseButton?.setImage(#imageLiteral(resourceName: "pause"), for: .normal) }
+            else { self.pauseButton?.setImage(#imageLiteral(resourceName: "play"), for: .normal) }
         }
     }
     

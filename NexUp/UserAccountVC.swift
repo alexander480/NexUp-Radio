@@ -46,10 +46,6 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
-    
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(true)
@@ -87,8 +83,8 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountHeaderCell") as! AccountHeaderCell
             cell.cellImage.image = #imageLiteral(resourceName: "Image Account")
             cell.cellTitle.text = "User Account"
-            cell.cellDetail.text = "alexander480@gmail.com"
-            
+            if let email = auth.currentUser?.email { cell.cellDetail.text = email } else { cell.cellDetail.text = "Please Login or Register" }
+
             return cell
         }
         else

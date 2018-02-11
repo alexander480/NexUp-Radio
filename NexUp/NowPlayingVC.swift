@@ -6,47 +6,54 @@
 //  Copyright © 2018 LAGB Technologies. All rights reserved.
 //
 
+import AVFoundation
 import Foundation
 import Dispatch
-
 import UIKit
 import GoogleMobileAds
-import AVFoundation
-
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
 let account = Account()
-var audio = Audio(FromPlaylist: "Hip Hop")
+var audio = Audio(PlaylistName: "Hip Hop")
 
-let bannerID = "ca-app-pub-6543648439575950/8381413905"
-let fullScreenID = "ca-app-pub-6543648439575950/9063940183"
+
+let bannerID = "ca-app-pub-3940256099942544/2934735716"
+let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
 
 class NowPlayingVC: UIViewController, GADInterstitialDelegate
 {
+    let subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.premium"])
+    
     var timer = Timer()
     var interstitial: GADInterstitial!
+    let screenWidth = UIScreen.main.bounds.width
     
     @IBOutlet weak var banner: GADBannerView!
-    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var controlCircleConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var loadingView: ViewClass!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var loadingConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var sidebarConstraint: NSLayoutConstraint!
     @IBOutlet weak var revealSidebarButton: ButtonClass!
+    @IBOutlet weak var sidebarButtonContraint: NSLayoutConstraint!
+    
     @IBAction func revealSidebarAction(_ sender: Any) { self.toggleSidebar() }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        account.isPremiumUser()
+        
+        self.controlCircleConstraint.constant = 0
+        self.view.layoutIfNeeded()
     
         self.banner.adUnitID = bannerID
         self.banner.rootViewController = self
+        self.banner.adSize = kGADAdSizeSmartBannerPortrait
         self.banner.load(GADRequest())
         
         self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
@@ -57,8 +64,22 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(true)
+        
+        if screenWidth == 414 {
+            self.sidebarButtonContraint?.constant = 25
+            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+        }
+        else if screenWidth == 375 {
+            self.sidebarButtonContraint?.constant = 37.5
+            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+        }
+        else if screenWidth == 320 {
+            self.sidebarButtonContraint?.constant = 65.5
+            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+        }
     }
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
@@ -74,21 +95,25 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
                 background.removeBlur()
                 background.image = image;
                 background.isHidden = false
-                
             }
+            
             self.toggleLoading(isLoading: false)
         }
-        else { self.toggleLoading(isLoading: true) }
+        else
+        {
+            self.toggleLoading(isLoading: true)
+        }
         
         if audio.shouldDisplayAd
         {
             interstitial = self.createInterstitial()
             audio.shouldDisplayAd = false
         }
+        
+        if account.isPremium { self.banner.isHidden = true }
     }
 
-    
-    private func toggleLoading(isLoading: Bool)
+    func toggleLoading(isLoading: Bool)
     {
         if isLoading
         {

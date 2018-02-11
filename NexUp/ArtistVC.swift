@@ -60,10 +60,6 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
-    
     private func updateUserInterface()
     {
         self.artists = artistClass.artists

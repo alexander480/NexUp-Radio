@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import CoreData
 import AVFoundation
 
 import NotificationCenter
@@ -42,79 +43,116 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     
     var progress = 0.0
     var skipCount = 0
+    
     var count = 0
-    
-    let cc = MPRemoteCommandCenter.shared()
-    let info = MPNowPlayingInfoCenter.default()
-    
-    let nc = NotificationCenter.default
-    let session = AVAudioSession.sharedInstance()
     
     let AVWorker = DispatchQueue.init(label: "AVWorker", qos: DispatchQoS.userInteractive)
     let MetadataWorker = DispatchQueue.init(label: "MetadataWorker", qos: DispatchQoS.userInteractive)
     
-    init(FromPlaylist: String)
+    let cc = MPRemoteCommandCenter.shared()
+    let info = MPNowPlayingInfoCenter.default()
+    let nc = NotificationCenter.default
+    let session = AVAudioSession.sharedInstance()
+    
+    // ------------ Initialization ------------ //
+    // ---------------------------------------- //
+    
+    init(PlaylistName: String)
     {
         super.init()
         
-        print("[INFO] Initializing Audio Class")
-        
-        self.setup(playlist: FromPlaylist)
+        self.skipCount = self.fetchSkipCount()
+        self.fetchPlaylist(PlaylistName: PlaylistName)
     }
     
+    // -------------- Update Skip Count -------------- //
+    // ----------------------------------------------- //
     
-    // -------------- Private Functions -------------- //
+    func updateSkipCount(Count: Int) { UserDefaults.standard.set(Count, forKey: "skipCount") }
     
-    func setup(playlist: String)
+    // --------------- Read Skip Count --------------- //
+    // ----------------------------------------------- //
+    
+    func fetchSkipCount() -> Int
     {
-        self.currentPlaylist = playlist
-        
-        let reference = db.reference(withPath: "/audio/\(playlist)")
-        reference.observeSingleEvent(of: .value) { (snap) in
-            self.urls = [URL]()
-            
-            for song in snap.children.allObjects as! [DataSnapshot] { self.urls.append((song.value as! String).toURL()!) }
-            self.urls = self.urls.random()
-            
-            self.sessionSetup()
-            self.player.actionAtItemEnd = .none
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player.currentItem)
-            
-            self.ccSetup()
-            self.ccUpdate()
-            
-            self.repopulate()
-            self.metadata = self.fetchMetadata()
-        }
+        if let count = UserDefaults.standard.object(forKey: "skipCount") as? Int { return count }
+        else { UserDefaults.standard.set(0, forKey: "skipCount"); return 0 }
     }
     
-    private func repopulate()
+    // -------------- Fetch URLs From Firebase -------------- //
+    // ------------------------------------------------------ //
+    
+    func fetchPlaylist(PlaylistName: String)
     {
-        self.player.removeAllItems()
+        self.currentPlaylist = PlaylistName
         
-        if self.urls.isEmpty
+        if PlaylistName == "Favorites"
         {
-            self.setup(playlist: self.currentPlaylist)
-        }
-        else if self.urls.count < 20
-        {
-            let lastURLs = self.urls.random()
-            self.urls.removeAll()
-            
-            for url in lastURLs { self.player.insert(AVPlayerItem(url: url), after: nil) }
-            self.player.play()
+            if let user = auth.currentUser
+            {
+                let reference = db.reference(withPath: "/users/\(user.uid)/favorites")
+                reference.observeSingleEvent(of: .value, with: { (snap) in
+                    
+                    self.urls = [URL]()
+                    
+                    for song in snap.children.allObjects as! [DataSnapshot] {
+                        for property in song.children.allObjects as! [DataSnapshot] {
+                            if property.key == "URL" {
+                                if let urlStr = (property.value as? String) {
+                                    self.urls.append(urlStr.toURL()!)
+                                }
+                            }
+                        }
+                    }
+                    
+                    if self.urls.isEmpty == false { self.sessionSetup(); self.repopulatePlayer(); self.metadata = self.fetchMetadata(); self.ccUpdate(); }
+                })
+            }
         }
         else
         {
+            let reference = db.reference(withPath: "/audio/\(PlaylistName)")
+            reference.observeSingleEvent(of: .value) { (snap) in
+                self.urls = [URL]()
+                
+                for song in snap.children.allObjects as! [DataSnapshot] { self.urls.append((song.value as! String).toURL()!) }
+                
+                self.urls = account.removeUserDislikes(Playlist: self.urls)
+                self.urls = self.urls.random()
+                
+                self.sessionSetup()
+                self.repopulatePlayer()
+                self.metadata = self.fetchMetadata()
+                self.ccUpdate()
+            }
+        }
+    }
+    
+    // ------------ Populate AVQueuePlayer With New AVPlayerItems ------------ //
+    // ----------------------------------------------------------------------- //
+    
+    private func repopulatePlayer()
+    {
+        if self.urls.isEmpty {
+            self.fetchPlaylist(PlaylistName: self.currentPlaylist)
+        }
+        else if self.urls.count < 5 {
+            self.player.removeAllItems()
+            self.urls.removeAll()
+            for url in self.urls.random() { self.player.insert(AVPlayerItem(url: url), after: nil) }
+            self.player.play()
+        }
+        else {
+            self.player.removeAllItems()
             self.urls = self.urls.random()
-            let short = self.urls.prefix(20)
-            self.urls.removeFirst(20)
-            
-            for url in short { self.player.insert(AVPlayerItem(url: url), after: nil) }
+            for url in self.urls.prefix(5) { self.player.insert(AVPlayerItem(url: url), after: nil) }
+            self.urls.removeFirst(5)
             self.player.play()
         }
     }
+    
+    // ------------ Fetch Metadata For Current Song ------------ //
+    // --------------------------------------------------------- //
     
     func fetchMetadata() -> [String: Any]?
     {
@@ -152,30 +190,56 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             }
         }
         
+        if metadata.count == 0 || metadata.count == 1 {
+            self.skip(didFinish: true)
+        }
+    
         print("[INFO] Fetched \(metadata.count) Metadata Items")
         return metadata
     }
     
+    // ------------ Song Finished Listener ------------ //
+    // ------------------------------------------------ //
+    
     @objc func playerDidFinishPlaying()
     {
         print("[INFO] Player Finished Playing")
-        if let user = auth.currentUser { print("[INFO] Adding Song To User \(user.uid)'s Recents"); account.recentSong() }
+        account.recentSong()
         
-        if self.count % 20 == 0 { self.repopulate() }
-        else if self.urls.isEmpty { self.repopulate() }
+        if self.count % 5 == 0 && self.currentPlaylist != "Favorites" { self.repopulatePlayer() }
+        else if self.player.items().isEmpty { self.fetchPlaylist(PlaylistName: self.currentPlaylist) }
         else { self.skip(didFinish: true) }
         
         self.metadata = self.fetchMetadata()
+        self.ccUpdate()
     }
     
-    // -------------- Setup Functions -------------- //
-    // --------------------------------------------- //
+    // -------------- Setup Audio Session -------------- //
+    // ------------------------------------------------- //
     
-    private func sessionSetup()
-    {
-        do { try self.session.setActive(true); try self.session.setCategory(AVAudioSessionCategoryPlayback); print("[INFO] Audio Session Setup Complete") }
-        catch { print("[ERROR] Could Not Setup Audio Session") }
+    private func sessionSetup() {
+        do
+        {
+            try self.session.setActive(true)
+            try self.session.setCategory(AVAudioSessionCategoryPlayback)
+            
+            self.player.actionAtItemEnd = .none
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player.currentItem)
+            
+            self.ccSetup()
+            self.ccUpdate()
+            
+            print("[INFO] Audio Session Setup Complete")
+            
+        }
+        catch {
+            print("[ERROR] Could Not Setup Audio Session")
+        }
     }
+    
+    // ------------ Initialize Command Center ------------ //
+    // --------------------------------------------------- //
     
     private func ccSetup()
     {
@@ -207,9 +271,14 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         print("[INFO] Command Center Setup Complete")
     }
     
+    // ------------ Update Command Center ------------ //
+    // ----------------------------------------------- //
+    
     func ccUpdate()
     {
-        if self.skipCount > 9 { self.cc.nextTrackCommand.isEnabled = false } else { self.cc.nextTrackCommand.isEnabled = true }
+        if account.isPremium { self.cc.nextTrackCommand.isEnabled = true }
+        else if self.skipCount > 9 { self.cc.nextTrackCommand.isEnabled = false }
+        else { self.cc.nextTrackCommand.isEnabled = true }
         
         if let item = self.player.currentItem
         {
@@ -233,22 +302,33 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     }
     
     
-    // ------ Public Functions ------ //
+    // ------------ Play / Pause ------------ //
+    // -------------------------------------- //
     
-    func togglePlayback() { if self.player.rate == 1.0 { self.player.pause() } else { self.player.play() } }
+    func togglePlayback()
+    {
+        if self.player.rate == 1.0 { self.player.pause() }
+        else { self.player.play() }
+    }
+    
+    // ------------ Skip Handler ------------ //
+    // -------------------------------------- //
     
     func skip(didFinish: Bool)
     {
         print("[INFO] Skipping To Next Song")
         self.count = self.count + 1
         
-        if didFinish
+        if let item = self.player.currentItem { self.player.remove(item) }
+        
+        if didFinish || account.isPremium
         {
-            if self.count % 20 == 0 { self.repopulate() }
-            else if self.urls.isEmpty { self.repopulate() }
+            if self.count % 5 == 0 { self.repopulatePlayer() }
+            else if self.urls.isEmpty { self.repopulatePlayer() }
             else { self.player.advanceToNextItem() }
             
             self.metadata = self.fetchMetadata()
+            self.ccUpdate()
         }
         else
         {
@@ -260,18 +340,20 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             else
             {
                 self.skipCount = self.skipCount + 1
-                if self.count % 20 == 0 { self.repopulate() }
-                else if self.urls.isEmpty { self.repopulate() }
+                self.updateSkipCount(Count: self.skipCount)
+                
+                if self.count % 5 == 0 { self.repopulatePlayer() }
+                else if self.urls.isEmpty { self.repopulatePlayer() }
                 else { self.player.advanceToNextItem() }
                 
                 self.metadata = self.fetchMetadata()
+                self.ccUpdate()
             }
         }
         
         if self.count % 3 == 0 { self.shouldDisplayAd = true }
     }
 }
-
 
 
 

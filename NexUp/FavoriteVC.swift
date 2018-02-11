@@ -37,10 +37,6 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 { return 175 } else { return 100 }
     }

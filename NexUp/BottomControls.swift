@@ -62,7 +62,5 @@ class BottomControls: UIViewController
                 self.circleButton.setImage(image, for: .normal)
             }
         }
-        
-        audio.ccUpdate()
     }
 }
