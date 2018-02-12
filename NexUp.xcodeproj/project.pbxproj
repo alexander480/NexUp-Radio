@@ -62,12 +62,10 @@
 		1489A7B91F33CCFC00A6E404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1489A7BB1F33CCFC00A6E404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E26A151F4CBE5200FFC55D /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
-		53E366EE20059EEA0086C82F /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCells.swift; path = ../CustomCells.swift; sourceTree = "<group>"; };
+		53E366EE20059EEA0086C82F /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC00A1E168C684F412697B4 /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C38860878C7D3A0D1FC77964 /* Pods-TheLocalPlug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheLocalPlug.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug.release.xcconfig"; sourceTree = "<group>"; };
-		D6A4D75DF1B867032C3FDC5F /* Pods-TheLocalPlug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheLocalPlug.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheLocalPlug/Pods-TheLocalPlug.debug.xcconfig"; sourceTree = "<group>"; };
 		E51B22AA200316DC009F09A1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountVC.swift; sourceTree = "<group>"; };
 		E53C4A2E2001C1D500D38465 /* ArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVC.swift; sourceTree = "<group>"; };
@@ -220,8 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				46301654B96E8327179189FA /* Frameworks */,
-				D6A4D75DF1B867032C3FDC5F /* Pods-TheLocalPlug.debug.xcconfig */,
-				C38860878C7D3A0D1FC77964 /* Pods-TheLocalPlug.release.xcconfig */,
 				EA4CBFB232D7B01B5292ACF1 /* Pods-NexUp.debug.xcconfig */,
 				E66128AB9646E79A24F019ED /* Pods-NexUp.release.xcconfig */,
 			);
