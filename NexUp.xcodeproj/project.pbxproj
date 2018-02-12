@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A450299A7B578CABE922173 /* Pods_TheLocalPlug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC00A1E168C684F412697B4 /* Pods_TheLocalPlug.framework */; };
 		144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A831F3BE7CD00CF749F /* AdSupport.framework */; };
 		144B8A861F3BE81000CF749F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A851F3BE81000CF749F /* iAd.framework */; };
 		144B8A881F3BE88700CF749F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A871F3BE88700CF749F /* AVFoundation.framework */; };
@@ -64,8 +63,6 @@
 		14E26A151F4CBE5200FFC55D /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		53E366EE20059EEA0086C82F /* CustomCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NexUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DC00A1E168C684F412697B4 /* Pods_TheLocalPlug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheLocalPlug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51B22AA200316DC009F09A1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountVC.swift; sourceTree = "<group>"; };
 		E53C4A2E2001C1D500D38465 /* ArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVC.swift; sourceTree = "<group>"; };
@@ -107,7 +104,6 @@
 				144B8A861F3BE81000CF749F /* iAd.framework in Frameworks */,
 				144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */,
 				E59BA253202D17700050588D /* StoreKit.framework in Frameworks */,
-				0A450299A7B578CABE922173 /* Pods_TheLocalPlug.framework in Frameworks */,
 				E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */,
 				561D869DD46E6F8A05F306D6 /* Pods_NexUp.framework in Frameworks */,
 			);
@@ -198,7 +194,6 @@
 				144B8A871F3BE88700CF749F /* AVFoundation.framework */,
 				144B8A851F3BE81000CF749F /* iAd.framework */,
 				144B8A831F3BE7CD00CF749F /* AdSupport.framework */,
-				9DC00A1E168C684F412697B4 /* Pods_TheLocalPlug.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,7 +203,6 @@
 			children = (
 				E59BA252202D17700050588D /* StoreKit.framework */,
 				E58A2FB720203E4500A22C55 /* AudioToolbox.framework */,
-				711387CA8EE7735FA2895CAA /* Pods_TheLocalPlug.framework */,
 				654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */,
 			);
 			name = Frameworks;
