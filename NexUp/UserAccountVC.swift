@@ -28,8 +28,9 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     {
         super.viewDidLoad()
         
-        banner.adUnitID = bannerID
-        banner.rootViewController = self
+        self.banner.adUnitID = bannerID
+        self.banner.rootViewController = self
+        self.banner.adSize = kGADAdSizeSmartBannerPortrait
         self.banner.load(GADRequest())
         
         self.tableView.delegate = self
@@ -49,6 +50,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(true)
+        
         if let user = auth.currentUser { if let email = user.email { self.updateHeaderCell(UserEmail: email) } }
         else { if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) } }
     }

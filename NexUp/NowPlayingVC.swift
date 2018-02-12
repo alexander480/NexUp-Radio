@@ -17,15 +17,13 @@ import FirebaseStorage
 
 let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
-
+var subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.tier1"])
 
 let bannerID = "ca-app-pub-3940256099942544/2934735716"
 let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
 
 class NowPlayingVC: UIViewController, GADInterstitialDelegate
 {
-    let subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.premium"])
-    
     var timer = Timer()
     var interstitial: GADInterstitial!
     let screenWidth = UIScreen.main.bounds.width
@@ -45,72 +43,32 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.setupUI(didAppear: false)
         
-        account.isPremiumUser()
+        subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.tier1"])
         
-        self.controlCircleConstraint.constant = 0
-        self.view.layoutIfNeeded()
-    
-        self.banner.adUnitID = bannerID
-        self.banner.rootViewController = self
-        self.banner.adSize = kGADAdSizeSmartBannerPortrait
-        self.banner.load(GADRequest())
-        
-        self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
-        self.backgroundImage?.blur()
-        
-        self.toggleLoading(isLoading: true)
-        
+        self.setupBanner(BannerView: self.banner)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(true)
-        
-        if screenWidth == 414 {
-            self.sidebarButtonContraint?.constant = 25
-            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
-        }
-        else if screenWidth == 375 {
-            self.sidebarButtonContraint?.constant = 37.5
-            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
-        }
-        else if screenWidth == 320 {
-            self.sidebarButtonContraint?.constant = 65.5
-            UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
-        }
+        self.setupUI(didAppear: true)
     }
     
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        ad.present(fromRootViewController: self)
-    }
-    
-    private func updateUserInterface()
-    {
-        if let info = audio.metadata
-        {
-            if let image = info["Image"] as? UIImage, let background = self.backgroundImage
-            {
+    private func updateUserInterface() {
+        if let info = audio.metadata {
+            if let image = info["Image"] as? UIImage, let background = self.backgroundImage {
                 background.removeBlur()
-                background.image = image;
+                background.image = image
                 background.isHidden = false
             }
-            
             self.toggleLoading(isLoading: false)
         }
-        else
-        {
-            self.toggleLoading(isLoading: true)
-        }
+        else { self.toggleLoading(isLoading: true) }
         
-        if audio.shouldDisplayAd
-        {
-            interstitial = self.createInterstitial()
-            audio.shouldDisplayAd = false
-        }
-        
-        if account.isPremium { self.banner.isHidden = true }
+        if audio.shouldDisplayAd { interstitial = self.createInterstitial(); audio.shouldDisplayAd = false }
     }
 
     func toggleLoading(isLoading: Bool)
@@ -139,18 +97,18 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         }
     }
     
-    private func toggleCircle()
-    {
-        if self.controlCircleConstraint?.constant == 0 { self.controlCircleConstraint?.constant = 750 }
-        else if self.controlCircleConstraint?.constant == 750 { self.controlCircleConstraint?.constant = 0 }
-        
-        UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
-    }
-    
     func toggleSidebar()
     {
         if self.sidebarConstraint?.constant == -274 { self.sidebarConstraint?.constant = -101 }
         else if self.sidebarConstraint?.constant == -101 { self.sidebarConstraint?.constant = -274 }
+        
+        UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+    }
+    
+    private func toggleCircle()
+    {
+        if self.controlCircleConstraint?.constant == 0 { self.controlCircleConstraint?.constant = 750 }
+        else if self.controlCircleConstraint?.constant == 750 { self.controlCircleConstraint?.constant = 0 }
         
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }
@@ -161,6 +119,34 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         interstitial.load(GADRequest())
         
         return interstitial
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) { ad.present(fromRootViewController: self) }
+    
+    private func setupUI(didAppear: Bool) {
+        if didAppear {
+            if screenWidth == 414 {
+                self.sidebarButtonContraint?.constant = 25
+                UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+            }
+            else if screenWidth == 375 {
+                self.sidebarButtonContraint?.constant = 37.5
+                UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+            }
+            else if screenWidth == 320 {
+                self.sidebarButtonContraint?.constant = 65.5
+                UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+            }
+        }
+        else {
+            self.controlCircleConstraint.constant = 0
+            self.view.layoutIfNeeded()
+            
+            self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
+            self.backgroundImage?.blur()
+            
+            self.toggleLoading(isLoading: true)
+        }
     }
     
     deinit { self.timer.invalidate() }

@@ -31,7 +31,7 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    
+
     var artistClass = Artists()
     var artists = [[String: String]]()
     var timer = Timer()
@@ -39,10 +39,6 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        banner.adUnitID = bannerID
-        banner.rootViewController = self
-        self.banner.load(GADRequest())
         
         self.tableView.delegate = self
         self.tableView.dataSource = self

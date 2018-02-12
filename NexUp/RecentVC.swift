@@ -23,12 +23,13 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     {
         super.viewDidLoad()
         
-        banner.adUnitID = bannerID
-        banner.rootViewController = self
+        self.banner.adUnitID = bannerID
+        self.banner.rootViewController = self
+        self.banner.adSize = kGADAdSizeSmartBannerPortrait
+        self.banner.load(GADRequest())
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.banner.load(GADRequest())
         
         account.fetchRecents()
         

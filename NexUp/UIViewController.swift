@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleMobileAds
 import UIKit
 
 public extension UIViewController
@@ -35,4 +36,24 @@ public extension UIViewController
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    
 }
+
+extension UIViewController: GADBannerViewDelegate {
+    func setupBanner(BannerView: UIView) {
+        let banner = BannerView as! GADBannerView
+        banner.adUnitID = bannerID
+        banner.rootViewController = self
+        banner.adSize = kGADAdSizeSmartBannerPortrait
+        banner.load(GADRequest())
+    }
+}
+
+
+
+
+
+
+
+

@@ -33,7 +33,7 @@ class Account: NSObject
     override init()
     {
         super.init()
-        self.isPremiumUser()
+        self.isPremiumUser(completion: { (isPremium) in self.isPremium = isPremium })
     }
     
     func favoriteSong()
@@ -277,38 +277,20 @@ class Account: NSObject
     // -------------- Premium Features -------------- //
     // ---------------------------------------------- //
     
-    func isPremiumUser()
+    func isPremiumUser(completion: @escaping (Bool) -> Void)
     {
         if let user = auth.currentUser
         {
             let ref = db.reference(withPath: "/users/\(user.uid)")
             ref.child("isPremium").observeSingleEvent(of: .value, with: { (snap) in
                 let isTrue = snap.value as! Bool
-                if isTrue { print("[INFO] Premium User.") } else { print("[INFO] Standard User.") }
                 self.isPremium = isTrue
+                if isTrue { print("[INFO] Premium User."); completion(true) }
+                else { print("[INFO] Standard User."); completion(false) }
             })
+        }
+        else {
+            completion(false)
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

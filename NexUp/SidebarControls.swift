@@ -42,14 +42,10 @@ class Sidebar: UIViewController
         
         self.npvc = self.parent as? NowPlayingVC
         
-        account.isPremiumUser()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
-    }
-    
-    private func updateUserInterface()
-    {
-        if account.isPremium { self.favoritesButton?.isHidden = false }
-        else { self.favoritesButton?.isHidden = true }
+        account.isPremiumUser(completion: { (isPremium) in
+            if isPremium { self.favoritesButton?.isHidden = false }
+            else { self.favoritesButton?.isHidden = true }
+        })
     }
     
     private func startStation(StationName: String)

@@ -71,14 +71,12 @@ class AuthVC: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
-        banner.adUnitID = bannerID
-        banner.rootViewController = self
+        self.banner.adUnitID = bannerID
+        self.banner.rootViewController = self
+        self.banner.adSize = kGADAdSizeSmartBannerPortrait
         self.banner.load(GADRequest())
-    }
-    
-    override var prefersStatusBarHidden : Bool {
-        return true
     }
 }
 

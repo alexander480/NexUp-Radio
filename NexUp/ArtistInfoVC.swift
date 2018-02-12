@@ -36,10 +36,6 @@ class ArtistInfoVC: UIViewController
     {
         super.viewDidLoad()
         
-        banner.adUnitID = bannerID
-        banner.rootViewController = self
-        self.banner.load(GADRequest())
-        
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     

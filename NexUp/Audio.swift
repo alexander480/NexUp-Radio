@@ -354,9 +354,3 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         if self.count % 3 == 0 { self.shouldDisplayAd = true }
     }
 }
-
-
-
-
-
-

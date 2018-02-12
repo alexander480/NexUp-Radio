@@ -28,7 +28,6 @@
 		E553161E2012C68D006EA053 /* BottomControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553161D2012C68D006EA053 /* BottomControls.swift */; };
 		E553162020132C77006EA053 /* CircleControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553161F20132C77006EA053 /* CircleControls.swift */; };
 		E553162220132C81006EA053 /* SidebarControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553162120132C81006EA053 /* SidebarControls.swift */; };
-		E5634ED5202D8CBA0091E153 /* ProductHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5634ED4202D8CBA0091E153 /* ProductHandler.swift */; };
 		E569F389200590A300E5F07D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569F388200590A300E5F07D /* Artist.swift */; };
 		E57675D42015C2330093C820 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D32015C2330093C820 /* UIViewController.swift */; };
 		E57675D62015C24E0093C820 /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D52015C24E0093C820 /* AVPlayerItem.swift */; };
@@ -41,7 +40,6 @@
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
 		E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */; };
 		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
-		E5AC882D200DEABC0046F4BF /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AC882C200DEABC0046F4BF /* Save.swift */; };
 		E5AC8830200DEB530046F4BF /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */; };
 		E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1920196CAF00777E67 /* FavoriteVC.swift */; };
 		E5B87E1C20196CC600777E67 /* DislikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1B20196CC600777E67 /* DislikeVC.swift */; };
@@ -78,7 +76,6 @@
 		E553161D2012C68D006EA053 /* BottomControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControls.swift; sourceTree = "<group>"; };
 		E553161F20132C77006EA053 /* CircleControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleControls.swift; sourceTree = "<group>"; };
 		E553162120132C81006EA053 /* SidebarControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarControls.swift; sourceTree = "<group>"; };
-		E5634ED4202D8CBA0091E153 /* ProductHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHandler.swift; sourceTree = "<group>"; };
 		E569F388200590A300E5F07D /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E57675D32015C2330093C820 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E57675D52015C24E0093C820 /* AVPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
@@ -92,7 +89,6 @@
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHandler.swift; sourceTree = "<group>"; };
 		E59BA252202D17700050588D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		E5AC882C200DEABC0046F4BF /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 		E5AC882F200DEB530046F4BF /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		E5B87E1920196CAF00777E67 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		E5B87E1B20196CC600777E67 /* DislikeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikeVC.swift; sourceTree = "<group>"; };
@@ -122,16 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		143C42851F33CE5800638D57 /* Root Files */ = {
+		143C42851F33CE5800638D57 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */,
 				1489A7B31F33CCFC00A6E404 /* Main.storyboard */,
-				1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */,
 				1489A7B61F33CCFC00A6E404 /* Assets.xcassets */,
+				143C42861F33CE6500638D57 /* View Controllers */,
 				1471DF3C1F5F9FD000D5FD6F /* Other */,
 			);
-			name = "Root Files";
+			name = Main;
 			sourceTree = "<group>";
 		};
 		143C42861F33CE6500638D57 /* View Controllers */ = {
@@ -153,8 +148,10 @@
 		1471DF3C1F5F9FD000D5FD6F /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */,
+				1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */,
 				E57675E12015C2FC0093C820 /* Extensions */,
-				E58A2FB920203F6900A22C55 /* New Group */,
+				E58A2FB920203F6900A22C55 /* Misc. */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -180,10 +177,9 @@
 		1489A7AE1F33CCFC00A6E404 /* NexUp */ = {
 			isa = PBXGroup;
 			children = (
-				143C42851F33CE5800638D57 /* Root Files */,
+				143C42851F33CE5800638D57 /* Main */,
 				14AF7D9A1F5A650A00B74133 /* Audio API */,
 				E59BA24F202D0EF10050588D /* Subscription API */,
-				143C42861F33CE6500638D57 /* View Controllers */,
 			);
 			path = NexUp;
 			sourceTree = "<group>";
@@ -194,7 +190,6 @@
 				14E26A151F4CBE5200FFC55D /* Audio.swift */,
 				E569F388200590A300E5F07D /* Artist.swift */,
 				E51B22AA200316DC009F09A1 /* Account.swift */,
-				E5AC882C200DEABC0046F4BF /* Save.swift */,
 			);
 			name = "Audio API";
 			sourceTree = "<group>";
@@ -244,13 +239,13 @@
 		E57675E12015C2FC0093C820 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E57675D32015C2330093C820 /* UIViewController.swift */,
 				145E5F6E1FF5830100C8E37C /* Storyboard.swift */,
 				E57675DD2015C2A40093C820 /* Array.swift */,
 				E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */,
 				E57675DB2015C2900093C820 /* Int.swift */,
 				E57675D92015C2860093C820 /* URL.swift */,
 				E57675D72015C27E0093C820 /* String.swift */,
-				E57675D32015C2330093C820 /* UIViewController.swift */,
 				E5DE659520183967004CF0BC /* UIImageView.swift */,
 				E5F52548201C379D001DBAD7 /* UIImage.swift */,
 				E57675D52015C24E0093C820 /* AVPlayerItem.swift */,
@@ -258,23 +253,22 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		E58A2FB920203F6900A22C55 /* New Group */ = {
+		E58A2FB920203F6900A22C55 /* Misc. */ = {
 			isa = PBXGroup;
 			children = (
-				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
 				E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */,
+				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
 				1489A7BB1F33CCFC00A6E404 /* Info.plist */,
 				E57C4F452022729E00341FE4 /* GoogleService-Info.plist */,
 				E58A2FB620203E4400A22C55 /* NexUp.entitlements */,
 			);
-			name = "New Group";
+			name = Misc.;
 			sourceTree = "<group>";
 		};
 		E59BA24F202D0EF10050588D /* Subscription API */ = {
 			isa = PBXGroup;
 			children = (
 				E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */,
-				E5634ED4202D8CBA0091E153 /* ProductHandler.swift */,
 			);
 			name = "Subscription API";
 			sourceTree = "<group>";
@@ -303,6 +297,7 @@
 				1489A7AA1F33CCFC00A6E404 /* Resources */,
 				4AC431E0CC0B835BE6F8B1CB /* [CP] Embed Pods Frameworks */,
 				7629AF8766DE6964045C382E /* [CP] Copy Pods Resources */,
+				E59E0E9A2031685600D47536 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -327,7 +322,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = VWSMFUQHS2;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -406,6 +401,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -414,6 +410,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -438,6 +435,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E59E0E9A2031685600D47536 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -459,7 +469,6 @@
 				E53C4A392001C22C00D38465 /* AuthVC.swift in Sources */,
 				E53C4A2D2001C1BB00D38465 /* UserAccountVC.swift in Sources */,
 				E553161E2012C68D006EA053 /* BottomControls.swift in Sources */,
-				E5AC882D200DEABC0046F4BF /* Save.swift in Sources */,
 				E57675D62015C24E0093C820 /* AVPlayerItem.swift in Sources */,
 				1489A7B01F33CCFC00A6E404 /* AppDelegate.swift in Sources */,
 				145E5F6F1FF5830100C8E37C /* Storyboard.swift in Sources */,
@@ -471,7 +480,6 @@
 				E553162220132C81006EA053 /* SidebarControls.swift in Sources */,
 				E57675D82015C27E0093C820 /* String.swift in Sources */,
 				E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */,
-				E5634ED5202D8CBA0091E153 /* ProductHandler.swift in Sources */,
 				E57675DE2015C2A40093C820 /* Array.swift in Sources */,
 				E5AC8830200DEB530046F4BF /* Store.xcdatamodeld in Sources */,
 				E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */,
@@ -613,14 +621,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NexUp.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = VWSMFUQHS2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NexUp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lagbtech.nexup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69b09cdc-1ece-4713-9e53-ca22e349a052";
-				PROVISIONING_PROFILE_SPECIFIER = "Nexup Provisioning Profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -633,14 +643,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NexUp.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = VWSMFUQHS2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NexUp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lagbtech.nexup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69b09cdc-1ece-4713-9e53-ca22e349a052";
-				PROVISIONING_PROFILE_SPECIFIER = "Nexup Provisioning Profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

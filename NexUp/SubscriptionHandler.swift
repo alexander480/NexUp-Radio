@@ -10,7 +10,6 @@ import Foundation
 import SwiftyStoreKit
 import StoreKit
 
-
 class SubscriptionHandler: NSObject
 {
     typealias RecieptVerificationHandler = (String) -> ()
@@ -30,19 +29,22 @@ class SubscriptionHandler: NSObject
             else if result.invalidProductIDs.isEmpty == false { print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)") }
             else if result.error != nil { print("[ERROR] Unknown Error While Retrieving StoreKit Products") }
         }
+        
+        SwiftyStoreKit.retrieveProductsInfo(Set(["com.lagbtech.nexup.premium1"])) { (result) in
+            if result.retrievedProducts.isEmpty == false { print("[INFO] Retrieved \(result.retrievedProducts.count) StoreKit Products"); self.subscriptions = result.retrievedProducts }
+            else if result.invalidProductIDs.isEmpty == false { print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)") }
+            else if result.error != nil { print("[ERROR] Unknown Error While Retrieving StoreKit Products") }
+        }
     }
     
     func purchase(SubscriptionIdentifier: String, completion: @escaping (Bool) -> Void) {
         SwiftyStoreKit.purchaseProduct(SubscriptionIdentifier, atomically: true) { result in
             if case .success(let purchase) = result
             {
-                if purchase.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(purchase.transaction)
-                }
+                if purchase.needsFinishTransaction { SwiftyStoreKit.finishTransaction(purchase.transaction) }
                 
-                let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "your-shared-secret")
+                let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.sharedSecret)
                 SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
-                    
                     if case .success(let receipt) = result {
                         let purchaseResult = SwiftyStoreKit.verifySubscription(
                             ofType: .autoRenewable,
@@ -60,7 +62,6 @@ class SubscriptionHandler: NSObject
                             print("This product has never been purchased")
                             completion(false)
                         }
-                        
                     }
                     else { print("[ERROR] Reciept Verification Error."); completion(false) }
                 }
@@ -69,26 +70,47 @@ class SubscriptionHandler: NSObject
         }
     }
     
-    func verify(SubsciptionIdentifier: String, completion: @escaping (Bool) -> Void) {
+    func verify(SubscriptionIdentifier: String, completion: @escaping (Bool) -> Void) {
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.sharedSecret)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             switch result {
             case .success(let receipt):
-                let purchaseResult = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable, productId: SubsciptionIdentifier, inReceipt: receipt)
+                let purchaseResult = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable, productId: SubscriptionIdentifier, inReceipt: receipt)
                 switch purchaseResult {
                 case .purchased(let expiryDate, let items):
-                    print("\(SubsciptionIdentifier) is valid until \(expiryDate)\n\(items)\n")
+                    print("\(SubscriptionIdentifier) is valid until \(expiryDate)\n\(items)\n")
                     completion(true)
                 case .expired(let expiryDate, let items):
-                    print("\(SubsciptionIdentifier) is expired since \(expiryDate)\n\(items)\n")
+                    print("\(SubscriptionIdentifier) is expired since \(expiryDate)\n\(items)\n")
                     completion(false)
                 case .notPurchased:
-                    print("The user has never purchased \(SubsciptionIdentifier)")
+                    print("The user has never purchased \(SubscriptionIdentifier)")
                     completion(false)
                 }
             case .error(let error):
                 print("Receipt verification failed: \(error)")
                 completion(false)
+            }
+        }
+    }
+    
+    func verifyGroup(SubscriptionGroup: [String]) {
+        let ids = Set(SubscriptionGroup)
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.sharedSecret)
+        SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+            switch result {
+            case .success(let receipt):
+                let purchaseResult = SwiftyStoreKit.verifySubscriptions(productIds: ids, inReceipt: receipt)
+                switch purchaseResult {
+                case .purchased(let expiryDate, let items):
+                    print("\(ids) are valid until \(expiryDate)\n\(items)\n")
+                case .expired(let expiryDate, let items):
+                    print("\(ids) are expired since \(expiryDate)\n\(items)\n")
+                case .notPurchased:
+                    print("The user has never purchased \(ids)")
+                }
+            case .error(let error):
+                print("Receipt verification failed: \(error)")
             }
         }
     }
@@ -108,6 +130,40 @@ class SubscriptionHandler: NSObject
                 completion(false)
             }
         }
+    }
+    
+    // ------- UI ------- //
+    
+    func showAlert(ViewController: UIViewController)
+    {
+        let alert = UIAlertController(title: "Purchase Premium Account", message: "For $1.99/Month you'll get unlimited skips, the ability to replay songs and absolutely no ads!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Purchase Now", style: .default, handler: { (action) in
+            self.purchase(SubscriptionIdentifier: "com.lagbtech.nexup.premium1", completion: { (didSucceed) in
+                if didSucceed {
+                    alert.dismiss(animated: true, completion: {
+                        ViewController.alert(Title: "Success", Description: "Welcome To Premium!")
+                    })
+                }
+                else {
+                    alert.dismiss(animated: true, completion: {
+                        ViewController.alert(Title: "Error", Description: "Something Went Wrong, Please Try Again.")
+                    })
+                }
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "Restore Purchase", style: .default, handler: { (action) in
+            self.restore(completion: { (didSucceed) in
+                if didSucceed {
+                    ViewController.alert(Title: "Success", Description: "Welcome To Premium!")
+                }
+                else {
+                    ViewController.alert(Title: "Error", Description: "We're Sorry, We Cannot Find Your Purchase.")
+                }
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
     }
 }
 

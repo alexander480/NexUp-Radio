@@ -55,8 +55,7 @@ class CircleControls: UIViewController
             if let name = (info["Name"] as? String) { self.songName?.text = name }
             if let artist = (info["Artist"] as? String) { self.songArtist?.text = artist }
             
-            if account.isPremium { self.skipsRemaining?.text = "∞ Skips Remaining" }
-            else { self.skipsRemaining?.text = "\(10 - audio.skipCount) Skips Remaining" }
+            self.skipsRemaining?.text = "\(10 - audio.skipCount) Skips Remaining"
     
             if audio.player.rate == 1.0 { self.pauseButton?.setImage(#imageLiteral(resourceName: "pause"), for: .normal) }
             else { self.pauseButton?.setImage(#imageLiteral(resourceName: "play"), for: .normal) }
