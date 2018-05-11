@@ -24,6 +24,7 @@
 		E53C4A2F2001C1D500D38465 /* ArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2E2001C1D500D38465 /* ArtistVC.swift */; };
 		E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */; };
 		E53C4A392001C22C00D38465 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A382001C22C00D38465 /* AuthVC.swift */; };
+		E54C853D2091BA4B0016D9B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54C853C2091B9D50016D9B0 /* GoogleService-Info.plist */; };
 		E553161E2012C68D006EA053 /* BottomControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553161D2012C68D006EA053 /* BottomControls.swift */; };
 		E553162020132C77006EA053 /* CircleControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553161F20132C77006EA053 /* CircleControls.swift */; };
 		E553162220132C81006EA053 /* SidebarControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553162120132C81006EA053 /* SidebarControls.swift */; };
@@ -35,7 +36,6 @@
 		E57675DC2015C2900093C820 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DB2015C2900093C820 /* Int.swift */; };
 		E57675DE2015C2A40093C820 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* Array.swift */; };
 		E57675E02015C2AE0093C820 /* AVQueuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */; };
-		E57C4F462022729E00341FE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57C4F452022729E00341FE4 /* GoogleService-Info.plist */; };
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
 		E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */; };
 		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
@@ -68,6 +68,7 @@
 		E53C4A2E2001C1D500D38465 /* ArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVC.swift; sourceTree = "<group>"; };
 		E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoVC.swift; sourceTree = "<group>"; };
 		E53C4A382001C22C00D38465 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		E54C853C2091B9D50016D9B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/awlwa/Desktop/:: NexUp/NexUp/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
 		E553161D2012C68D006EA053 /* BottomControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControls.swift; sourceTree = "<group>"; };
 		E553161F20132C77006EA053 /* CircleControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleControls.swift; sourceTree = "<group>"; };
 		E553162120132C81006EA053 /* SidebarControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarControls.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		E57675DB2015C2900093C820 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E57675DD2015C2A40093C820 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVQueuePlayer.swift; sourceTree = "<group>"; };
-		E57C4F452022729E00341FE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/iCloud/iDownloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E58A2FB620203E4400A22C55 /* NexUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NexUp.entitlements; sourceTree = SOURCE_ROOT; };
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHandler.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 				E5AC882E200DEB530046F4BF /* Store.xcdatamodeld */,
 				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
 				1489A7BB1F33CCFC00A6E404 /* Info.plist */,
-				E57C4F452022729E00341FE4 /* GoogleService-Info.plist */,
+				E54C853C2091B9D50016D9B0 /* GoogleService-Info.plist */,
 				E58A2FB620203E4400A22C55 /* NexUp.entitlements */,
 			);
 			name = Misc.;
@@ -286,7 +286,6 @@
 				1489A7A91F33CCFC00A6E404 /* Frameworks */,
 				1489A7AA1F33CCFC00A6E404 /* Resources */,
 				4AC431E0CC0B835BE6F8B1CB /* [CP] Embed Pods Frameworks */,
-				7629AF8766DE6964045C382E /* [CP] Copy Pods Resources */,
 				E59E0E9A2031685600D47536 /* ShellScript */,
 			);
 			buildRules = (
@@ -305,7 +304,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "LAGB Technologies";
 				TargetAttributes = {
 					1489A7AB1F33CCFC00A6E404 = {
@@ -355,9 +354,9 @@
 			files = (
 				145E5F711FF588AF00C8E37C /* AvenirLTStd-Light.otf in Resources */,
 				1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */,
+				E54C853D2091BA4B0016D9B0 /* GoogleService-Info.plist in Resources */,
 				1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */,
 				1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */,
-				E57C4F462022729E00341FE4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,21 +407,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7629AF8766DE6964045C382E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E59E0E9A2031685600D47536 /* ShellScript */ = {
@@ -512,6 +496,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -519,6 +504,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -569,6 +555,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -576,6 +563,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

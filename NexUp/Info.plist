@@ -34,6 +34,10 @@
 		<dict>
 			<key>New item</key>
 			<string>storage.googleapis.com</string>
+			<key>New item - 2</key>
+			<string>google.com</string>
+			<key>New item - 3</key>
+			<string>googleapis.com</string>
 		</dict>
 	</dict>
 	<key>UIAppFonts</key>

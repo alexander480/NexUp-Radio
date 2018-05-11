@@ -40,8 +40,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     
     @IBAction func revealSidebarAction(_ sender: Any) { self.toggleSidebar() }
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI(didAppear: false)
         
@@ -51,8 +50,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
-    override func viewDidAppear(_ animated: Bool)
-    {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.setupUI(didAppear: true)
     }
@@ -71,10 +69,8 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         if audio.shouldDisplayAd { interstitial = self.createInterstitial(); audio.shouldDisplayAd = false }
     }
 
-    func toggleLoading(isLoading: Bool)
-    {
-        if isLoading
-        {
+    func toggleLoading(isLoading: Bool) {
+        if isLoading {
             self.loadingView?.isHidden = false
             self.revealSidebarButton?.isHidden = true
             self.loadingSpinner?.startAnimating()
@@ -84,8 +80,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
             
             UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
         }
-        else
-        {
+        else {
             self.loadingView?.isHidden = true
             self.revealSidebarButton?.isHidden = false
             self.loadingSpinner?.stopAnimating()
@@ -97,16 +92,14 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         }
     }
     
-    func toggleSidebar()
-    {
+    func toggleSidebar() {
         if self.sidebarConstraint?.constant == -274 { self.sidebarConstraint?.constant = -101 }
         else if self.sidebarConstraint?.constant == -101 { self.sidebarConstraint?.constant = -274 }
         
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }
     
-    private func toggleCircle()
-    {
+    private func toggleCircle() {
         if self.controlCircleConstraint?.constant == 0 { self.controlCircleConstraint?.constant = 750 }
         else if self.controlCircleConstraint?.constant == 750 { self.controlCircleConstraint?.constant = 0 }
         
