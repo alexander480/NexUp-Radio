@@ -50,7 +50,7 @@ class Sidebar: UIViewController
     
     private func startStation(StationName: String)
     {
-        audio.fetchPlaylist(PlaylistName: StationName)
+        audio.fetchPlaylistURLs(PlaylistName: StationName)
         audio.metadata = audio.fetchMetadata()
         
         self.hide()

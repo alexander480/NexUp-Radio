@@ -36,8 +36,10 @@ class Account: NSObject
         self.isPremiumUser(completion: { (isPremium) in self.isPremium = isPremium })
     }
     
-    func favoriteSong()
+    func favoriteSong() -> [String: String]
     {
+        var song = ["Key": "Attribute"]
+        
         if let user = auth.currentUser
         {
             if let metadata = audio.metadata
@@ -55,6 +57,7 @@ class Account: NSObject
                             storageReference.child(songName).downloadURL(completion: { (url, err) in
                                 if let imageURL = url {
                                     dbReference.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": imageURL, "URL": songURL])
+                                    song["Image"] = imageURL
                                 }
                                 else {
                                     dbReference.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": "", "URL": songURL])
@@ -64,10 +67,13 @@ class Account: NSObject
                     })
                 }
             }
+            
+            return song
         }
     }
     
     func dislikeSong() {
+        var dislikedSong = [["Name"]]
         if let user = auth.currentUser {
             if let metadata = audio.metadata {
                 let dbReference = db.reference(withPath: "users/\(user.uid)/dislikes")
@@ -206,7 +212,7 @@ class Account: NSObject
         }
     }
     
-    func fetchRecents()
+    func addSongToRecents()
     {
         if let user = auth.currentUser
         {
@@ -253,7 +259,7 @@ class Account: NSObject
         return playlistBuffer
     }
     
-    private func dislikedURLs() -> [URL]?
+    func dislikedURLs() -> [URL]?
     {
         var urls = [URL]()
         

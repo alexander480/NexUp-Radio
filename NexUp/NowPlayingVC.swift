@@ -15,6 +15,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
+// MARK:
+
 let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
 var subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.tier1"])
@@ -44,7 +46,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         super.viewDidLoad()
         self.setupUI(didAppear: false)
         
-        subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.tier1"])
+        subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.premium1"])
         
         self.setupBanner(BannerView: self.banner)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
@@ -92,12 +94,16 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         }
     }
     
+    // MARK: Fix Genre Sidebar Here
+    
     func toggleSidebar() {
         if self.sidebarConstraint?.constant == -274 { self.sidebarConstraint?.constant = -101 }
         else if self.sidebarConstraint?.constant == -101 { self.sidebarConstraint?.constant = -274 }
         
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }
+    
+    //
     
     private func toggleCircle() {
         if self.controlCircleConstraint?.constant == 0 { self.controlCircleConstraint?.constant = 750 }
@@ -115,6 +121,8 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     }
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) { ad.present(fromRootViewController: self) }
+    
+    // MARK: Fix Genre Sidebar Button Here
     
     private func setupUI(didAppear: Bool) {
         if didAppear {
@@ -141,6 +149,8 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
             self.toggleLoading(isLoading: true)
         }
     }
+    
+    //
     
     deinit { self.timer.invalidate() }
 }
