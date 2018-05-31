@@ -40,59 +40,35 @@ class Account: NSObject
     {
         var song = ["Key": "Attribute"]
         
-        if let user = auth.currentUser
-        {
-            if let metadata = audio.metadata
-            {
-                let dbReference = db.reference(withPath: "users/\(user.uid)/favorites")
-                let storageReference = storage.reference(withPath: "users/\(user.uid)/favorites")
-                
-                let songName = String(describing: metadata["Name"]!)
-                let songArtist = String(describing: metadata["Artist"]!)
-                let songURL = String(describing: metadata["URL"]!)
-                
-                if let imageData = UIImageJPEGRepresentation((metadata["Image"]! as! UIImage), 1.0) {
-                    storageReference.child(songName).putData(imageData, metadata: nil, completion: { (meta, err) in
+        if let user = auth.currentUser, let metadata = audio.metadata {
+            let databaseRef = db.reference(withPath: "users/\(user.uid)/favorites"), storageRef = storage.reference(withPath: "users/\(user.uid)/favorites")
+            if let name = metadata["Name"] as? String, let artist = metadata["Artist"] as? String, let songURL = metadata["URL"] as? String, let image = metadata["Image"] as? UIImage {
+                if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+                    storageRef.child(name).putData(imageData, metadata: nil, completion: { (meta, err) in
                         if meta != nil {
-                            storageReference.child(songName).downloadURL(completion: { (url, err) in
-                                if let imageURL = url {
-                                    dbReference.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": imageURL, "URL": songURL])
-                                    song["Image"] = imageURL
-                                }
-                                else {
-                                    dbReference.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": "", "URL": songURL])
-                                }
+                            storageRef.child(name).downloadURL(completion: { (url, err) in
+                                if let imageURL = url { databaseRef.child(name).updateChildValues(["Name": name, "Artist": artist, "Image": imageURL, "URL": songURL]); song["Image"] = String(describing: imageURL) }
+                                else { databaseRef.child(name).updateChildValues(["Name": name, "Artist": artist, "Image": "", "URL": songURL]) }
                             })
                         }
                     })
                 }
             }
-            
-            return song
         }
+        
+        return song
     }
     
     func dislikeSong() {
-        var dislikedSong = [["Name"]]
-        if let user = auth.currentUser {
-            if let metadata = audio.metadata {
-                let dbReference = db.reference(withPath: "users/\(user.uid)/dislikes")
-                let storageReference = storage.reference(withPath: "users/\(user.uid)/dislikes")
-                
-                let songName = String(describing: metadata["Name"]!)
-                let songArtist = String(describing: metadata["Artist"]!)
-                let songURL = String(describing: metadata["URL"]!)
-                
-                if let imageData = UIImageJPEGRepresentation((metadata["Image"]! as! UIImage), 1.0) {
-                    storageReference.child(songName).putData(imageData, metadata: nil, completion: { (meta, err) in
+        if let user = auth.currentUser, let metadata = audio.metadata {
+            let databaseRef = db.reference(withPath: "users/\(user.uid)/dislikes"), storageRef = storage.reference(withPath: "users/\(user.uid)/dislikes")
+            if let name = metadata["Name"] as? String, let artist = metadata["Artist"] as? String, let songURL = metadata["URL"] as? String, let image = metadata["Image"] as? UIImage {
+                if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+                    storageRef.child(name).putData(imageData, metadata: nil, completion: { (meta, err) in
                         if meta != nil {
-                            storageReference.child(songName).downloadURL(completion: { (url, err) in
-                                if let imageURL = url {
-                                    dbReference.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": imageURL, "URL": songURL])
-                                }
-                                else {
-                                    dbReference.child(songName).updateChildValues(["Name": songName, "Artist": songArtist, "Image": "", "URL": songURL])
-                                }
+                            storageRef.child(name).downloadURL(completion: { (url, err) in
+                                if let imageURL = url { databaseRef.child(name).updateChildValues(["Name": name, "Artist": artist, "Image": imageURL, "URL": songURL]) }
+                                else { databaseRef.child(name).updateChildValues(["Name": name, "Artist": artist, "Image": "", "URL": songURL]) }
                             })
                         }
                     })
