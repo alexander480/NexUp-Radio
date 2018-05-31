@@ -10,10 +10,8 @@ import Foundation
 import GoogleMobileAds
 import UIKit
 
-public extension UIViewController
-{
-    func hideKeyboardWhenTappedAround()
-    {
+public extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -21,8 +19,7 @@ public extension UIViewController
     
     @objc func dismissKeyboard(_ sender : UITapGestureRecognizer) { view.endEditing(true) }
     
-    func alert(Title: String, Description: String?)
-    {
+    func alert(Title: String, Description: String?) {
         if let description = Description {
             let alert = UIAlertController(title: Title, message: description, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .default) { action in alert.dismiss(animated: true, completion: nil) })
@@ -36,8 +33,6 @@ public extension UIViewController
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
-    
 }
 
 extension UIViewController: GADBannerViewDelegate {

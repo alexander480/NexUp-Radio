@@ -32,8 +32,9 @@ let background = DispatchQueue.global()
 class Audio: NSObject, AVAssetResourceLoaderDelegate
 {
     var player = AVQueuePlayer()
-    var playlist = [AVPlayerItem]()
-    var playlistURLs = [URL]()
+    var playlist = [URL]()
+    var queue = [AVPlayerItem]()
+    
     var metadata: [String: Any]?
     
     var currentPlaylist = ""
@@ -64,18 +65,12 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         self.skipCount = self.fetchSkipCount()
         
         if PlaylistName == "Favorites" {
-            self.playlistURLs = self.fetchFavoritesURLs()
+            self.fetchFavorites()
             self.sessionSetup()
-            self.addSongsToQueue(PlaylistURLs: self.playlistURLs)
-            self.metadata = self.fetchMetadata()
-            self.ccUpdate()
         }
         else {
-            self.playlistURLs = self.fetchPlaylistURLs(PlaylistName: PlaylistName)
+            self.fetchPlaylist(Name: PlaylistName)
             self.sessionSetup()
-            self.addSongsToQueue(PlaylistURLs: self.playlistURLs)
-            self.metadata = self.fetchMetadata()
-            self.ccUpdate()
         }
     }
     
@@ -87,8 +82,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // --------------- Read Skip Count --------------- //
     // ----------------------------------------------- //
     
-    func fetchSkipCount() -> Int
-    {
+    func fetchSkipCount() -> Int {
         if let count = UserDefaults.standard.object(forKey: "skipCount") as? Int { return count }
         else { UserDefaults.standard.set(0, forKey: "skipCount"); return 0 }
     }
@@ -96,27 +90,21 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // -------------- Fetch URLs From Firebase -------------- //
     // ------------------------------------------------------ //
     
-    func fetchPlaylistURLs(PlaylistName: String) -> [URL] {
-        let reference = db.reference(withPath: "/audio/\(PlaylistName)")
+    func fetchPlaylist(Name: String) {
+        var buf = [URL]()
+        let reference = db.reference(withPath: "/audio/\(Name)")
         reference.observeSingleEvent(of: .value) { (snap) in
-            
-            var urls = [URL]()
-            
-            for song in snap.children.allObjects as! [DataSnapshot] {
-                if let songUrl = (song.value as! String).toURL() {
-                    urls.append(songUrl)
-                }
+            for song in snap.children.allObjects as! [DataSnapshot] { if let songUrl = (song.value as! String).toURL() { buf.append(songUrl) } }
+            if buf.isEmpty == false {
+                self.playlist = buf.random()
+                account.removeDislikes()
+                self.updateQueue()
             }
-            
-            urls = urls.random()
-            urls = account.removeUserDislikes()
-            
-            return urls
         }
     }
     
-    func fetchFavoritesURLs() -> [URL] {
-        var urls = [URL]()
+    func fetchFavorites() {
+        var buf = [URL]()
         
         if let user = auth.currentUser {
             let reference = db.reference(withPath: "/users/\(user.uid)/favorites")
@@ -125,7 +113,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
                     for property in song.children.allObjects as! [DataSnapshot] {
                         if property.key == "URL" {
                             if let songUrl = (property.value as! String).toURL() {
-                                urls.append(songUrl)
+                                buf.append(songUrl)
                             }
                         }
                     }
@@ -133,21 +121,25 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             })
         }
         
-        urls = urls.random()
-        
-        return urls
+        if buf.isEmpty == false {
+            self.playlist = buf.random()
+            account.removeDislikes()
+            self.updateQueue()
+        }
     }
     
     // ------------ Populate AVQueuePlayer With New AVPlayerItems ------------ //
     // ----------------------------------------------------------------------- //
     
-    private func addSongsToQueue(PlaylistURLs: [URL])
-    {
-        var newPlaylistBuffer = PlaylistURLs
+    func updateQueue() {
+        for url in self.playlist.prefix(3) { self.player.insert(AVPlayerItem(url: url), after: nil) }
+        self.playlist.removeFirst(3)
         
-        for url in newPlaylistBuffer.prefix(3) { self.player.insert(AVPlayerItem(url: url), after: nil) }
-        newPlaylistBuffer.removeFirst(3)
         self.player.play()
+        
+        audio.metadata = self.fetchMetadata()
+        self.metadata = self.fetchMetadata()
+        self.ccUpdate()
     }
     
     // ------------ Fetch Metadata For Current Song ------------ //
@@ -200,14 +192,13 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // ------------ Song Finished Listener ------------ //
     // ------------------------------------------------ //
     
-    @objc func playerDidFinishPlaying()
-    {
+    @objc func playerDidFinishPlaying() {
         if let currentItem = self.player.currentItem { self.player.remove(currentItem) }
         account.addSongToRecents()
         print("[INFO] Player Finished Playing")
         
-        if self.player.items().isEmpty { self.addSongsToQueue(PlaylistURLs: self.playlistURLs) }
-        else { self.player.remove(self.player.currentItem) }
+        if self.player.items().isEmpty { self.updateQueue() }
+        else { if let currentItem = self.player.currentItem { self.player.remove(currentItem) } }
         
         self.skip(didFinish: true)
         self.metadata = self.fetchMetadata()
@@ -304,52 +295,41 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // ------------ Play / Pause ------------ //
     // -------------------------------------- //
     
-    func togglePlayback()
-    {
-        if self.player.rate == 1.0 { self.player.pause() }
-        else { self.player.play() }
-    }
+    func togglePlayback() { if self.player.rate == 1.0 { self.player.pause() } else { self.player.play() } }
     
     // ------------ Skip Handler ------------ //
     // -------------------------------------- //
     
-    func skip(didFinish: Bool)
-    {
-        print("[INFO] Skipping To Next Song")
+    func skip(didFinish: Bool) {
         self.count = self.count + 1
+        print("[INFO] Skipping To Next Song")
         
         if let item = self.player.currentItem { self.player.remove(item) }
         
-        if didFinish || account.isPremium
-        {
-            if self.count % 3 == 0 { self.addSongsToQueue(PlaylistURLs: self.playlistURLs) }
-            else if self.urls.isEmpty { self.addSongsToQueue(PlaylistURLs: self.playlistURLs) }
-            else { self.player.advanceToNextItem() }
-            
-            self.metadata = self.fetchMetadata()
-            self.ccUpdate()
+        if didFinish || account.isPremium {
+            self.checkQueue()
         }
-        else
-        {
-            if self.skipCount > 9
-            {
+        else {
+            if self.skipCount > 9 {
                 print("[INFO] Skip Limit Reached")
                 self.limitReached = true
             }
-            else
-            {
+            else {
                 self.skipCount = self.skipCount + 1
                 self.updateSkipCount(Count: self.skipCount)
-                
-                if self.count % 3 == 0 { self.addSongsToQueue(PlaylistURLs: self.playlistURLs) }
-                else if self.urls.isEmpty { self.addSongsToQueue(PlaylistURLs: self.playlistURLs) }
-                else { self.player.advanceToNextItem() }
-                
-                self.metadata = self.fetchMetadata()
-                self.ccUpdate()
+                self.checkQueue()
             }
         }
         
         if self.count % 3 == 0 { self.shouldDisplayAd = true }
+    }
+    
+    private func checkQueue() {
+        if self.count % 3 == 0 { self.updateQueue() }
+        else if self.playlist.isEmpty { self.fetchPlaylist(Name: self.currentPlaylist) }
+        else { self.player.advanceToNextItem() }
+        
+        self.metadata = self.fetchMetadata()
+        self.ccUpdate()
     }
 }

@@ -31,7 +31,7 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        account.fetchRecents()
+        account.removeDislikes()
         
         if let image = audio.metadata?["Image"] as? UIImage { self.backgroundImage?.image = image; self.backgroundImage?.blur() }
         else { self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit"); self.backgroundImage?.blur() }
@@ -39,40 +39,28 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
+    override var prefersStatusBarHidden : Bool { return true }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 175 } else { return 100 }
-    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { if indexPath.row == 0 { return 175 } else { return 100 } }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if songs.isEmpty { return 1 } else { return songs.count + 1 }
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { if songs.isEmpty { return 1 } else { return songs.count + 1 } }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        if row == 0
-        {
+        if row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteHeader") as! AccountHeaderCell
             cell.cellTitle.text = "Recently Played"
             cell.cellDetail.text = "Check Out Your Recent Songs"
-            
             return cell
         }
-        else
-        {
+        else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-            
-            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["ImageURL"]
-            {
+            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["ImageURL"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
                 cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
             }
-            else
-            {
+            else {
                 cell.cellTitle.text = "Loading"
                 cell.cellDetail.text = nil
                 cell.cellImage.image = nil

@@ -69,7 +69,7 @@
 		E53C4A2E2001C1D500D38465 /* ArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVC.swift; sourceTree = "<group>"; };
 		E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoVC.swift; sourceTree = "<group>"; };
 		E53C4A382001C22C00D38465 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
-		E54C853C2091B9D50016D9B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/awlwa/Desktop/Main/Current Projects/NexUp/NexUp/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
+		E54C853C2091B9D50016D9B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E553161D2012C68D006EA053 /* BottomControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControls.swift; sourceTree = "<group>"; };
 		E553161F20132C77006EA053 /* CircleControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleControls.swift; sourceTree = "<group>"; };
 		E553162120132C81006EA053 /* SidebarControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarControls.swift; sourceTree = "<group>"; };
