@@ -12,45 +12,41 @@ import StoreKit
 
 class SubscriptionHandler: NSObject
 {
+    let validator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
+    
     typealias RecieptVerificationHandler = (String) -> ()
     
-    var sharedSecret: String
     var subscriptionIdentifiers: Set<String>
     var subscriptions: Set<SKProduct>?
     
-    init(SharedSecret: String, SubscriptionIdentifiers: [String])
+    init(SubscriptionIdentifiers: [String])
     {
-        self.sharedSecret = SharedSecret
         self.subscriptionIdentifiers = Set(SubscriptionIdentifiers)
         super.init()
         
         SwiftyStoreKit.retrieveProductsInfo(self.subscriptionIdentifiers) { (result) in
-            if result.retrievedProducts.isEmpty == false { print("[INFO] Retrieved \(result.retrievedProducts.count) StoreKit Products"); self.subscriptions = result.retrievedProducts }
-            else if result.invalidProductIDs.isEmpty == false { print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)") }
-            else if result.error != nil { print("[ERROR] Unknown Error While Retrieving StoreKit Products") }
-        }
-        
-        SwiftyStoreKit.retrieveProductsInfo(Set(["com.lagbtech.nexup.premium1"])) { (result) in
-            if result.retrievedProducts.isEmpty == false { print("[INFO] Retrieved \(result.retrievedProducts.count) StoreKit Products"); self.subscriptions = result.retrievedProducts }
-            else if result.invalidProductIDs.isEmpty == false { print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)") }
-            else if result.error != nil { print("[ERROR] Unknown Error While Retrieving StoreKit Products") }
+            if result.retrievedProducts.isEmpty == false {
+                print("[INFO] Retrieved \(result.retrievedProducts.count) StoreKit Products");
+                self.subscriptions = result.retrievedProducts
+            }
+            else if result.invalidProductIDs.isEmpty == false {
+                print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)")
+            }
+            else if result.error != nil {
+                print("[ERROR] Unknown Error While Retrieving StoreKit Products")
+            }
         }
     }
     
     func purchase(SubscriptionIdentifier: String, completion: @escaping (Bool) -> Void) {
         SwiftyStoreKit.purchaseProduct(SubscriptionIdentifier, atomically: true) { result in
-            if case .success(let purchase) = result
-            {
-                if purchase.needsFinishTransaction { SwiftyStoreKit.finishTransaction(purchase.transaction) }
-                
-                let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.sharedSecret)
-                SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+            if case .success(let purchase) = result {
+                if purchase.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+                SwiftyStoreKit.verifyReceipt(using: self.validator) { result in
                     if case .success(let receipt) = result {
-                        let purchaseResult = SwiftyStoreKit.verifySubscription(
-                            ofType: .autoRenewable,
-                            productId: SubscriptionIdentifier,
-                            inReceipt: receipt)
-                        
+                        let purchaseResult = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable, productId: SubscriptionIdentifier, inReceipt: receipt)
                         switch purchaseResult {
                         case .purchased(let expiryDate, _):
                             print("Product is valid until \(expiryDate)")
@@ -63,15 +59,21 @@ class SubscriptionHandler: NSObject
                             completion(false)
                         }
                     }
-                    else { print("[ERROR] Reciept Verification Error."); completion(false) }
+                    else {
+                        print("[ERROR] Reciept Verification Error.")
+                        completion(false)
+                    }
                 }
             }
-            else { print("[ERROR] Purchase Verification Error."); completion(false) }
+            else {
+                print("[ERROR] Purchase Verification Error.")
+                completion(false)
+            }
         }
     }
     
     func verify(SubscriptionIdentifier: String, completion: @escaping (Bool) -> Void) {
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.sharedSecret)
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             switch result {
             case .success(let receipt):
@@ -96,7 +98,7 @@ class SubscriptionHandler: NSObject
     
     func verifyGroup(SubscriptionGroup: [String]) {
         let ids = Set(SubscriptionGroup)
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: self.sharedSecret)
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             switch result {
             case .success(let receipt):

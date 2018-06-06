@@ -99,12 +99,10 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0
-        {
+        if indexPath.row == 0 {
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
         }
-        if indexPath.row == 1
-        {
+        if indexPath.row == 1 {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
@@ -120,27 +118,28 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         else if indexPath.row == 2 {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
-                    present(vc, animated: true, completion: nil)
-                }
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
             }
             else {
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DislikeVC") {
-                    present(vc, animated: true, completion: nil)
-                }
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DislikeVC") { present(vc, animated: true, completion: nil) }
             }
         }
         else if indexPath.row == 3 {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
-                    present(vc, animated: true, completion: nil)
-                }
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
             }
             else {
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecentVC") {
-                    present(vc, animated: true, completion: nil)
-                }
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecentVC") { present(vc, animated: true, completion: nil) }
+            }
+        }
+        else if indexPath.row == 4 {
+            if auth.currentUser == nil {
+                self.alert(Title: "Please Login or Sign up", Description: nil)
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
+            }
+            else {
+                subscriptions.showAlert(ViewController: self)
             }
         }
     }

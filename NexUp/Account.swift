@@ -33,6 +33,8 @@ class Account: NSObject {
     override init() {
         super.init()
         self.isPremiumUser(completion: { (isPremium) in self.isPremium = isPremium })
+        
+        self.fetchRecents()
     }
     
     func favoriteSong() {
@@ -75,7 +77,7 @@ class Account: NSObject {
         audio.skip(didFinish: false)
     }
     
-    func recentSong() {
+    func addToRecents() {
         if let user = auth.currentUser {
             if let metadata = audio.metadata {
                 let databaseReference = db.reference(withPath: "users/\(user.uid)/recents")
@@ -157,7 +159,7 @@ class Account: NSObject {
         else { print("[WARNING] Can Not Fetch User Dislikes - No User Signed In") }
     }
     
-    func addSongToRecents() {
+    func fetchRecents() {
         if let user = auth.currentUser {
             let dislikeRef = db.reference(withPath: "users/\(user.uid)/recents")
             dislikeRef.observeSingleEvent(of: .value, with: { (snap) in

@@ -21,24 +21,20 @@ import FirebaseStorage
 //
 //
 
-class AuthVC: UIViewController
-{
+class AuthVC: UIViewController {
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     @IBAction func register(_ sender: Any) {
-        if let email = self.emailField.text, let password = self.passwordField.text
-        {
+        if let email = self.emailField.text, let password = self.passwordField.text {
             auth.createUser(withEmail: email, password: password, completion: { (usr, err) in
-                if let user = usr
-                {
+                if let user = usr?.user {
                     print("[INFO] User \(user.uid) Account Created")
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserAccountVC") { self.present(vc, animated: true, completion: nil) }
                     else { print("Error Initalizing ArtistVC") }
                 }
-                else if let error = err
-                {
+                else if let error = err {
                     print("[WARNING] Could Not Register User")
                     print(error.localizedDescription)
                     
@@ -51,14 +47,12 @@ class AuthVC: UIViewController
     @IBAction func login(_ sender: Any) {
         if let email = self.emailField.text, let password = self.passwordField.text {
             auth.signIn(withEmail: email, password: password, completion: { (usr, err) in
-                if let user = usr
-                {
+                if let user = usr?.user {
                     print("[INFO] User \(user.uid) Signed In")
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserAccountVC") { self.present(vc, animated: true, completion: nil) }
                     else { print("Error Initalizing ArtistVC") }
                 }
-                else if let error = err
-                {
+                else if let error = err {
                     print("[WARNING] Could Not Sign In User")
                     print(error.localizedDescription)
                     
@@ -68,8 +62,7 @@ class AuthVC: UIViewController
         }
     }
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         

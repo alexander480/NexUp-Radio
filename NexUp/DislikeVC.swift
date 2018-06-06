@@ -13,7 +13,6 @@ import GoogleMobileAds
 class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     var songs = [[String: String]]()
-    
     var timer = Timer()
     
     @IBOutlet weak var banner: GADBannerView!
@@ -50,26 +49,21 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        if row == 0
-        {
+        if row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteHeader") as! AccountHeaderCell
                 cell.cellTitle.text = "Disliked Songs"
                 cell.cellDetail.text = "Check Out Your Disliked Songs"
             
             return cell
         }
-        else
-        {
+        else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-            
-            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["ImageURL"]
-            {
+            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["ImageURL"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
                 cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
             }
-            else
-            {
+            else {
                 cell.cellTitle.text = "Loading"
                 cell.cellDetail.text = nil
                 cell.cellImage.image = nil
@@ -81,9 +75,7 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     private func updateUserInterface() {
         self.songs = account.dislikes
-    
         DispatchQueue.main.async { self.tableView.reloadData() }
-        
         if account.dislikes.isEmpty { self.timer.invalidate() }
         // if self.songs.count == account.dislikes.count { self.timer.invalidate() }
     }

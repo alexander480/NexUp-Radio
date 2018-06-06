@@ -32,8 +32,14 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if account.favorites.isEmpty { account.fetchFavorites() }
         
-        if let image = audio.metadata?["Image"] as? UIImage { self.backgroundImage?.image = image; self.backgroundImage?.blur() }
-        else { self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit"); self.backgroundImage?.blur() }
+        if let image = audio.metadata?["Image"] as? UIImage {
+            self.backgroundImage?.image = image
+            self.backgroundImage?.blur()
+        }
+        else {
+            self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
+            self.backgroundImage?.blur()
+        }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
@@ -50,22 +56,20 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
         if row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteHeader") as! AccountHeaderCell
-            cell.cellTitle.text = "Favorite Songs"
-            cell.cellDetail.text = "Check Out Your Favorite Songs"
+                cell.cellTitle.text = "Favorite Songs"
+                cell.cellDetail.text = "Check Out Your Favorite Songs"
             
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
             
-            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["ImageURL"]
-            {
+            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["ImageURL"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
                 cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
             }
-            else
-            {
+            else {
                 cell.cellTitle.text = "Loading"
                 cell.cellDetail.text = nil
                 cell.cellImage.image = nil

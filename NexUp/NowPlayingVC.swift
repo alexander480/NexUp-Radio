@@ -19,7 +19,7 @@ import FirebaseStorage
 
 let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
-var subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.tier1"])
+var subscriptions = SubscriptionHandler(SubscriptionIdentifiers: ["com.lagbtech.nexup.tier1"])
 
 let bannerID = "ca-app-pub-3940256099942544/2934735716"
 let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
@@ -46,7 +46,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         super.viewDidLoad()
         self.setupUI(didAppear: false)
         
-        subscriptions = SubscriptionHandler(SharedSecret: "28c35d969edc4f739e985dbe912a963d", SubscriptionIdentifiers: ["com.lagbtech.nexup.premium1"])
+        subscriptions = SubscriptionHandler(SubscriptionIdentifiers: ["com.lagbtech.nexup.premium1"])
         
         self.setupBanner(BannerView: self.banner)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
@@ -97,8 +97,18 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     // MARK: Fix Genre Sidebar Here
     
     func toggleSidebar() {
-        if self.sidebarConstraint?.constant == -274 { self.sidebarConstraint?.constant = -101 }
-        else if self.sidebarConstraint?.constant == -101 { self.sidebarConstraint?.constant = -274 }
+        if self.sidebarConstraint?.constant == -274 {
+            self.sidebarConstraint?.constant = -101
+        }
+        else if self.sidebarConstraint?.constant == -296.0 {
+            self.sidebarConstraint?.constant = -120.5
+        }
+        else if self.sidebarConstraint?.constant == -101 {
+            self.sidebarConstraint?.constant = -274
+        }
+        else if self.sidebarConstraint?.constant == -120.5 {
+            self.sidebarConstraint?.constant = -296
+        }
         
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }

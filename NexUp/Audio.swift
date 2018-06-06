@@ -194,7 +194,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     
     @objc func playerDidFinishPlaying() {
         if let currentItem = self.player.currentItem { self.player.remove(currentItem) }
-        account.addSongToRecents()
+        account.addToRecents()
         print("[INFO] Player Finished Playing")
         
         if self.player.items().isEmpty { self.updateQueue() }
@@ -306,9 +306,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         
         if let item = self.player.currentItem { self.player.remove(item) }
         
-        if didFinish || account.isPremium {
-            self.checkQueue()
-        }
+        if didFinish || account.isPremium { self.checkQueue() }
         else {
             if self.skipCount > 9 {
                 print("[INFO] Skip Limit Reached")
