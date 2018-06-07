@@ -289,7 +289,6 @@
 				1489A7A91F33CCFC00A6E404 /* Frameworks */,
 				1489A7AA1F33CCFC00A6E404 /* Resources */,
 				4AC431E0CC0B835BE6F8B1CB /* [CP] Embed Pods Frameworks */,
-				E59E0E9A2031685600D47536 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -411,19 +410,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E59E0E9A2031685600D47536 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

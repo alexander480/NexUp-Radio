@@ -13,10 +13,8 @@ target 'NexUp' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
-  pod 'Firebase/AdMob'  
+  pod 'Firebase/AdMob'
   pod 'Firebase/Performance'
-  pod 'Fabric', '~> 1.7.3'
-  pod 'Crashlytics', '~> 3.10.0'
   pod 'SwiftyStoreKit'
 
 end
