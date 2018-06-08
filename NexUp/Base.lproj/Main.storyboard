@@ -997,7 +997,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="174.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Browse Artists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDb-EQ-MsV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse Artists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDb-EQ-MsV">
                                                     <rect key="frame" x="0.0" y="59" width="375" height="30"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1013,7 +1013,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="166-FH-OSc" secondAttribute="bottom" constant="60.5" id="1aj-eA-XQf"/>
-                                                <constraint firstItem="LDb-EQ-MsV" firstAttribute="top" secondItem="1dz-4o-Vc4" secondAttribute="top" constant="56" id="2Fa-58-hur"/>
+                                                <constraint firstItem="LDb-EQ-MsV" firstAttribute="top" secondItem="1dz-4o-Vc4" secondAttribute="top" constant="59" id="2Fa-58-hur"/>
                                                 <constraint firstItem="LDb-EQ-MsV" firstAttribute="leading" secondItem="1dz-4o-Vc4" secondAttribute="leading" id="JpT-2g-2pa"/>
                                                 <constraint firstItem="166-FH-OSc" firstAttribute="leading" secondItem="1dz-4o-Vc4" secondAttribute="leading" id="TkS-Ug-82B"/>
                                                 <constraint firstAttribute="trailing" secondItem="166-FH-OSc" secondAttribute="trailing" id="n44-rW-EpW"/>
