@@ -36,9 +36,11 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     @IBOutlet weak var loadingView: ViewClass!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var loadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var sidebarConstraint: NSLayoutConstraint!
     @IBOutlet weak var revealSidebarButton: ButtonClass!
     @IBOutlet weak var sidebarButtonContraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var sidebar: UIView!
+    
     
     @IBAction func revealSidebarAction(_ sender: Any) { self.toggleSidebar() }
     
@@ -94,23 +96,31 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         }
     }
     
+    
+    
     // MARK: Fix Genre Sidebar Here
     
     func toggleSidebar() {
-        if self.sidebarConstraint?.constant == -274 {
-            self.sidebarConstraint?.constant = -101
-        }
-        else if self.sidebarConstraint?.constant == -296.0 {
-            self.sidebarConstraint?.constant = -120.5
-        }
-        else if self.sidebarConstraint?.constant == -101 {
-            self.sidebarConstraint?.constant = -274
-        }
-        else if self.sidebarConstraint?.constant == -120.5 {
-            self.sidebarConstraint?.constant = -296
-        }
+        let sOrigin = self.sidebar.frame.origin
+        let sSize = self.sidebar.frame.size
         
-        UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
+        let bOrigin = self.revealSidebarButton.frame.origin
+        let bSize = self.revealSidebarButton.frame.size
+        
+        if sOrigin.x == CGFloat(0.0) {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.sidebar.frame = CGRect(x: sOrigin.x - sSize.width, y: sOrigin.y, width: sSize.width, height: sSize.height)
+                self.revealSidebarButton.frame = CGRect(x: bOrigin.x - sSize.width, y: bOrigin.y, width: bSize.width, height: bSize.height)
+                self.view.layoutIfNeeded()
+            })
+        }
+        else if sOrigin.x == CGFloat(-175.0) {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.sidebar.frame = CGRect(x: sOrigin.x + sSize.width, y: sOrigin.y, width: sSize.width, height: sSize.height)
+                self.revealSidebarButton.frame = CGRect(x: bOrigin.x + sSize.width, y: bOrigin.y, width: bSize.width, height: bSize.height)
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     //
