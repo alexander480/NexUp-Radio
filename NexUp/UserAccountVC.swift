@@ -85,6 +85,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountHeaderCell") as! AccountHeaderCell
             cell.cellImage.image = #imageLiteral(resourceName: "Image Account")
             cell.cellTitle.text = "User Account"
+            cell.selectionStyle = .none
             if let email = auth.currentUser?.email { cell.cellDetail.text = email } else { cell.cellDetail.text = "Please Login or Register" }
 
             return cell
@@ -93,15 +94,14 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountCell") as! AccountCell
             cell.cellTitle.text = options[forRow - 1]
-            
+            cell.selectionStyle = .none
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
-        }
+        if indexPath.row == 0 { if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
+}
         if indexPath.row == 1 {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
@@ -139,6 +139,8 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
             }
             else {
+                let subscriptions = SubscriptionHandler()
+                subscriptions.getInfo()
                 subscriptions.showAlert(ViewController: self)
             }
         }

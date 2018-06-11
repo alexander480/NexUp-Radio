@@ -10,7 +10,7 @@
 		144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A831F3BE7CD00CF749F /* AdSupport.framework */; };
 		144B8A861F3BE81000CF749F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A851F3BE81000CF749F /* iAd.framework */; };
 		144B8A881F3BE88700CF749F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A871F3BE88700CF749F /* AVFoundation.framework */; };
-		145E5F6F1FF5830100C8E37C /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E5F6E1FF5830100C8E37C /* Storyboard.swift */; };
+		145E5F6F1FF5830100C8E37C /* Storyboard Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E5F6E1FF5830100C8E37C /* Storyboard Ext.swift */; };
 		145E5F711FF588AF00C8E37C /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */; };
 		1489A7B01F33CCFC00A6E404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */; };
 		1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1489A7B31F33CCFC00A6E404 /* Main.storyboard */; };
@@ -30,13 +30,9 @@
 		E553162220132C81006EA053 /* SidebarControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553162120132C81006EA053 /* SidebarControls.swift */; };
 		E55AF57F20B2F43A00DAF3E0 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AF57E20B2F43A00DAF3E0 /* Song.swift */; };
 		E569F389200590A300E5F07D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569F388200590A300E5F07D /* Artist.swift */; };
-		E57675D42015C2330093C820 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D32015C2330093C820 /* UIViewController.swift */; };
-		E57675D62015C24E0093C820 /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D52015C24E0093C820 /* AVPlayerItem.swift */; };
-		E57675D82015C27E0093C820 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D72015C27E0093C820 /* String.swift */; };
-		E57675DA2015C2860093C820 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D92015C2860093C820 /* URL.swift */; };
-		E57675DC2015C2900093C820 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DB2015C2900093C820 /* Int.swift */; };
-		E57675DE2015C2A40093C820 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* Array.swift */; };
-		E57675E02015C2AE0093C820 /* AVQueuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */; };
+		E57675D42015C2330093C820 /* UIKit Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D32015C2330093C820 /* UIKit Ext.swift */; };
+		E57675D62015C24E0093C820 /* AVFoundation Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D52015C24E0093C820 /* AVFoundation Ext.swift */; };
+		E57675DE2015C2A40093C820 /* Foundation Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* Foundation Ext.swift */; };
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
 		E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */; };
 		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
@@ -45,15 +41,13 @@
 		E5B87E1C20196CC600777E67 /* DislikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1B20196CC600777E67 /* DislikeVC.swift */; };
 		E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1D20196CE300777E67 /* RecentVC.swift */; };
 		E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */; };
-		E5DE659620183967004CF0BC /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DE659520183967004CF0BC /* UIImageView.swift */; };
-		E5F52549201C379D001DBAD7 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F52548201C379D001DBAD7 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		144B8A831F3BE7CD00CF749F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		144B8A851F3BE81000CF749F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		144B8A871F3BE88700CF749F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		145E5F6E1FF5830100C8E37C /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		145E5F6E1FF5830100C8E37C /* Storyboard Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard Ext.swift"; sourceTree = "<group>"; };
 		145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Light.otf"; sourceTree = "<group>"; };
 		1489A7AC1F33CCFC00A6E404 /* NexUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NexUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,13 +69,9 @@
 		E553162120132C81006EA053 /* SidebarControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarControls.swift; sourceTree = "<group>"; };
 		E55AF57E20B2F43A00DAF3E0 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		E569F388200590A300E5F07D /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
-		E57675D32015C2330093C820 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		E57675D52015C24E0093C820 /* AVPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
-		E57675D72015C27E0093C820 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		E57675D92015C2860093C820 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
-		E57675DB2015C2900093C820 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
-		E57675DD2015C2A40093C820 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVQueuePlayer.swift; sourceTree = "<group>"; };
+		E57675D32015C2330093C820 /* UIKit Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit Ext.swift"; sourceTree = "<group>"; };
+		E57675D52015C24E0093C820 /* AVFoundation Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVFoundation Ext.swift"; sourceTree = "<group>"; };
+		E57675DD2015C2A40093C820 /* Foundation Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation Ext.swift"; sourceTree = "<group>"; };
 		E58A2FB620203E4400A22C55 /* NexUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NexUp.entitlements; sourceTree = SOURCE_ROOT; };
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHandler.swift; sourceTree = "<group>"; };
@@ -91,8 +81,6 @@
 		E5B87E1B20196CC600777E67 /* DislikeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikeVC.swift; sourceTree = "<group>"; };
 		E5B87E1D20196CE300777E67 /* RecentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentVC.swift; sourceTree = "<group>"; };
 		E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingVC.swift; sourceTree = "<group>"; };
-		E5DE659520183967004CF0BC /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		E5F52548201C379D001DBAD7 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		E66128AB9646E79A24F019ED /* Pods-NexUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.release.xcconfig"; sourceTree = "<group>"; };
 		EA4CBFB232D7B01B5292ACF1 /* Pods-NexUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,16 +208,10 @@
 		E57675E12015C2FC0093C820 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E57675D32015C2330093C820 /* UIViewController.swift */,
-				145E5F6E1FF5830100C8E37C /* Storyboard.swift */,
-				E57675DD2015C2A40093C820 /* Array.swift */,
-				E57675DF2015C2AE0093C820 /* AVQueuePlayer.swift */,
-				E57675DB2015C2900093C820 /* Int.swift */,
-				E57675D92015C2860093C820 /* URL.swift */,
-				E57675D72015C27E0093C820 /* String.swift */,
-				E5DE659520183967004CF0BC /* UIImageView.swift */,
-				E5F52548201C379D001DBAD7 /* UIImage.swift */,
-				E57675D52015C24E0093C820 /* AVPlayerItem.swift */,
+				E57675D32015C2330093C820 /* UIKit Ext.swift */,
+				145E5F6E1FF5830100C8E37C /* Storyboard Ext.swift */,
+				E57675DD2015C2A40093C820 /* Foundation Ext.swift */,
+				E57675D52015C24E0093C820 /* AVFoundation Ext.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -421,30 +403,24 @@
 				E51B22AB200316DC009F09A1 /* Account.swift in Sources */,
 				E53C4A2F2001C1D500D38465 /* ArtistVC.swift in Sources */,
 				E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */,
-				E57675DA2015C2860093C820 /* URL.swift in Sources */,
-				E57675D42015C2330093C820 /* UIViewController.swift in Sources */,
+				E57675D42015C2330093C820 /* UIKit Ext.swift in Sources */,
 				E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */,
 				E569F389200590A300E5F07D /* Artist.swift in Sources */,
 				E55AF57F20B2F43A00DAF3E0 /* Song.swift in Sources */,
-				E5DE659620183967004CF0BC /* UIImageView.swift in Sources */,
 				E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */,
 				14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */,
 				E553162020132C77006EA053 /* CircleControls.swift in Sources */,
 				E53C4A392001C22C00D38465 /* AuthVC.swift in Sources */,
 				E53C4A2D2001C1BB00D38465 /* UserAccountVC.swift in Sources */,
 				E553161E2012C68D006EA053 /* BottomControls.swift in Sources */,
-				E57675D62015C24E0093C820 /* AVPlayerItem.swift in Sources */,
+				E57675D62015C24E0093C820 /* AVFoundation Ext.swift in Sources */,
 				1489A7B01F33CCFC00A6E404 /* AppDelegate.swift in Sources */,
-				145E5F6F1FF5830100C8E37C /* Storyboard.swift in Sources */,
+				145E5F6F1FF5830100C8E37C /* Storyboard Ext.swift in Sources */,
 				E5B87E1C20196CC600777E67 /* DislikeVC.swift in Sources */,
-				E5F52549201C379D001DBAD7 /* UIImage.swift in Sources */,
 				53E366EF20059EEA0086C82F /* CustomCells.swift in Sources */,
-				E57675DC2015C2900093C820 /* Int.swift in Sources */,
-				E57675E02015C2AE0093C820 /* AVQueuePlayer.swift in Sources */,
 				E553162220132C81006EA053 /* SidebarControls.swift in Sources */,
-				E57675D82015C27E0093C820 /* String.swift in Sources */,
 				E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */,
-				E57675DE2015C2A40093C820 /* Array.swift in Sources */,
+				E57675DE2015C2A40093C820 /* Foundation Ext.swift in Sources */,
 				E5AC8830200DEB530046F4BF /* Store.xcdatamodeld in Sources */,
 				E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */,
 			);

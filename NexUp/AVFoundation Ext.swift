@@ -9,8 +9,7 @@
 import Foundation
 import AVFoundation
 
-public extension AVPlayerItem
-{
+public extension AVPlayerItem {
     func url() -> URL? {
         if let urlAsset = self.asset as? AVURLAsset {
             return urlAsset.url
@@ -20,3 +19,10 @@ public extension AVPlayerItem
         }
     }
 }
+
+public extension AVQueuePlayer {
+    var isPlaying: Bool {
+        return rate != 0 && error == nil
+    }
+}
+

@@ -6,20 +6,18 @@
 //  Copyright © 2018 LAGB Technologies. All rights reserved.
 //
 
-import AVFoundation
+
 import Foundation
 import Dispatch
 import UIKit
+import AVFoundation
 import GoogleMobileAds
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-// MARK:
-
 let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
-var subscriptions = SubscriptionHandler(SubscriptionIdentifiers: ["com.lagbtech.nexup.tier1"])
 
 let bannerID = "ca-app-pub-3940256099942544/2934735716"
 let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
@@ -41,15 +39,11 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     
     @IBOutlet weak var sidebar: UIView!
     
-    
     @IBAction func revealSidebarAction(_ sender: Any) { self.toggleSidebar() }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI(didAppear: false)
-        
-        subscriptions = SubscriptionHandler(SubscriptionIdentifiers: ["com.lagbtech.nexup.premium1"])
-        
         self.setupBanner(BannerView: self.banner)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
