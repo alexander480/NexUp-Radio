@@ -24,6 +24,7 @@ let AccountWorker = DispatchQueue.init(label: "AccountWorker", qos: DispatchQoS.
 
 class Account: NSObject {
     
+    var skipCount = -1
     var isPremium = false
     
     var favorites = [[String: String]]()
@@ -35,6 +36,34 @@ class Account: NSObject {
         self.isPremiumUser(completion: { (isPremium) in self.isPremium = isPremium })
         
         self.fetchRecents()
+    }
+    
+    func updateSkipCount(To: Int) {
+        if let user = auth.currentUser {
+            self.skipCount = To
+            let skipCountRef = db.reference(withPath: "users/\(user.uid)/skipCount")
+            skipCountRef.setValue(10)
+        }
+    }
+    
+    func syncSkipCount() {
+        if let user = auth.currentUser {
+            let skipCountRef = db.reference(withPath: "users/\(user.uid)/skipCount")
+            skipCountRef.observe(.value) { (snapshot) in
+                if let result = snapshot.value as? Int { self.skipCount = result }
+                else { skipCountRef.setValue(10) }
+            }
+        }
+    }
+    
+    func syncPremiumStatus() {
+        if let user = auth.currentUser {
+            let premiumRef = db.reference(withPath: "users/\(user.uid)/isPremium")
+            premiumRef.observe(.value) { (snapshot) in
+                if let result = snapshot.value as? Bool { self.isPremium = result }
+                else { premiumRef.setValue(false) }
+            }
+        }
     }
     
     func favoriteSong() {
