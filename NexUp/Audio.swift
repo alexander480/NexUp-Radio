@@ -32,18 +32,17 @@ let background = DispatchQueue.global()
 class Audio: NSObject, AVAssetResourceLoaderDelegate
 {
     var player = AVQueuePlayer()
-    var playlist = [URL]()
     var queue = [AVPlayerItem]()
-    
+    var playlist = [URL]()
+
     var metadata: [String: Any]?
     
     var currentPlaylist = ""
     
-    var limitReached = false
     var shouldDisplayAd = false
+    var needQueueReload = false
     
     var progress = 0.0
-    var skipCount = 0
     
     var count = 0
     
@@ -62,7 +61,6 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     {
         super.init()
         self.currentPlaylist = PlaylistName
-        self.skipCount = self.fetchSkipCount()
         
         if PlaylistName == "Favorites" {
             self.fetchFavorites()
@@ -74,19 +72,6 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         }
     }
     
-    // -------------- Update Skip Count -------------- //
-    // ----------------------------------------------- //
-    
-    func updateSkipCount(Count: Int) { UserDefaults.standard.set(Count, forKey: "skipCount") }
-    
-    // --------------- Read Skip Count --------------- //
-    // ----------------------------------------------- //
-    
-    func fetchSkipCount() -> Int {
-        if let count = UserDefaults.standard.object(forKey: "skipCount") as? Int { return count }
-        else { UserDefaults.standard.set(0, forKey: "skipCount"); return 0 }
-    }
-    
     // -------------- Fetch URLs From Firebase -------------- //
     // ------------------------------------------------------ //
     
@@ -94,53 +79,37 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         var buf = [URL]()
         let reference = db.reference(withPath: "/audio/\(Name)")
         reference.observeSingleEvent(of: .value) { (snap) in
-            for song in snap.children.allObjects as! [DataSnapshot] { if let songUrl = (song.value as! String).toURL() { buf.append(songUrl) } }
-            if buf.isEmpty == false {
+            let songs = snap.children.allObjects as! [DataSnapshot]
+            if songs.isEmpty == false {
+                for song in songs { if let songUrl = (song.value as! String).toURL() { buf.append(songUrl) } }
                 self.playlist = buf.random()
                 account.removeDislikes()
-                self.updateQueue()
+                self.reloadQueue()
             }
         }
     }
     
     func fetchFavorites() {
         var buf = [URL]()
-        
         if let user = auth.currentUser {
             let reference = db.reference(withPath: "/users/\(user.uid)/favorites")
             reference.observeSingleEvent(of: .value, with: { (snap) in
-                for song in snap.children.allObjects as! [DataSnapshot] {
-                    for property in song.children.allObjects as! [DataSnapshot] {
-                        if property.key == "URL" {
-                            if let songUrl = (property.value as! String).toURL() {
-                                buf.append(songUrl)
-                            }
+                let songs = snap.children.allObjects as! [DataSnapshot]
+                if songs.isEmpty == false {
+                    for song in songs {
+                        for property in song.children.allObjects as! [DataSnapshot] {
+                            if property.key == "URL" { if let songUrl = (property.value as! String).toURL() { buf.append(songUrl) } }
                         }
                     }
+                    self.playlist = buf.random()
+                    account.removeDislikes()
+                    self.reloadQueue()
                 }
             })
         }
-        
-        if buf.isEmpty == false {
-            self.playlist = buf.random()
-            account.removeDislikes()
-            self.updateQueue()
-        }
     }
     
-    // ------------ Populate AVQueuePlayer With New AVPlayerItems ------------ //
-    // ----------------------------------------------------------------------- //
-    
-    func updateQueue() {
-        for url in self.playlist.prefix(3) { self.player.insert(AVPlayerItem(url: url), after: nil) }
-        self.playlist.removeFirst(3)
-        
-        self.player.play()
-        
-        audio.metadata = self.fetchMetadata()
-        self.metadata = self.fetchMetadata()
-        self.ccUpdate()
-    }
+   
     
     // ------------ Fetch Metadata For Current Song ------------ //
     // --------------------------------------------------------- //
@@ -181,9 +150,9 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             }
         }
         
-        if metadata.count == 0 || metadata.count == 1 {
-            self.skip(didFinish: true)
-        }
+        // if metadata.count == 0 || metadata.count == 1 {
+        //    self.skip(didFinish: true)
+        // }
     
         print("[INFO] Fetched \(metadata.count) Metadata Items")
         return metadata
@@ -193,13 +162,8 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // ------------------------------------------------ //
     
     @objc func playerDidFinishPlaying() {
-        if let currentItem = self.player.currentItem { self.player.remove(currentItem) }
         account.addToRecents()
         print("[INFO] Player Finished Playing")
-        
-        if self.player.items().isEmpty { self.updateQueue() }
-        else { if let currentItem = self.player.currentItem { self.player.remove(currentItem) } }
-        
         self.skip(didFinish: true)
         self.metadata = self.fetchMetadata()
         self.ccUpdate()
@@ -266,14 +230,11 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     
     func ccUpdate()
     {
-        if account.isPremium { self.cc.nextTrackCommand.isEnabled = true }
-        else if self.skipCount > 9 { self.cc.nextTrackCommand.isEnabled = false }
-        else { self.cc.nextTrackCommand.isEnabled = true }
+        if account.isPremium || account.skipCount > 0 { self.cc.nextTrackCommand.isEnabled = true }
+        else { self.cc.nextTrackCommand.isEnabled = false }
         
-        if let item = self.player.currentItem
-        {
-            if let img = self.metadata?["Image"] as? UIImage, let name = self.metadata?["Name"] as? String, let artist = self.metadata?["Artist"] as? String
-            {
+        if let item = self.player.currentItem {
+            if let img = self.metadata?["Image"] as? UIImage, let name = self.metadata?["Name"] as? String, let artist = self.metadata?["Artist"] as? String {
                 let image = MPMediaItemArtwork.init(boundsSize: img.size, requestHandler: { (size) -> UIImage in return img })
                 let duration = Double(item.duration.seconds)
                 let current = Double(item.currentTime().seconds)
@@ -301,32 +262,64 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // -------------------------------------- //
     
     func skip(didFinish: Bool) {
-        self.count = self.count + 1
         print("[INFO] Skipping To Next Song")
         
-        if let item = self.player.currentItem { self.player.remove(item) }
+        if self.player.items().isEmpty { self.shouldDisplayAd = true; self.needQueueReload = true; }
         
-        if didFinish || account.isPremium { self.checkQueue() }
-        else {
-            if self.skipCount > 9 {
-                print("[INFO] Skip Limit Reached")
-                self.limitReached = true
-            }
-            else {
-                self.skipCount = self.skipCount + 1
-                self.updateSkipCount(Count: self.skipCount)
-                self.checkQueue()
-            }
+        if self.needQueueReload {
+            if didFinish || account.isPremium { self.reloadQueue() }
+            else if account.skipCount > 0 { account.updateSkipCount(To: account.skipCount - 1); self.reloadQueue() }
+            else { print("[INFO] Skip Limit Reached") }
         }
-        
-        if self.count % 3 == 0 { self.shouldDisplayAd = true }
+        else {
+            if didFinish || account.isPremium {
+                self.nextSong()
+            }
+            else if account.skipCount > 0 {
+                account.updateSkipCount(To: account.skipCount - 1);
+                self.nextSong()
+            }
+            else { print("[INFO] Skip Limit Reached") }
+        }
     }
     
-    private func checkQueue() {
-        if self.count % 3 == 0 { self.updateQueue() }
-        else if self.playlist.isEmpty { self.fetchPlaylist(Name: self.currentPlaylist) }
-        else { self.player.advanceToNextItem() }
-        
+    func reloadQueue() {
+        if self.playlist.isEmpty {
+            self.fetchPlaylist(Name: self.currentPlaylist)
+        }
+        else if self.playlist.count >= 5 {
+            let shortened = self.playlist.prefix(5)
+            self.playlist.removeFirst(5)
+            
+            for url in shortened {
+                let item = AVPlayerItem(url: url)
+                self.player.insert(item, after: nil)
+            }
+            
+            self.player.play()
+            self.metadata = self.fetchMetadata()
+            self.ccUpdate()
+        }
+        else {
+            let shortened = self.playlist.prefix(self.playlist.count)
+            self.playlist.removeAll()
+            for url in shortened {
+                let item = AVPlayerItem(url: url)
+                self.player.insert(item, after: nil)
+            }
+            
+            self.player.play()
+            self.metadata = self.fetchMetadata()
+            self.ccUpdate()
+        }
+    }
+    
+    // ------------ Populate AVQueuePlayer With New AVPlayerItems ------------ //
+    // ----------------------------------------------------------------------- //
+    
+    func nextSong() {
+        if let item = self.player.currentItem { self.player.remove(item) }
+        self.player.play()
         self.metadata = self.fetchMetadata()
         self.ccUpdate()
     }

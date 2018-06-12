@@ -13,8 +13,8 @@ import FirebaseDatabase
 
 //  TODO
 // ----------------------------------------------
-//
-//
+// - Fix Skip Count For Rest Of Project
+// - Fix Premium Status For Rest Of Project
 
 let auth = Auth.auth()
 let storage = Storage.storage()
@@ -33,7 +33,9 @@ class Account: NSObject {
     
     override init() {
         super.init()
-        self.isPremiumUser(completion: { (isPremium) in self.isPremium = isPremium })
+        
+        self.syncPremiumStatus()
+        self.syncSkipCount()
         
         self.fetchRecents()
     }

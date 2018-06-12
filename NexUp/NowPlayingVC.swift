@@ -43,14 +43,14 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI(didAppear: false)
+        //self.setupUI(didAppear: false)
         self.setupBanner(BannerView: self.banner)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.setupUI(didAppear: true)
+        //self.setupUI(didAppear: true)
     }
     
     private func updateUserInterface() {
@@ -137,7 +137,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     func interstitialDidReceiveAd(_ ad: GADInterstitial) { ad.present(fromRootViewController: self) }
     
     // MARK: Fix Genre Sidebar Button Here
-    
+    /*
     private func setupUI(didAppear: Bool) {
         if didAppear {
             if screenWidth == 414 {
@@ -163,7 +163,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
             self.toggleLoading(isLoading: true)
         }
     }
-    
+    */
     //
     
     deinit { self.timer.invalidate() }

@@ -42,20 +42,17 @@ class CircleControls: UIViewController
     
     @IBOutlet weak var skipsRemaining: UILabel!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
-    private func updateUserInterface()
-    {
-        if let info = audio.metadata
-        {
+    private func updateUserInterface() {
+        if let info = audio.metadata {
             if let name = (info["Name"] as? String) { self.songName?.text = name }
             if let artist = (info["Artist"] as? String) { self.songArtist?.text = artist }
             
-            self.skipsRemaining?.text = "\(10 - audio.skipCount) Skips Remaining"
+            self.skipsRemaining?.text = "\(account.skipCount) Skips Remaining"
     
             if audio.player.rate == 1.0 { self.pauseButton?.setImage(#imageLiteral(resourceName: "pause"), for: .normal) }
             else { self.pauseButton?.setImage(#imageLiteral(resourceName: "play"), for: .normal) }

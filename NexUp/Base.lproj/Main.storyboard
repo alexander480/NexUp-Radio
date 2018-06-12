@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nexup" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-V6-HdD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-V6-HdD">
                                 <rect key="frame" x="-161" y="0.0" width="697" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hgs-V6-HdD" secondAttribute="height" multiplier="305:292" id="uBP-Lt-sjy"/>
@@ -834,7 +834,7 @@
                                     <constraint firstAttribute="width" secondItem="Z0n-ID-beN" secondAttribute="height" multiplier="1:1" id="c4C-eA-mik"/>
                                     <constraint firstAttribute="width" constant="85" id="rmW-st-BcA"/>
                                 </constraints>
-                                <state key="normal" image="nexup"/>
+                                <state key="normal" image="iTunesArtwork"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="44"/>
@@ -1565,6 +1565,7 @@
         <image name="315blackmidcircle_fullopac" width="315" height="315"/>
         <image name="3barsstacked" width="20" height="12"/>
         <image name="Image Account" width="77" height="77"/>
+        <image name="iTunesArtwork" width="512" height="512"/>
         <image name="icons8-customer-81" width="27" height="27"/>
         <image name="icons8-news-100" width="27" height="25"/>
         <image name="line" width="62" height="1"/>
