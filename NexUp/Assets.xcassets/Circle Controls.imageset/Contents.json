@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-instagram-48.png",
+      "filename" : "Circle Controls.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Circle Controls@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Circle Controls@3x.png",
       "scale" : "3x"
     }
   ],

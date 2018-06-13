@@ -77,7 +77,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.18050576746463776" green="0.18050156533718109" blue="0.1805044412612915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.080000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="315" id="HUU-bx-Ovg"/>
                                     <constraint firstAttribute="height" constant="202" id="NIU-35-ORw"/>
@@ -107,7 +107,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVr-eQ-bhE" customClass="ButtonClass" customModule="NexUp" customModuleProvider="target">
                                 <rect key="frame" x="10" y="67" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.18050576746463776" green="0.18050156533718109" blue="0.1805044412612915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7DZ-fL-sga"/>
                                     <constraint firstAttribute="width" constant="60" id="uXo-d9-sn6"/>
@@ -153,7 +153,6 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="bYL-AK-ekG"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backgroundImage" destination="hgs-V6-HdD" id="XAH-xN-8lU"/>
                         <outlet property="banner" destination="rm1-Jr-fKy" id="4SS-c1-DeF"/>
@@ -583,7 +582,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.092068101796838969" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cjX-Xx-8Ix" secondAttribute="trailing" id="0Rk-Ek-cY6"/>
                             <constraint firstItem="deI-3L-uES" firstAttribute="centerY" secondItem="SVt-Gj-RUp" secondAttribute="centerY" id="1YA-Ug-iyj"/>
@@ -809,7 +808,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.092068101799999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.080000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Cnr-it-QLA" secondAttribute="bottom" constant="5" id="1O8-r8-rGz"/>
                                     <constraint firstAttribute="height" constant="55" id="CN5-gF-t9W"/>
@@ -885,7 +884,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="315blackmidcircle_fullopac" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-eP-57k" customClass="ImageViewClass" customModule="NexUp" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Circle Controls" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-eP-57k" customClass="ImageViewClass" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -1562,8 +1561,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="315blackmidcircle_fullopac" width="315" height="315"/>
         <image name="3barsstacked" width="20" height="12"/>
+        <image name="Circle Controls" width="403" height="403"/>
         <image name="Image Account" width="77" height="77"/>
         <image name="iTunesArtwork" width="512" height="512"/>
         <image name="icons8-customer-81" width="27" height="27"/>
@@ -1574,6 +1573,6 @@
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Ri-NA-8Aa"/>
+        <segue reference="5pX-9f-P0S"/>
     </inferredMetricsTieBreakers>
 </document>

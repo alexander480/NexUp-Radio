@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 {
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
-    {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        application.statusBarStyle = .lightContent
         GADMobileAds.configure(withApplicationID: "ca-app-pub-6543648439575950~2582292311")
         FirebaseConfiguration.shared.setLoggerLevel(.error)
         FirebaseApp.configure()
