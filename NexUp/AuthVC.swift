@@ -75,4 +75,3 @@ class AuthVC: UIViewController {
         self.banner.load(GADRequest())
     }
 }
-

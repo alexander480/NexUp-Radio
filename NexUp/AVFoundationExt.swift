@@ -25,4 +25,3 @@ public extension AVQueuePlayer {
         return rate != 0 && error == nil
     }
 }
-

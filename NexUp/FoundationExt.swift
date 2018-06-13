@@ -19,6 +19,7 @@ public extension Array {
             buf.swapAt(last, rand)
             last -= 1
         }
+        
         return buf
     }
 }
@@ -31,34 +32,28 @@ public extension String {
     
     func toImage() -> UIImage? {
         if let url = URL(string: self) {
-            if let image = url.toImage() {
-                return image
-            }
-            else {
-                print("[ERROR: String Extension] \(self) Is Not A Valid Image URL")
-                return nil
-            }
+            if let image = url.toImage() { return image }
+            else { print("[ERROR: String Extension] \(self) Is Not A Valid Image URL"); return nil }
         }
-        else {
-            print("[ERROR: String Extension] \(self) Is Not A Valid URL")
-            return nil
-        }
+        else { print("[ERROR: String Extension] \(self) Is Not A Valid URL"); return nil }
     }
 }
 
 public extension Int {
-    var minutes : Int {
-        let raw = Int(self/60)
+    var minutes: Int {
+        let raw = Int(self / 60)
+        
         return raw
     }
     
-    var seconds : Int {
-        let raw = Int(self/60)
+    var seconds: Int {
+        let raw = Int(self / 60)
+        
         return raw
     }
     
     var minutesString: String {
-        let raw = self/60
+        let raw = self / 60
         let string = String(raw)
         
         return string
@@ -68,10 +63,12 @@ public extension Int {
         let raw = Int(self % 60)
         if raw < 10 {
             let string = "0\(raw)"
+            
             return string
         }
         else {
             let string = "\(raw)"
+            
             return string
         }
     }
@@ -92,6 +89,7 @@ public extension URL {
                 }
             }
         }
+        
         return image
     }
     
@@ -100,6 +98,7 @@ public extension URL {
         if let data = try? Data(contentsOf: self) {
             image = UIImage(data: data)
         }
+        
         return image
     }
 }

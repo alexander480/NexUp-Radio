@@ -11,13 +11,12 @@ import NotificationCenter
 import MediaPlayer
 
 class AudioHelper: NSObject {
-    let MetadataWorker = DispatchQueue.init(label: "MetadataWorker", qos: DispatchQoS.userInteractive)
+    let metadataWorker = DispatchQueue.init(label: "MetadataWorker", qos: DispatchQoS.userInteractive)
     let cc = MPRemoteCommandCenter.shared()
     let info = MPNowPlayingInfoCenter.default()
     let nc = NotificationCenter.default
 
-    func ccSetup()
-    {
+    func ccSetup() {
         self.cc.playCommand.isEnabled = true
         self.cc.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
             audio.player.play()
@@ -46,14 +45,12 @@ class AudioHelper: NSObject {
         print("[INFO] Command Center Setup Complete")
     }
     
-    func ccUpdate()
-    {
+    func ccUpdate() {
         if account.skipCount <= 0 && account.isPremium == false { self.cc.nextTrackCommand.isEnabled = false }
         else { self.cc.nextTrackCommand.isEnabled = true }
         
         if let item = audio.player.currentItem {
-            if let img = audio.metadata?["Image"] as? UIImage, let name = audio.metadata?["Name"] as? String, let artist = audio.metadata?["Artist"] as? String
-            {
+            if let img = audio.metadata?["Image"] as? UIImage, let name = audio.metadata?["Name"] as? String, let artist = audio.metadata?["Artist"] as? String {
                 let image = MPMediaItemArtwork.init(boundsSize: img.size, requestHandler: { (size) -> UIImage in return img })
                 let duration = Double(item.duration.seconds)
                 let current = Double(item.currentTime().seconds)
@@ -106,8 +103,8 @@ class AudioHelper: NSObject {
         }
         
         // if metadata.count == 0 || metadata.count == 1 { self.skip(didFinish: true) }
-        
         print("[INFO] Fetched \(metadata.count) Metadata Items")
+        
         return metadata
     }
 }

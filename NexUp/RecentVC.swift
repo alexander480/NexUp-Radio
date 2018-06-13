@@ -20,8 +20,7 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.banner.adUnitID = bannerID
@@ -40,7 +39,7 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
-    override var prefersStatusBarHidden : Bool { return true }
+    override var prefersStatusBarHidden: Bool { return true }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { if indexPath.row == 0 { return 175 } else { return 100 } }
     
@@ -52,6 +51,7 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteHeader") as! AccountHeaderCell
             cell.cellTitle.text = "Recently Played"
             cell.cellDetail.text = "Check Out Your Recent Songs"
+            
             return cell
         }
         else {
@@ -78,4 +78,3 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if self.songs.count == account.recents.count { self.timer.invalidate() }
     }
 }
-

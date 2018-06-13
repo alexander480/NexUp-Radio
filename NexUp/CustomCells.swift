@@ -14,34 +14,29 @@ import UIKit
 //
 //
 
-class ArtistHeaderCell: UITableViewCell
-{
+class ArtistHeaderCell: UITableViewCell {
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDetail: UILabel!
 }
 
-class ArtistCell: UITableViewCell
-{
+class ArtistCell: UITableViewCell {
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var artistName: UILabel!
 }
 
-class SongCell: UITableViewCell
-{
+class SongCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDetail: UILabel!
 }
 
-class AccountHeaderCell: UITableViewCell
-{
+class AccountHeaderCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDetail: UILabel!
 }
 
-class AccountCell: UITableViewCell
-{
+class AccountCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
 }
@@ -55,4 +50,3 @@ class AdCell: UITableViewCell {
     @IBOutlet weak var view: UIView!
 }
 */
-

@@ -12,8 +12,7 @@ import Firebase
 import SwiftyStoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
-{
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -68,11 +67,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                 fatalError("[ERROR] [CoreData] [AppDelegate] Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
         return container
     }()
     
     // MARK: - Core Data Saving support
-    func saveContext () {
+    
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -87,4 +88,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     }
 
 }
-

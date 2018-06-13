@@ -16,7 +16,6 @@ import FirebaseDatabase
 // - Fix Skip Count For Rest Of Project
 // - Fix Premium Status For Rest Of Project
 
-let AccountWorker = DispatchQueue.init(label: "AccountWorker", qos: DispatchQoS.userInteractive)
 let auth = Auth.auth()
 let storage = Storage.storage()
 let db = Database.database()

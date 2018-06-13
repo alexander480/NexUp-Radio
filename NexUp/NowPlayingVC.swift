@@ -6,7 +6,6 @@
 //  Copyright © 2018 LAGB Technologies. All rights reserved.
 //
 
-
 import Foundation
 import Dispatch
 import UIKit

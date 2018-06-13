@@ -11,10 +11,9 @@ import SwiftyStoreKit
 import StoreKit
 
 class SubscriptionHandler: NSObject {
-    
-    let validator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
     typealias RecieptVerificationHandler = (String) -> ()
     
+    let validator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
     let secret = "28c35d969edc4f739e985dbe912a963d"
     let product = "com.lagbtech.nexup_radio.premium"
     let group = "GroupOne"
@@ -130,9 +129,7 @@ class SubscriptionHandler: NSObject {
             }
         }
     }
-    
-    // ------- UI ------- //
-    
+
     func showAlert(ViewController: UIViewController) {
         let alert = UIAlertController(title: "Purchase Premium Account", message: "For $1.99/Month you'll get unlimited skips, the ability to replay songs and absolutely no ads!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Purchase Now", style: .default, handler: { (action) in
@@ -152,5 +149,3 @@ class SubscriptionHandler: NSObject {
         ViewController.show(alert, sender: self)
     }
 }
-
-

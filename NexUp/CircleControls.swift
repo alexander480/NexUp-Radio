@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class CircleControls: UIViewController
-{
+class CircleControls: UIViewController {
     var timer = Timer()
     
     @IBOutlet weak var songName: UILabel!

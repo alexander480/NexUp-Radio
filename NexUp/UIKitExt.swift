@@ -19,7 +19,7 @@ public extension UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    @objc func dismissKeyboard(_ sender : UITapGestureRecognizer) { view.endEditing(true) }
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) { view.endEditing(true) }
     
     func alert(Title: String, Description: String?) {
         if let description = Description {
@@ -51,13 +51,14 @@ extension UIViewController: GADBannerViewDelegate {
 
 extension UIImageView
 {
-    public func imageFromServerURL(urlString: String, tableView : UITableView, indexpath : IndexPath) {
+    public func imageFromServerURL(urlString: String, tableView: UITableView, indexpath: IndexPath) {
         imageURLString = urlString
         
         if let url = URL(string: urlString) {
             self.image = nil
             if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
                 self.image = imageFromCache
+                
                 return
             }
             
@@ -81,8 +82,7 @@ extension UIImageView
         }).resume()
     }
     
-    func blur()
-    {
+    func blur() {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.bounds
@@ -100,8 +100,7 @@ extension UIImageView
         self.addSubview(blurView)
     }
     
-    func removeBlur()
-    {
+    func removeBlur() {
         for subview in self.subviews {
             if subview is UIVisualEffectView {
                 subview.removeFromSuperview()
@@ -113,7 +112,7 @@ extension UIImageView
 // MARK: UIImage Extensions
 
 let imageCache = NSCache<AnyObject, AnyObject>()
-var imageURLString : String?
+var imageURLString: String?
 
 extension UIImage {
     
@@ -178,20 +177,7 @@ extension UIImage {
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
         return image!
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

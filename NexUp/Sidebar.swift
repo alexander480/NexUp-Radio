@@ -6,12 +6,10 @@
 //  Copyright © 2018 LAGB Technologies. All rights reserved.
 //
 
-
 import Foundation
 import UIKit
 
 class Sidebar: UIViewController {
-    
     var timer = Timer()
     
     @IBOutlet weak var hipHopButton: UIButton!
@@ -41,7 +39,6 @@ class Sidebar: UIViewController {
         audio.player.removeAllItems()
         audio.fetchPlaylist(Name: "Gospel");
         self.hide()
-        
     }
     
     @IBOutlet weak var topTenButton: UIButton!
@@ -49,7 +46,6 @@ class Sidebar: UIViewController {
         audio.player.removeAllItems()
         audio.fetchPlaylist(Name: "Top Ten");
         self.hide()
-        
     }
     
     @IBOutlet weak var djButton: UIButton!
@@ -57,7 +53,6 @@ class Sidebar: UIViewController {
         audio.player.removeAllItems()
         audio.fetchPlaylist(Name: "DJ");
         self.hide()
-        
     }
     
     @IBOutlet weak var favoritesButton: UIButton!

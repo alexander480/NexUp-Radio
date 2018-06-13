@@ -27,7 +27,6 @@ import FirebaseStorage
 var artistSelected = [String: String]()
 
 class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -36,8 +35,7 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var artists = [[String: String]]()
     var timer = Timer()
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
@@ -49,18 +47,15 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.backgroundImage?.image = image
             self.backgroundImage?.blur()
         }
-        else
-        {
+        else {
             self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
             self.backgroundImage?.blur()
         }
     }
     
-    private func updateUserInterface()
-    {
+    private func updateUserInterface() {
         self.artists = artistClass.artists
         self.tableView.reloadData()
-        
         if self.artists.isEmpty == false { self.timer.invalidate() }
     }
     
@@ -76,24 +71,20 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        if row == 0
-        {
+        if row == 0 {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "ArtistHeaderCell") as! ArtistHeaderCell
             cell.cellTitle?.text = "Browse Artists"
             cell.cellDetail?.text = "Check Out Featured Artists"
             
             return cell
         }
-        else
-        {
+        else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCell") as! ArtistCell
-            if let name = artists[row - 1]["Name"], let url = artists[row - 1]["ImageURL"]
-            {
+            if let name = artists[row - 1]["Name"], let url = artists[row - 1]["ImageURL"] {
                 cell.artistName?.text = name
                 cell.artistImage?.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
             }
-            else
-            {
+            else {
                 cell.artistName?.text = "Loading"
                 cell.artistImage?.image = nil
             }

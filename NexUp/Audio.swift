@@ -29,8 +29,7 @@ import FirebaseStorage
 let main = DispatchQueue.main
 let background = DispatchQueue.global()
 
-class Audio: NSObject, AVAssetResourceLoaderDelegate
-{
+class Audio: NSObject, AVAssetResourceLoaderDelegate {
     var player = AVQueuePlayer()
     var playlist = [URL]()
     var metadata: [String: Any]?
@@ -39,19 +38,15 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     var shouldDisplayAd = false
     var needQueueReload = false
     
-    let AVWorker = DispatchQueue.init(label: "AVWorker", qos: DispatchQoS.userInteractive)
-    let MetadataWorker = DispatchQueue.init(label: "MetadataWorker", qos: DispatchQoS.userInteractive)
+    let avWorker = DispatchQueue.init(label: "AVWorker", qos: DispatchQoS.userInteractive)
+    let metadataWorker = DispatchQueue.init(label: "MetadataWorker", qos: DispatchQoS.userInteractive)
     
     let cc = MPRemoteCommandCenter.shared()
     let info = MPNowPlayingInfoCenter.default()
     let nc = NotificationCenter.default
     let session = AVAudioSession.sharedInstance()
-    
-    // ------------ Initialization ------------ //
-    // ---------------------------------------- //
-    
-    init(PlaylistName: String)
-    {
+
+    init(PlaylistName: String) {
         super.init()
         self.currentPlaylist = PlaylistName
         
@@ -64,10 +59,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             self.sessionSetup()
         }
     }
-    
-    // -------------- Fetch URLs From Firebase -------------- //
-    // ------------------------------------------------------ //
-    
+
     func fetchPlaylist(Name: String) {
         var buf = [URL]()
         let reference = db.reference(withPath: "/audio/\(Name)")
@@ -101,17 +93,11 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             })
         }
     }
-    
-   
-    
-    // ------------ Fetch Metadata For Current Song ------------ //
-    // --------------------------------------------------------- //
-    
-    func fetchMetadata() -> [String: Any]?
-    {
+
+    func fetchMetadata() -> [String: Any]? {
         var metadata = [String: Any]()
         
-        MetadataWorker.sync {
+        metadataWorker.sync {
             if let item = self.player.currentItem {
                 for property in item.asset.commonMetadata as [AVMetadataItem] {
                     if property.commonKey == AVMetadataKey.commonKeyTitle  {
@@ -131,6 +117,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             }
         }
         print("[INFO] Fetched \(metadata.count) Metadata Items")
+        
         return metadata
     }
     
@@ -144,10 +131,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         self.metadata = self.fetchMetadata()
         self.ccUpdate()
     }
-    
-    // -------------- Setup Audio Session -------------- //
-    // ------------------------------------------------- //
-    
+
     private func sessionSetup() {
         do {
             try self.session.setActive(true)
@@ -167,12 +151,8 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             print("[ERROR] Could Not Setup Audio Session")
         }
     }
-    
-    // ------------ Initialize Command Center ------------ //
-    // --------------------------------------------------- //
-    
-    private func ccSetup()
-    {
+
+    private func ccSetup() {
         self.cc.playCommand.isEnabled = true
         self.cc.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
             self.player.play()
@@ -200,12 +180,8 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
         
         print("[INFO] Command Center Setup Complete")
     }
-    
-    // ------------ Update Command Center ------------ //
-    // ----------------------------------------------- //
-    
-    func ccUpdate()
-    {
+
+    func ccUpdate() {
         if account.isPremium || account.skipCount > 0 { self.cc.nextTrackCommand.isEnabled = true }
         else { self.cc.nextTrackCommand.isEnabled = false }
         
@@ -227,18 +203,11 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             }
         }
     }
-    
-    
-    // ------------ Play / Pause ------------ //
-    // -------------------------------------- //
-    
+
     func togglePlayback() {
         if self.player.rate == 1.0 { self.player.pause() }
         else { self.player.play() } }
-    
-    // ------------ Skip Handler ------------ //
-    // -------------------------------------- //
-    
+
     func skip(didFinish: Bool) {
         if self.player.items().isEmpty { self.shouldDisplayAd = true; self.needQueueReload = true; }
         if let item = self.player.currentItem { self.player.remove(item) }
@@ -287,10 +256,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             self.ccUpdate()
         }
     }
-    
-    // ------------ Populate AVQueuePlayer With New AVPlayerItems ------------ //
-    // ----------------------------------------------------------------------- //
-    
+
     func nextSong() {
         // if let item = self.player.currentItem { self.player.remove(item) }
         self.player.play()

@@ -26,8 +26,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.banner.adUnitID = bannerID
@@ -42,17 +41,14 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.backgroundImage?.image = image
             self.backgroundImage?.blur()
         }
-        else
-        {
+        else {
             self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
             self.backgroundImage?.blur()
         }
     }
     
-    override func viewDidAppear(_ animated: Bool)
-    {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
         if let user = auth.currentUser { if let email = user.email { self.updateHeaderCell(UserEmail: email) } }
         else { if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) } }
     }
@@ -67,23 +63,20 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.cellHandler(forRow: indexPath.row)
+        
         return cell
     }
     
-    private func updateHeaderCell(UserEmail: String)
-    {
+    private func updateHeaderCell(UserEmail: String) {
         let row = IndexPath(row: 0, section: 0)
-        if let headerCell = self.tableView.cellForRow(at: row) as? AccountHeaderCell
-        {
+        if let headerCell = self.tableView.cellForRow(at: row) as? AccountHeaderCell {
             headerCell.cellDetail.text = UserEmail
             self.tableView.reloadRows(at: [row], with: UITableViewRowAnimation.automatic)
         }
     }
     
-    private func cellHandler(forRow: Int) -> UITableViewCell
-    {
-        if forRow == 0
-        {
+    private func cellHandler(forRow: Int) -> UITableViewCell {
+        if forRow == 0 {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountHeaderCell") as! AccountHeaderCell
             cell.cellImage.image = #imageLiteral(resourceName: "Image Account")
             cell.cellTitle.text = "User Account"
@@ -92,11 +85,11 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
             return cell
         }
-        else
-        {
+        else {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountCell") as! AccountCell
             cell.cellTitle.text = options[forRow - 1]
             cell.selectionStyle = .none
+            
             return cell
         }
     }

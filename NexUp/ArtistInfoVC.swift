@@ -20,8 +20,7 @@ import FirebaseStorage
 // ----------------------------------------------
 //
 
-class ArtistInfoVC: UIViewController
-{
+class ArtistInfoVC: UIViewController {
     var timer = Timer()
     var artist = artistSelected
     
@@ -32,19 +31,15 @@ class ArtistInfoVC: UIViewController
     @IBOutlet weak var artistCircleImage: ImageViewClass!
     @IBOutlet weak var artistBio: UILabel!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
-    private func updateUserInterface()
-    {
+    private func updateUserInterface() {
         self.artist = artistSelected
-        
-        if self.artist.isEmpty == false
-        {
+        if self.artist.isEmpty == false {
             self.artistName?.text = artist["Name"]
             self.artistBio?.text = artist["Bio"]
             self.artistImage?.imageFromURL(urlString: artist["ImageURL"]!)

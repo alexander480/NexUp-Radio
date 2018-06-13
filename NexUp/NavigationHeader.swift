@@ -8,21 +8,17 @@
 
 import UIKit
 
-class HeaderView: UIView
-{
-    var title : UILabel!
-    var subtitle : UILabel!
+class HeaderView: UIView {
+    var title: UILabel!
+    var subtitle: UILabel!
     var dropDownIcon: UIImageView!
     
-    override init(frame: CGRect)
-    {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
         
