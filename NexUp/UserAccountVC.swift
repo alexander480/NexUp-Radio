@@ -16,8 +16,10 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource
-{
+class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let bannerID = "ca-app-pub-3940256099942544/2934735716"
+    let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
+    
     let options = ["Favorites", "Dislikes", "Recently Played", "Premium"]
     
     @IBOutlet weak var banner: GADBannerView!

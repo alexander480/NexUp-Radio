@@ -38,9 +38,9 @@ public extension UIViewController {
 }
 
 extension UIViewController: GADBannerViewDelegate {
-    func setupBanner(BannerView: UIView) {
+    func setupBanner(BannerView: UIView, BannerID: String) {
         let banner = BannerView as! GADBannerView
-        banner.adUnitID = bannerID
+        banner.adUnitID = BannerID
         banner.rootViewController = self
         banner.adSize = kGADAdSizeSmartBannerPortrait
         banner.load(GADRequest())

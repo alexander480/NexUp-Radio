@@ -11,6 +11,9 @@ import UIKit
 import GoogleMobileAds
 
 class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let bannerID = "ca-app-pub-3940256099942544/2934735716"
+    let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
+    
     var songs = [[String: String]]()
     var timer = Timer()
     

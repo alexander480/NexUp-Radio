@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import GoogleMobileAds
 
-class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
-{
+class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let bannerID = "ca-app-pub-3940256099942544/2934735716"
+    
     var songs = [[String: String]]()
     var timer = Timer()
     

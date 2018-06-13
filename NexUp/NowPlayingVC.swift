@@ -19,13 +19,12 @@ import FirebaseStorage
 let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
 
-let bannerID = "ca-app-pub-3940256099942544/2934735716"
-let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
-
-class NowPlayingVC: UIViewController, GADInterstitialDelegate
-{
+class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     var timer = Timer()
     var interstitial: GADInterstitial!
+    
+    let bannerID = "ca-app-pub-3940256099942544/2934735716"
+    let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
     
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -41,7 +40,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupBanner(BannerView: self.banner)
+        self.setupBanner(BannerView: self.banner, BannerID: self.bannerID)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     

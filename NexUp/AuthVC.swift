@@ -22,6 +22,9 @@ import FirebaseStorage
 //
 
 class AuthVC: UIViewController {
+    let bannerID = "ca-app-pub-3940256099942544/2934735716"
+    let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
+    
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
