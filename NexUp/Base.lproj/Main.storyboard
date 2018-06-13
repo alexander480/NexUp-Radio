@@ -926,7 +926,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgc-vt-Knf" userLabel="Pause Button">
-                                        <rect key="frame" x="158" y="162" width="30" height="43"/>
+                                        <rect key="frame" x="156.5" y="162.5" width="30" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="8mT-AX-bS9"/>
                                             <constraint firstAttribute="height" constant="43" id="Qxb-l2-r1u"/>
@@ -937,7 +937,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiY-CQ-gb9">
-                                        <rect key="frame" x="217" y="168" width="27" height="30.500000000000227"/>
+                                        <rect key="frame" x="215.5" y="168.5" width="27" height="30.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30.5" id="39S-uS-VrE"/>
                                             <constraint firstAttribute="width" constant="27" id="qeA-UK-B55"/>
@@ -948,7 +948,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6N-2j-ZB4">
-                                        <rect key="frame" x="98" y="168" width="30.000000000000114" height="29.500000000000227"/>
+                                        <rect key="frame" x="98" y="168.5" width="30" height="29.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="BIG-0B-AhI"/>
                                             <constraint firstAttribute="height" constant="29.5" id="hGZ-qX-e8p"/>
@@ -962,7 +962,7 @@
                                 <constraints>
                                     <constraint firstItem="rgc-vt-Knf" firstAttribute="leading" secondItem="O6N-2j-ZB4" secondAttribute="trailing" constant="29" id="4dk-oj-jLP"/>
                                     <constraint firstItem="uRf-8m-Iv9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EE2-FO-ivQ" secondAttribute="leading" constant="5" id="68g-wv-KHj"/>
-                                    <constraint firstItem="rgc-vt-Knf" firstAttribute="centerX" secondItem="EE2-FO-ivQ" secondAttribute="centerX" id="A5a-eK-AJn"/>
+                                    <constraint firstItem="rgc-vt-Knf" firstAttribute="centerX" secondItem="EE2-FO-ivQ" secondAttribute="centerX" constant="-1" id="A5a-eK-AJn"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qXT-Ic-kcX" secondAttribute="trailing" constant="22" id="AkP-yA-pTv"/>
                                     <constraint firstAttribute="bottom" secondItem="Fqv-W4-U5k" secondAttribute="bottom" constant="50" id="Ayt-nn-icd"/>
                                     <constraint firstItem="Fqv-W4-U5k" firstAttribute="top" secondItem="umg-pq-bLg" secondAttribute="bottom" id="B1Z-dG-oCH"/>
@@ -1218,7 +1218,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buf-lZ-fKO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buf-lZ-fKO">
                                                     <rect key="frame" x="0.0" y="-213" width="414" height="414"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1367,7 +1367,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-Zo-xY0">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-Zo-xY0">
                                                     <rect key="frame" x="0.0" y="-213" width="414" height="414"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1516,7 +1516,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mi-0t-h93">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mi-0t-h93">
                                                     <rect key="frame" x="0.0" y="-213" width="414" height="414"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>

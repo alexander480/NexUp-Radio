@@ -84,11 +84,20 @@ extension UIImageView
     func blur()
     {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.bounds
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = self.bounds
         
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
-        self.addSubview(blurEffectView)
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        self.addSubview(blurView)
+    }
+    
+    func lightBlur() {
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = self.bounds
+        
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        self.addSubview(blurView)
     }
     
     func removeBlur()
