@@ -26,7 +26,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
 {
     var timer = Timer()
     var interstitial: GADInterstitial!
-    let screenWidth = UIScreen.main.bounds.width
     
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -36,21 +35,14 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     @IBOutlet weak var loadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var revealSidebarButton: ButtonClass!
     @IBOutlet weak var sidebarButtonContraint: NSLayoutConstraint!
-    
     @IBOutlet weak var sidebar: UIView!
     
     @IBAction func revealSidebarAction(_ sender: Any) { self.toggleSidebar() }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.setupUI(didAppear: false)
         self.setupBanner(BannerView: self.banner)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        //self.setupUI(didAppear: true)
     }
     
     private func updateUserInterface() {
@@ -66,7 +58,9 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         
         if audio.shouldDisplayAd { interstitial = self.createInterstitial(); audio.shouldDisplayAd = false }
     }
-
+    
+    // MARK: Toggle Loading
+    
     func toggleLoading(isLoading: Bool) {
         if isLoading {
             self.loadingView?.isHidden = false
@@ -90,9 +84,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
         }
     }
     
-    
-    
-    // MARK: Fix Genre Sidebar Here
+    // MARK: Toggle Sidebar
     
     func toggleSidebar() {
         let sOrigin = self.sidebar.frame.origin
@@ -135,36 +127,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate
     }
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) { ad.present(fromRootViewController: self) }
-    
-    // MARK: Fix Genre Sidebar Button Here
-    /*
-    private func setupUI(didAppear: Bool) {
-        if didAppear {
-            if screenWidth == 414 {
-                self.sidebarButtonContraint?.constant = 25
-                UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
-            }
-            else if screenWidth == 375 {
-                self.sidebarButtonContraint?.constant = 37.5
-                UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
-            }
-            else if screenWidth == 320 {
-                self.sidebarButtonContraint?.constant = 65.5
-                UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
-            }
-        }
-        else {
-            self.controlCircleConstraint.constant = 0
-            self.view.layoutIfNeeded()
-            
-            self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
-            self.backgroundImage?.blur()
-            
-            self.toggleLoading(isLoading: true)
-        }
-    }
-    */
-    //
-    
+
     deinit { self.timer.invalidate() }
 }

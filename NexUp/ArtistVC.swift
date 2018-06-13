@@ -51,7 +51,7 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else
         {
-            self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
+            self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
             self.backgroundImage?.blur()
         }
     }

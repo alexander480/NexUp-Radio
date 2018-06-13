@@ -42,7 +42,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         else
         {
-            self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
+            self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
             self.backgroundImage?.blur()
         }
     }

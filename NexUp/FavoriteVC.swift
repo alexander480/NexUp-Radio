@@ -30,14 +30,14 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        if account.favorites.isEmpty { account.fetchFavorites() }
+        if account.favorites.isEmpty { account.fetchFavoriteSongs() }
         
         if let image = audio.metadata?["Image"] as? UIImage {
             self.backgroundImage?.image = image
             self.backgroundImage?.blur()
         }
         else {
-            self.backgroundImage?.image = #imageLiteral(resourceName: "j3detroit")
+            self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
             self.backgroundImage?.blur()
         }
         
@@ -64,14 +64,15 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
             
-            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["ImageURL"] {
+            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["Image"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
                 cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
+                cell.cellImage.blur()
             }
             else {
-                cell.cellTitle.text = "Loading"
-                cell.cellDetail.text = nil
+                cell.cellTitle.text = "Loading..."
+                cell.cellDetail.text = "Please Wait"
                 cell.cellImage.image = nil
             }
             

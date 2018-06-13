@@ -32,19 +32,12 @@ let background = DispatchQueue.global()
 class Audio: NSObject, AVAssetResourceLoaderDelegate
 {
     var player = AVQueuePlayer()
-    var queue = [AVPlayerItem]()
     var playlist = [URL]()
-
     var metadata: [String: Any]?
-    
     var currentPlaylist = ""
     
     var shouldDisplayAd = false
     var needQueueReload = false
-    
-    var progress = 0.0
-    
-    var count = 0
     
     let AVWorker = DispatchQueue.init(label: "AVWorker", qos: DispatchQoS.userInteractive)
     let MetadataWorker = DispatchQueue.init(label: "MetadataWorker", qos: DispatchQoS.userInteractive)
@@ -83,7 +76,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             if songs.isEmpty == false {
                 for song in songs { if let songUrl = (song.value as! String).toURL() { buf.append(songUrl) } }
                 self.playlist = buf.random()
-                account.removeDislikes()
+                account.removeDislikedSongs()
                 self.reloadQueue()
             }
         }
@@ -102,7 +95,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
                         }
                     }
                     self.playlist = buf.random()
-                    account.removeDislikes()
+                    account.removeDislikedSongs()
                     self.reloadQueue()
                 }
             })
@@ -122,38 +115,21 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             if let item = self.player.currentItem {
                 for property in item.asset.commonMetadata as [AVMetadataItem] {
                     if property.commonKey == AVMetadataKey.commonKeyTitle  {
-                        if let songName = property.stringValue {
-                            print("[INFO] Song Name: \(songName)")
-                            metadata["Name"] = songName
-                        }
+                        if let songName = property.stringValue { print("[INFO] Song Name: \(songName)"); metadata["Name"] = songName }
+                        else { print("[ERROR] Song Name: nil"); self.skip(didFinish: true) }
                     }
                     else if property.commonKey == AVMetadataKey.commonKeyArtist {
-                        if let songArtist = property.stringValue {
-                            print("[INFO] Song Artist: \(songArtist)")
-                            metadata["Artist"] = songArtist
-                        }
+                        if let songArtist = property.stringValue { print("[INFO] Song Artist: \(songArtist)"); metadata["Artist"] = songArtist }
+                        else { print("[ERROR] Song Artist: nil"); self.skip(didFinish: true) }
                     }
                     else if property.commonKey == AVMetadataKey.commonKeyArtwork {
-                        if let rawImage = property.dataValue {
-                            if let songImage = UIImage(data: rawImage) {
-                                metadata["Image"] = songImage
-                            }
-                        }
-                        else {
-                            print("[WARNING] No Image Available For Current Song")
-                            metadata["Image"] = #imageLiteral(resourceName: "J3Ent375")
-                        }
+                        if let rawImage = property.dataValue { if let songImage = UIImage(data: rawImage) { metadata["Image"] = songImage } }
+                        else { print("[WARNING] Song Image: nil"); metadata["Image"] = #imageLiteral(resourceName: "J3Ent375") }
                     }
                 }
-                
-                metadata["URL"] = (item.asset as! AVURLAsset).url
+                metadata["URL"] = String(describing: (item.asset as! AVURLAsset).url)
             }
         }
-        
-        // if metadata.count == 0 || metadata.count == 1 {
-        //    self.skip(didFinish: true)
-        // }
-    
         print("[INFO] Fetched \(metadata.count) Metadata Items")
         return metadata
     }
@@ -162,7 +138,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // ------------------------------------------------ //
     
     @objc func playerDidFinishPlaying() {
-        account.addToRecents()
+        account.addSongToRecents()
         print("[INFO] Player Finished Playing")
         self.skip(didFinish: true)
         self.metadata = self.fetchMetadata()
@@ -256,15 +232,17 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // ------------ Play / Pause ------------ //
     // -------------------------------------- //
     
-    func togglePlayback() { if self.player.rate == 1.0 { self.player.pause() } else { self.player.play() } }
+    func togglePlayback() {
+        if self.player.rate == 1.0 { self.player.pause() }
+        else { self.player.play() } }
     
     // ------------ Skip Handler ------------ //
     // -------------------------------------- //
     
     func skip(didFinish: Bool) {
-        print("[INFO] Skipping To Next Song")
-        
         if self.player.items().isEmpty { self.shouldDisplayAd = true; self.needQueueReload = true; }
+        if let item = self.player.currentItem { self.player.remove(item) }
+        print("[INFO] Skipping To Next Song")
         
         if self.needQueueReload {
             if didFinish || account.isPremium { self.reloadQueue() }
@@ -272,9 +250,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             else { print("[INFO] Skip Limit Reached") }
         }
         else {
-            if didFinish || account.isPremium {
-                self.nextSong()
-            }
+            if didFinish || account.isPremium { self.nextSong() }
             else if account.skipCount > 0 {
                 account.updateSkipCount(To: account.skipCount - 1);
                 self.nextSong()
@@ -292,8 +268,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             self.playlist.removeFirst(5)
             
             for url in shortened {
-                let item = AVPlayerItem(url: url)
-                self.player.insert(item, after: nil)
+                self.player.insert(AVPlayerItem(url: url), after: nil)
             }
             
             self.player.play()
@@ -304,8 +279,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
             let shortened = self.playlist.prefix(self.playlist.count)
             self.playlist.removeAll()
             for url in shortened {
-                let item = AVPlayerItem(url: url)
-                self.player.insert(item, after: nil)
+                self.player.insert(AVPlayerItem(url: url), after: nil)
             }
             
             self.player.play()
@@ -318,7 +292,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate
     // ----------------------------------------------------------------------- //
     
     func nextSong() {
-        if let item = self.player.currentItem { self.player.remove(item) }
+        // if let item = self.player.currentItem { self.player.remove(item) }
         self.player.play()
         self.metadata = self.fetchMetadata()
         self.ccUpdate()
