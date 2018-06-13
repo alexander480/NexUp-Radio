@@ -82,9 +82,9 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private func updateUserInterface() {
         self.songs = account.favorites
-        self.tableView.reloadData()
+        DispatchQueue.main.async { self.tableView.reloadData() }
         
+        if self.songs.count == account.favorites.count { self.timer.invalidate() }
         // if account.favorites.isEmpty { self.timer.invalidate() }
-        // if self.songs.count == account.favorites.count { self.timer.invalidate() }
     }
 }

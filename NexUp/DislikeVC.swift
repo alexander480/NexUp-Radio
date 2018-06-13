@@ -77,7 +77,6 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     private func updateUserInterface() {
         self.songs = account.dislikes
         DispatchQueue.main.async { self.tableView.reloadData() }
-        if account.dislikes.isEmpty { self.timer.invalidate() }
-        // if self.songs.count == account.dislikes.count { self.timer.invalidate() }
+        if self.songs.count == account.dislikes.count { self.timer.invalidate() }
     }
 }

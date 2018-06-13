@@ -72,10 +72,9 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func updateUserInterface() {
+        self.songs = account.recents.reversed()
+        DispatchQueue.main.async { self.tableView.reloadData() }
         if self.songs.count == account.recents.count { self.timer.invalidate() }
-        else { self.songs = account.recents.reversed() }
-
-        self.tableView.reloadData()
     }
 }
 
