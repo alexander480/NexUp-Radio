@@ -39,6 +39,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        account.shouldRefreshSkipCount()
         self.setupBanner(BannerView: self.banner, BannerID: self.bannerID)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }

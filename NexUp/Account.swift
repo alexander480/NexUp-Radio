@@ -44,6 +44,21 @@ class Account: NSObject {
         }
     }
     
+    func shouldRefreshSkipCount() {
+        if let savedDate = UserDefaults.standard.object(forKey: "date") as? Date {
+            let calendar = Calendar(identifier: .gregorian)
+            let comparison = calendar.compare(savedDate, to: Date(), toGranularity: .day)
+            if comparison == ComparisonResult.orderedSame { return; }
+            else {
+                if let user = auth.currentUser {
+                    db.reference(withPath: "users/\(user.uid)/skipCount").setValue(10)
+                    UserDefaults.setValue(Date(), forKey: "date");
+                }
+            }
+        }
+        else { UserDefaults.setValue(Date(), forKey: "date") }
+    }
+    
     func syncSkipCount() {
         if let user = auth.currentUser {
             let skipCountRef = db.reference(withPath: "users/\(user.uid)/skipCount")
