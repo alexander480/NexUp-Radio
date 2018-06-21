@@ -27,10 +27,12 @@ import FirebaseStorage
 var artistSelected = [String: String]()
 
 class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
-
+    
+    @IBOutlet weak var circleButton: ButtonClass!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     var artistClass = Artists()
     var artists = [[String: String]]()
     var timer = Timer()
@@ -56,7 +58,14 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private func updateUserInterface() {
         self.artists = artistClass.artists
         self.tableView.reloadData()
-        if self.artists.isEmpty == false { self.timer.invalidate() }
+        if let info = audio.metadata {
+            if let image = info["Image"] as? UIImage {
+                self.circleButton.setImage(image, for: .normal)
+            }
+        }
+        if let item = audio.player.currentItem {
+            self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

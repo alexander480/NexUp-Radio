@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BottomControls: UITabBar {
+class BottomControls: UIViewController {
     var timer = Timer()
     @IBOutlet weak var progress: UIProgressView!
     

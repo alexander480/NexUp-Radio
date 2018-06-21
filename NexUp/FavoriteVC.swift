@@ -16,19 +16,16 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var songs = [[String: String]]()
     var timer = Timer()
-    
-    @IBOutlet weak var banner: GADBannerView!
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
+
+    @IBOutlet weak var circleButton: ButtonClass!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.banner.adUnitID = bannerID
-        self.banner.rootViewController = self
-        self.banner.adSize = kGADAdSizeSmartBannerPortrait
-        self.banner.load(GADRequest())
-        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -83,10 +80,18 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     private func updateUserInterface() {
-        self.songs = account.favorites
-        DispatchQueue.main.async { self.tableView.reloadData() }
-        
-        if self.songs.count == account.favorites.count { self.timer.invalidate() }
-        // if account.favorites.isEmpty { self.timer.invalidate() }
+        if self.songs.count != account.favorites.count {
+            self.songs = account.favorites
+            DispatchQueue.main.async { self.tableView.reloadData() }
+        }
+ 
+        if let info = audio.metadata {
+            if let image = info["Image"] as? UIImage {
+                self.circleButton.setImage(image, for: .normal)
+            }
+        }
+        if let item = audio.player.currentItem {
+            self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
+        }
     }
 }

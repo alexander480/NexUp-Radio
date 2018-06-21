@@ -17,22 +17,20 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var timer = Timer()
     let bannerID = "ca-app-pub-3940256099942544/2934735716"
     let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
     
     let options = ["Favorites", "Dislikes", "Recently Played", "Premium"]
     
-    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    @IBOutlet weak var circleButton: ButtonClass!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.banner.adUnitID = bannerID
-        self.banner.rootViewController = self
-        self.banner.adSize = kGADAdSizeSmartBannerPortrait
-        self.banner.load(GADRequest())
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -45,6 +43,17 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
             self.backgroundImage?.blur()
         }
+        
+        timer = Timer(timeInterval: 1.0, repeats: true, block: { (timer) in
+            if let info = audio.metadata {
+                if let image = info["Image"] as? UIImage {
+                    self.circleButton.setImage(image, for: .normal)
+                }
+            }
+            if let item = audio.player.currentItem {
+                self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
+            }
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {

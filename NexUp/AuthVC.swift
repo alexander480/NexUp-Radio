@@ -22,12 +22,15 @@ import FirebaseStorage
 //
 
 class AuthVC: UIViewController {
+    var timer = Timer()
     let bannerID = "ca-app-pub-3940256099942544/2934735716"
     let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
     
-    @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    @IBOutlet weak var circleButton: ButtonClass!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     @IBAction func register(_ sender: Any) {
         if let email = self.emailField.text, let password = self.passwordField.text {
@@ -69,9 +72,15 @@ class AuthVC: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
-        self.banner.adUnitID = bannerID
-        self.banner.rootViewController = self
-        self.banner.adSize = kGADAdSizeSmartBannerPortrait
-        self.banner.load(GADRequest())
+        timer = Timer(timeInterval: 1.0, repeats: true, block: { (timer) in
+            if let info = audio.metadata {
+                if let image = info["Image"] as? UIImage {
+                    self.circleButton.setImage(image, for: .normal)
+                }
+            }
+            if let item = audio.player.currentItem {
+                self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
+            }
+        })
     }
 }

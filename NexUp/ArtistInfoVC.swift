@@ -26,6 +26,9 @@ class ArtistInfoVC: UIViewController {
     
     @IBOutlet weak var banner: GADBannerView!
     
+    @IBOutlet weak var circleButton: ButtonClass!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var artistCircleImage: ImageViewClass!
@@ -46,7 +49,15 @@ class ArtistInfoVC: UIViewController {
             self.artistCircleImage?.imageFromURL(urlString: artist["ImageURL"]!)
             
             self.artistImage?.blur()
-            self.timer.invalidate()
+        }
+        
+        if let info = audio.metadata {
+            if let image = info["Image"] as? UIImage {
+                self.circleButton.setImage(image, for: .normal)
+            }
+        }
+        if let item = audio.player.currentItem {
+            self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
         }
     }
 }
