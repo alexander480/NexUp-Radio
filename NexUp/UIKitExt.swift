@@ -65,10 +65,10 @@ extension UIImageView
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error != nil { print(error as Any); return }
                 DispatchQueue.main.async(execute: {
-                    if let imgaeToCache = UIImage(data: data!) {
-                        if imageURLString == urlString { self.image = imgaeToCache }
-                        imageCache.setObject(imgaeToCache, forKey: urlString as AnyObject) // calls when scrolling
-                        tableView.reloadRows(at: [indexpath], with: .automatic)
+                    if let imageToCache = UIImage(data: data!) {
+                        if imageURLString == urlString { self.image = imageToCache }
+                        imageCache.setObject(imageToCache, forKey: urlString as AnyObject) // calls when scrolling
+                        //tableView.reloadRows(at: [indexpath], with: .automatic)
                     }
                 })
             }).resume()

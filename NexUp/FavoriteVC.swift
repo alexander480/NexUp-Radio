@@ -7,13 +7,14 @@
 //
 
 import Foundation
-import UIKit
 import GoogleMobileAds
+import UIKit
 
 class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let bannerID = "ca-app-pub-3940256099942544/2934735716"
     let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
     
+    var xCells = 1
     var songs = [[String: String]]()
     var timer = Timer()
 
@@ -44,11 +45,12 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 175 } else { return 100 }
+        if indexPath.row == 0 { return 175 } else if indexPath.row == 1 { return 50 } else { return 100 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if songs.isEmpty { return 1 } else { return songs.count + 1 }
+        if songs.isEmpty { return 2 }
+        else { return self.songs.count + 2 }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,14 +62,22 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
+        else if row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AdCell") as! AdCell
+            let req = GADRequest()
+            req.testDevices = [ kGADSimulatorID ]
+            cell.banner.adUnitID = bannerID
+            cell.banner.rootViewController = self
+            cell.banner.adSize = kGADAdSizeSmartBannerPortrait
+            cell.banner.load(req)
+            return cell
+        }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-            
-            if let name = songs[row - 1]["Name"], let artist = songs[row - 1]["Artist"], let url = songs[row - 1]["Image"] {
+            if let name = songs[row - 2]["Name"], let artist = songs[row - 2]["Artist"], let url = songs[row - 2]["Image"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
                 cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
-                cell.cellImage.blur()
             }
             else {
                 cell.cellTitle.text = "Loading..."
@@ -77,6 +87,11 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
+    }
+    
+    private func insertAdCells() {
+        
+
     }
     
     private func updateUserInterface() {

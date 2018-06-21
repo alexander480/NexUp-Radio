@@ -1423,6 +1423,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="banner" destination="P5e-Qg-iCd" id="9a0-eH-aNe"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1633,6 +1636,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="banner" destination="rFT-IP-1Po" id="9iC-UF-aRd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1842,6 +1848,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="banner" destination="1NY-sr-fQN" id="UWu-NN-UW9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1945,8 +1954,8 @@
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UHD-Ui-JjU"/>
-        <segue reference="sYD-UE-MfO"/>
-        <segue reference="kkS-4o-nvS"/>
+        <segue reference="hFj-OX-5pM"/>
+        <segue reference="YsA-7a-O8A"/>
+        <segue reference="3y9-2K-8vS"/>
     </inferredMetricsTieBreakers>
 </document>
