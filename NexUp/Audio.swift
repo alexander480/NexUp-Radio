@@ -209,51 +209,55 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         else { self.player.play() } }
 
     func skip(didFinish: Bool) {
-        if self.player.items().isEmpty { self.shouldDisplayAd = true; self.needQueueReload = true; }
-        if let item = self.player.currentItem { self.player.remove(item) }
-        print("[INFO] Skipping To Next Song")
-        
-        if self.needQueueReload {
-            if didFinish || account.isPremium { self.reloadQueue() }
-            else if account.skipCount > 0 { account.updateSkipCount(To: account.skipCount - 1); self.reloadQueue() }
-            else { print("[INFO] Skip Limit Reached") }
-        }
-        else {
-            if didFinish || account.isPremium { self.nextSong() }
-            else if account.skipCount > 0 {
-                account.updateSkipCount(To: account.skipCount - 1);
-                self.nextSong()
+        avWorker.async {
+            if self.player.items().isEmpty { self.shouldDisplayAd = true; self.needQueueReload = true; }
+            if let item = self.player.currentItem { self.player.remove(item) }
+            print("[INFO] Skipping To Next Song")
+            
+            if self.needQueueReload {
+                if didFinish || account.isPremium { self.reloadQueue() }
+                else if account.skipCount > 0 { account.updateSkipCount(To: account.skipCount - 1); self.reloadQueue() }
+                else { print("[INFO] Skip Limit Reached") }
             }
-            else { print("[INFO] Skip Limit Reached") }
+            else {
+                if didFinish || account.isPremium { self.nextSong() }
+                else if account.skipCount > 0 {
+                    account.updateSkipCount(To: account.skipCount - 1);
+                    self.nextSong()
+                }
+                else { print("[INFO] Skip Limit Reached") }
+            }
         }
     }
     
     func reloadQueue() {
-        if self.playlist.isEmpty {
-            self.fetchPlaylist(Name: self.currentPlaylist)
-        }
-        else if self.playlist.count >= 5 {
-            let shortened = self.playlist.prefix(5)
-            self.playlist.removeFirst(5)
-            
-            for url in shortened {
-                self.player.insert(AVPlayerItem(url: url), after: nil)
+        avWorker.async {
+            if self.playlist.isEmpty {
+                self.fetchPlaylist(Name: self.currentPlaylist)
             }
-            
-            self.player.play()
-            self.metadata = self.fetchMetadata()
-            self.ccUpdate()
-        }
-        else {
-            let shortened = self.playlist.prefix(self.playlist.count)
-            self.playlist.removeAll()
-            for url in shortened {
-                self.player.insert(AVPlayerItem(url: url), after: nil)
+            else if self.playlist.count >= 5 {
+                let shortened = self.playlist.prefix(5)
+                self.playlist.removeFirst(5)
+                
+                for url in shortened {
+                    self.player.insert(AVPlayerItem(url: url), after: nil)
+                }
+                
+                self.player.play()
+                self.metadata = self.fetchMetadata()
+                self.ccUpdate()
             }
-            
-            self.player.play()
-            self.metadata = self.fetchMetadata()
-            self.ccUpdate()
+            else {
+                let shortened = self.playlist.prefix(self.playlist.count)
+                self.playlist.removeAll()
+                for url in shortened {
+                    self.player.insert(AVPlayerItem(url: url), after: nil)
+                }
+                
+                self.player.play()
+                self.metadata = self.fetchMetadata()
+                self.ccUpdate()
+            }
         }
     }
 

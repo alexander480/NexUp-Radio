@@ -30,7 +30,8 @@ class CircleControls: UIViewController {
     
     @IBOutlet weak var skipButton: UIButton!
     @IBAction func skipAction(_ sender: Any) {
-        if let vc = self.parent as? NowPlayingVC { vc.toggleLoading(isLoading: true) }
+        if let vc = self.parent as? NowPlayingVC {
+            vc.toggleLoading(isLoading: true) }
         audio.skip(didFinish: false)
     }
     

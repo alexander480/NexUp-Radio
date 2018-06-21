@@ -68,31 +68,30 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     
     func toggleLoading(isLoading: Bool) {
         if isLoading {
-            self.sidebar?.isHidden = true
-            self.revealSidebarButton?.isHidden = true
-            
             self.loadingView?.isHidden = false
             self.loadingSpinner?.startAnimating()
             
             self.controlCircleConstraint?.constant = 750
             self.loadingConstraint?.constant = -27.5
             
-            UIView.animate(withDuration: 0.5, animations: { self.view.layoutIfNeeded() })
-            
-            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+                self.controlCircleView?.alpha = 0.0
+                self.revealSidebarButton?.alpha = 0.0
+            })
         }
         else {
-            self.revealSidebarButton?.isHidden = false
-            
             self.loadingView?.isHidden = true
             self.loadingSpinner?.stopAnimating()
             self.loadingConstraint?.constant = 750
             
-            self.controlCircleView.isHidden = false
             self.controlCircleConstraint?.constant = 0
             
-            UIView.animate(withDuration: 0.5, animations: { self.view.layoutIfNeeded() })
-            self.sidebar?.isHidden = false
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+                self.controlCircleView?.alpha = 1.0
+                self.revealSidebarButton?.alpha = 1.0
+            })
         }
     }
     
@@ -137,11 +136,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     }
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) { ad.present(fromRootViewController: self) }
-
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        let segue = UnwindScaleSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
-        segue.perform()
-    }
     
     deinit { self.timer.invalidate() }
 }

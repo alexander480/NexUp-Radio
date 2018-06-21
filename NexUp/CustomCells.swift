@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleMobileAds
 import UIKit
 
 //  TODO
@@ -37,8 +38,11 @@ class AccountHeaderCell: UITableViewCell {
 }
 
 class AccountCell: UITableViewCell {
-    @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
+}
+
+class AdCell: UITableViewCell {
+    @IBOutlet weak var banner: GADBannerView!
 }
 
 /*
