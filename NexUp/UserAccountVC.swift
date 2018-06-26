@@ -63,7 +63,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 175 } else if indexPath.row == 1 { return 50 } else { return 100 }
+        if indexPath.row == 0 { return 215 } else if indexPath.row == 1 { return 50 } else { return 100 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

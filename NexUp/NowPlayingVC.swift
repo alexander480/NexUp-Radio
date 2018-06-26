@@ -33,9 +33,9 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var loadingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var sidebar: UIView!
     @IBOutlet weak var revealSidebarButton: ButtonClass!
     @IBAction func revealSidebarAction(_ sender: Any) { self.toggleSidebar() }
-    @IBOutlet weak var sidebar: UIView!
     
     @IBOutlet weak var circleButton: ButtonClass!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -45,9 +45,12 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         
         // account.shouldRefreshSkipCount()
         
+        if auth.currentUser == nil {
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
+        }
+        
         self.circleButton.setImage(#imageLiteral(resourceName: "iTunesArtwork"), for: .normal)
         self.progressBar.progress = 0.0
-        
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     

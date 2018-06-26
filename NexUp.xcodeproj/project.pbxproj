@@ -250,8 +250,8 @@
 		E59BA42B20D347A800637F47 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */,
 				1489A7B31F33CCFC00A6E404 /* Main.storyboard */,
+				1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */,
 				1489A7B61F33CCFC00A6E404 /* Assets.xcassets */,
 			);
 			name = Storyboard;
