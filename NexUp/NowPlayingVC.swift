@@ -58,7 +58,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         if let info = audio.metadata {
             if let image = info["Image"] as? UIImage, let background = self.backgroundImage {
                 self.circleButton.setImage(image, for: .normal)
-                background.removeBlur(); background.image = image; background.isHidden = false;
+                background.image = image; background.isHidden = false;
                 if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
             }
             self.toggleLoading(isLoading: false)

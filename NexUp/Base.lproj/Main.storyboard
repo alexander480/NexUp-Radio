@@ -78,7 +78,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.10194466263055801" green="0.10197005420923233" blue="0.10194308310747147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="345" id="HUU-bx-Ovg"/>
                                     <constraint firstAttribute="height" constant="202" id="NIU-35-ORw"/>
@@ -200,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYu-WP-Ydk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="1136"/>
+            <point key="canvasLocation" x="-1138" y="1140"/>
         </scene>
         <!--Artist Info-->
         <scene sceneID="PdO-Ik-Yr6">
@@ -544,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwd-9k-oKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1249" y="1136"/>
+            <point key="canvasLocation" x="-1674" y="1140"/>
         </scene>
         <!--AuthVC-->
         <scene sceneID="VFw-oT-GHF">
@@ -746,7 +746,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JLb-Aa-gYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="418"/>
+            <point key="canvasLocation" x="-1138" y="422"/>
         </scene>
         <!--User Account-->
         <scene sceneID="R9W-hF-LiH">
@@ -1076,7 +1076,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QX-vm-0Ae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="1773"/>
+            <point key="canvasLocation" x="-1138" y="1777"/>
         </scene>
         <!--Artists-->
         <scene sceneID="vKp-Gw-v9f">
@@ -1876,8 +1876,8 @@
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hFj-OX-5pM"/>
-        <segue reference="4y7-n7-rnr"/>
-        <segue reference="9uQ-PT-oVn"/>
+        <segue reference="UHD-Ui-JjU"/>
+        <segue reference="sYD-UE-MfO"/>
+        <segue reference="2cq-cv-aNo"/>
     </inferredMetricsTieBreakers>
 </document>
