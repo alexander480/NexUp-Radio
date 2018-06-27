@@ -17,9 +17,11 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var timer = Timer()
     let bannerID = "ca-app-pub-3940256099942544/2934735716"
     let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
+    
+    var timer = Timer()
+    var cellIndex: IndexPath?
     
     let options = ["Favorites", "Dislikes", "Recently Played", "Premium"]
     
@@ -44,16 +46,9 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.backgroundImage?.blur()
         }
         
-        timer = Timer(timeInterval: 1.0, repeats: true, block: { (timer) in
-            if let info = audio.metadata {
-                if let image = info["Image"] as? UIImage {
-                    self.circleButton.setImage(image, for: .normal)
-                }
-            }
-            if let item = audio.player.currentItem {
-                self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
-            }
-        })
+        self.circleButton.setImage(#imageLiteral(resourceName: "iTunesArtwork"), for: .normal)
+        self.progressBar.progress = 0.0
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,7 +58,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 215 } else if indexPath.row == 1 { return 50 } else { return 100 }
+        if indexPath.row == 0 { return 215 } else if indexPath.row == 1 { return 90.5 } else { return 100 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,9 +66,40 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.cellHandler(forRow: indexPath.row)
-        
-        return cell
+        let row = indexPath.row
+        if row == 0 {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountHeaderCell") as! AccountHeaderCell
+            cell.cellImage.image = #imageLiteral(resourceName: "Image Account")
+            cell.cellTitle.text = "User Account"
+            cell.selectionStyle = .none
+            if let email = auth.currentUser?.email { cell.cellDetail.text = email } else { cell.cellDetail.text = "Please Login or Register" }
+            
+            return cell
+        }
+        else if row == 1 {
+            let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
+            let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
+            bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
+            
+            for view in cell.contentView.subviews { if view.isMember(of: GADBannerView.self) { view.removeFromSuperview() } }
+            
+            cell.addSubview(bannerView)
+            
+            DispatchQueue.global(qos: .background).async() {
+                let request = GADRequest()
+                request.testDevices = [kGADSimulatorID]
+                DispatchQueue.main.async() { bannerView.load(request) }
+            }
+            
+            return cell
+        }
+        else {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountCell") as! AccountCell
+            cell.cellTitle.text = options[row - 2]
+            cell.selectionStyle = .none
+            
+            return cell
+        }
     }
     
     private func updateHeaderCell(UserEmail: String) {
@@ -81,36 +107,6 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if let headerCell = self.tableView.cellForRow(at: row) as? AccountHeaderCell {
             headerCell.cellDetail.text = UserEmail
             self.tableView.reloadRows(at: [row], with: UITableViewRowAnimation.automatic)
-        }
-    }
-    
-    private func cellHandler(forRow: Int) -> UITableViewCell {
-        if forRow == 0 {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountHeaderCell") as! AccountHeaderCell
-            cell.cellImage.image = #imageLiteral(resourceName: "Image Account")
-            cell.cellTitle.text = "User Account"
-            cell.selectionStyle = .none
-            if let email = auth.currentUser?.email { cell.cellDetail.text = email } else { cell.cellDetail.text = "Please Login or Register" }
-
-            return cell
-        }
-        else if forRow == 1 {
-            let req = GADRequest()
-                req.testDevices = [ kGADSimulatorID ]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AdCell") as! AdCell
-                cell.banner.adUnitID = bannerID
-                cell.banner.rootViewController = self
-                cell.banner.adSize = kGADAdSizeSmartBannerPortrait
-                cell.banner.load(req)
-            
-            return cell
-        }
-        else {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountCell") as! AccountCell
-            cell.cellTitle.text = options[forRow - 2]
-            cell.selectionStyle = .none
-            
-            return cell
         }
     }
     
@@ -157,6 +153,15 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 let subscriptions = SubscriptionHandler()
                 subscriptions.getInfo()
                 subscriptions.showAlert(ViewController: self)
+            }
+        }
+    }
+    
+    private func updateUserInterface() {
+        if let info = audio.metadata {
+            if let image = info["Image"] as? UIImage {
+                self.circleButton.setImage(image, for: .normal)
+                if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
             }
         }
     }

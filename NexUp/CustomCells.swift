@@ -42,8 +42,19 @@ class AccountCell: UITableViewCell {
 }
 
 class AdCell: UITableViewCell {
-    @IBOutlet weak var banner: GADBannerView!
+    func cellBannerView(rootVC: UIViewController, frame: CGRect) -> GADBannerView {
+        let bannerView = GADBannerView()
+        bannerView.frame = frame
+        bannerView.rootViewController = rootVC
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adSize = kGADAdSizeBanner
+        
+        return bannerView
+        
+    }
+
 }
+
 
 /*
 class GenreCell: UITableViewCell {

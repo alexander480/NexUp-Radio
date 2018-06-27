@@ -14,6 +14,7 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let bannerID = "ca-app-pub-3940256099942544/2934735716"
     
     var songs = [[String: String]]()
+    var tableTimer = Timer()
     var timer = Timer()
     
     @IBOutlet weak var tableView: UITableView!
@@ -33,13 +34,14 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let image = audio.metadata?["Image"] as? UIImage { self.backgroundImage?.image = image; self.backgroundImage?.blur() }
         else { self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork"); self.backgroundImage?.blur() }
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
+        self.tableTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateTableData() })
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
     override var prefersStatusBarHidden: Bool { return true }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 185 } else if indexPath.row == 1 { return 50 } else { return 100 }
+        if indexPath.row == 0 { return 185 } else if indexPath.row == 1 { return 90.5 } else { return 100 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { if songs.isEmpty { return 1 } else { return songs.count + 2 } }
@@ -54,13 +56,24 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else if row == 1 {
-            let req = GADRequest()
-                req.testDevices = [ kGADSimulatorID ]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AdCell") as! AdCell
-                cell.banner.adUnitID = bannerID
-                cell.banner.rootViewController = self
-                cell.banner.adSize = kGADAdSizeSmartBannerPortrait
-                cell.banner.load(req)
+            let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
+            let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
+            bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
+            for view in cell.contentView.subviews {
+                if view.isMember(of: GADBannerView.self) {
+                    view.removeFromSuperview() // Make sure that the cell does not have any previously added GADBanner view as it would be reused
+                }
+            }
+            
+            cell.addSubview(bannerView)
+            
+            DispatchQueue.global(qos: .background).async() { // Get the request in the background thread
+                let request = GADRequest()
+                request.testDevices = [kGADSimulatorID]
+                DispatchQueue.main.async() {
+                    bannerView.load(request)
+                }
+            }
             
             return cell
         }
@@ -82,11 +95,6 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     private func updateUserInterface() {
-        if self.songs.count != account.recents.count {
-            self.songs = account.recents.reversed()
-            DispatchQueue.main.async { self.tableView.reloadData() }
-        }
-        
         if let info = audio.metadata {
             if let image = info["Image"] as? UIImage {
                 self.circleButton.setImage(image, for: .normal)
@@ -95,5 +103,10 @@ class RecentVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let item = audio.player.currentItem {
             self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
         }
+    }
+    
+    private func updateTableData() {
+        if self.songs.count != account.recents.count { self.songs = account.recents; DispatchQueue.main.async { self.tableView.reloadData() } }
+        else { self.tableTimer.invalidate() }
     }
 }

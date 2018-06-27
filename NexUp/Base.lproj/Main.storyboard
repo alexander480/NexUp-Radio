@@ -78,7 +78,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.020128038189999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="345" id="HUU-bx-Ovg"/>
                                     <constraint firstAttribute="height" constant="202" id="NIU-35-ORw"/>
@@ -848,26 +848,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="obu-yV-Cxv" id="eCM-0a-bn1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26P-kz-yDV" customClass="GADBannerView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="F2c-6g-56S"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="26P-kz-yDV" firstAttribute="leading" secondItem="eCM-0a-bn1" secondAttribute="leading" id="QAa-TY-xMt"/>
-                                                <constraint firstItem="26P-kz-yDV" firstAttribute="top" secondItem="eCM-0a-bn1" secondAttribute="top" id="diX-Nm-6gd"/>
-                                                <constraint firstAttribute="trailing" secondItem="26P-kz-yDV" secondAttribute="trailing" id="hhk-ce-76r"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="banner" destination="26P-kz-yDV" id="WaU-Xq-P8G"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1220,7 +1203,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rb6-Wy-vOl">
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rb6-Wy-vOl">
                                                     <rect key="frame" x="0.0" y="-138" width="375" height="375"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Rb6-Wy-vOl" secondAttribute="height" multiplier="1:1" id="IiL-gP-5D8"/>
@@ -1233,6 +1216,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Rb6-Wy-vOl" firstAttribute="leading" secondItem="Q9e-P5-8HI" secondAttribute="leading" id="Bkp-TC-sBG"/>
                                                 <constraint firstAttribute="trailing" secondItem="HNI-7j-cRs" secondAttribute="trailing" id="JOz-jD-JvW"/>
@@ -1250,27 +1234,13 @@
                                             <outlet property="artistName" destination="HNI-7j-cRs" id="iO5-7B-Xlc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="8or-zx-2P1" customClass="AccountCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="vyt-7x-ht7" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8or-zx-2P1" id="dL5-sA-ERq">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vyt-7x-ht7" id="91N-9S-BHa">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Gd-Rc-vOR" customClass="GADBannerView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="HYG-hT-y6L"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="3Gd-Rc-vOR" firstAttribute="leading" secondItem="dL5-sA-ERq" secondAttribute="leading" id="FtE-1P-Zwp"/>
-                                                <constraint firstAttribute="trailing" secondItem="3Gd-Rc-vOR" secondAttribute="trailing" id="HNS-wy-Ks5"/>
-                                                <constraint firstItem="3Gd-Rc-vOR" firstAttribute="top" secondItem="dL5-sA-ERq" secondAttribute="top" id="ll2-9R-Y1H"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
@@ -1366,7 +1336,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buf-lZ-fKO">
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buf-lZ-fKO">
                                                     <rect key="frame" x="0.0" y="-213" width="414" height="414"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1384,6 +1354,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="DRb-nQ-piF" firstAttribute="top" secondItem="2iZ-PQ-tW5" secondAttribute="bottom" id="7ln-Rz-xTR"/>
                                                 <constraint firstAttribute="trailing" secondItem="DRb-nQ-piF" secondAttribute="trailing" id="CIT-Cn-wwi"/>
@@ -1406,26 +1377,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZh-my-B4Y" id="6qk-xo-eau">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5e-Qg-iCd" customClass="GADBannerView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="YMb-q0-yNR"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="P5e-Qg-iCd" firstAttribute="leading" secondItem="6qk-xo-eau" secondAttribute="leading" id="L57-9p-IZJ"/>
-                                                <constraint firstItem="P5e-Qg-iCd" firstAttribute="top" secondItem="6qk-xo-eau" secondAttribute="top" id="OEn-pc-cK8"/>
-                                                <constraint firstAttribute="trailing" secondItem="P5e-Qg-iCd" secondAttribute="trailing" id="zf3-ST-Xjz"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="banner" destination="P5e-Qg-iCd" id="9a0-eH-aNe"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1579,7 +1533,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-Zo-xY0">
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-Zo-xY0">
                                                     <rect key="frame" x="0.0" y="-213" width="414" height="414"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1596,6 +1550,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="jtt-Uw-d3B" secondAttribute="trailing" id="Kqy-VB-QgN"/>
                                                 <constraint firstItem="gFU-6L-nF2" firstAttribute="top" secondItem="jtt-Uw-d3B" secondAttribute="bottom" id="XVb-tj-7AQ"/>
@@ -1619,26 +1574,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4tg-q2-Xbg" id="iVP-aO-Pm9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFT-IP-1Po" customClass="GADBannerView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="nLV-bP-czh"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="rFT-IP-1Po" secondAttribute="trailing" id="Idb-5A-ClD"/>
-                                                <constraint firstItem="rFT-IP-1Po" firstAttribute="top" secondItem="iVP-aO-Pm9" secondAttribute="top" id="Shv-LE-fkb"/>
-                                                <constraint firstItem="rFT-IP-1Po" firstAttribute="leading" secondItem="iVP-aO-Pm9" secondAttribute="leading" id="lvD-yo-O10"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="banner" destination="rFT-IP-1Po" id="9iC-UF-aRd"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1792,7 +1730,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mi-0t-h93">
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mi-0t-h93">
                                                     <rect key="frame" x="0.0" y="-213" width="414" height="414"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1809,6 +1747,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Ism-0j-k6p" firstAttribute="leading" secondItem="Ejk-Li-qvJ" secondAttribute="leading" id="5UN-wD-z8y"/>
                                                 <constraint firstItem="q8i-fQ-wjw" firstAttribute="top" secondItem="Ism-0j-k6p" secondAttribute="bottom" id="DUw-LN-r7X"/>
@@ -1831,26 +1770,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBY-nG-4l1" id="dYI-a4-bmB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NY-sr-fQN" customClass="GADBannerView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="4EK-a0-0Ms"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="1NY-sr-fQN" firstAttribute="leading" secondItem="dYI-a4-bmB" secondAttribute="leading" id="Nss-Ri-zEW"/>
-                                                <constraint firstAttribute="trailing" secondItem="1NY-sr-fQN" secondAttribute="trailing" id="qbp-wT-rOi"/>
-                                                <constraint firstItem="1NY-sr-fQN" firstAttribute="top" secondItem="dYI-a4-bmB" secondAttribute="top" id="trC-Pa-2Ib"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="banner" destination="1NY-sr-fQN" id="UWu-NN-UW9"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1955,7 +1877,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hFj-OX-5pM"/>
-        <segue reference="YsA-7a-O8A"/>
-        <segue reference="3y9-2K-8vS"/>
+        <segue reference="4y7-n7-rnr"/>
+        <segue reference="9uQ-PT-oVn"/>
     </inferredMetricsTieBreakers>
 </document>

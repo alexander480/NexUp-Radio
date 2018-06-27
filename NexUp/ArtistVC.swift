@@ -70,12 +70,13 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 { return 175 }
+        else if indexPath.row == 1 { return 90.5 }
         else { return 100 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if artists.isEmpty { return 1 }
-        else { return artists.count + 1 }
+        if artists.isEmpty { return 2 }
+        else { return artists.count + 2 }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,9 +88,26 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
+        if row == 1 {
+            let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
+            let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
+            bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
+            
+            for view in cell.contentView.subviews { if view.isMember(of: GADBannerView.self) { view.removeFromSuperview() } }
+            
+            cell.addSubview(bannerView)
+            
+            DispatchQueue.global(qos: .background).async() {
+                let request = GADRequest()
+                request.testDevices = [kGADSimulatorID]
+                DispatchQueue.main.async() { bannerView.load(request) }
+            }
+            
+            return cell
+        }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCell") as! ArtistCell
-            if let name = artists[row - 1]["Name"], let url = artists[row - 1]["ImageURL"] {
+            if let name = artists[row - 2]["Name"], let url = artists[row - 2]["ImageURL"] {
                 cell.artistName?.text = name
                 cell.artistImage?.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
             }
@@ -104,7 +122,7 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ArtistInfoVC") as? ArtistInfoVC {
-            artistSelected = self.artists[indexPath.row - 1]
+            artistSelected = self.artists[indexPath.row - 2]
             present(vc, animated: true, completion: nil)
         }
     }
