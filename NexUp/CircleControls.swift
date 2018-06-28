@@ -53,12 +53,12 @@ class CircleControls: UIViewController {
                     else { self.favoriteButton.setImage(#imageLiteral(resourceName: "thumbs-up-white"), for: .normal) }
                 }
             }
-            if account.isPremium {
-                self.skipsRemaining?.text = "Unlimited Skips"
-            }
-            else {
-                self.skipsRemaining?.text = "\(account.skipCount) Skips Remaining"
-            }
+            
+            if account.isPremium { self.skipsRemaining?.text = "Unlimited Skips" }
+            else { self.skipsRemaining?.text = "\(account.skipCount) Skips Remaining" }
+            
+            if audio.player.isPlaying { self.pauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal) }
+            else { self.pauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal) }
         }
     }
     

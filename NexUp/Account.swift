@@ -38,9 +38,15 @@ class Account: NSObject {
     
     func updateSkipCount(To: Int) {
         if let user = auth.currentUser {
+            db.reference(withPath: "users/\(user.uid)/skipCount").setValue(To)
             self.skipCount = To
-            let skipCountRef = db.reference(withPath: "users/\(user.uid)/skipCount")
-            skipCountRef.setValue(10)
+        }
+    }
+    
+    func refreshSkipCount() {
+        if let uid = auth.currentUser?.uid {
+            db.reference(withPath: "users/\(uid)/skipCount").setValue(10)
+            self.skipCount = 10
         }
     }
     

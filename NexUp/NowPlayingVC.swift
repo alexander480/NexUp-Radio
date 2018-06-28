@@ -51,7 +51,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         
         self.circleButton.setImage(#imageLiteral(resourceName: "iTunesArtwork"), for: .normal)
         self.progressBar.progress = 0.0
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in self.updateUserInterface() })
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
     private func updateUserInterface() {

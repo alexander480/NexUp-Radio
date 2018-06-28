@@ -46,12 +46,12 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 185 } else if indexPath.row == 1 { return 90.5 } else { return 100 }
+        if indexPath.row == 0 { return 185 } /* else if indexPath.row == 1 { return 90.5 } */ else { return 100 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if songs.isEmpty { return 2 }
-        else { return self.songs.count + 2 }
+        if songs.isEmpty { return 1 /*2*/ }
+        else { return self.songs.count + 1 /*2*/ }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,31 +63,31 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-        else if row == 1 {
-            let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
-            let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
-            bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
-            for view in cell.contentView.subviews {
-                if view.isMember(of: GADBannerView.self) {
-                    view.removeFromSuperview() // Make sure that the cell does not have any previously added GADBanner view as it would be reused
-                }
-            }
-            
-            cell.addSubview(bannerView)
-            
-            DispatchQueue.global(qos: .background).async() { // Get the request in the background thread
-                let request = GADRequest()
-                request.testDevices = [kGADSimulatorID]
-                DispatchQueue.main.async() {
-                    bannerView.load(request)
-                }
-            }
-            
-            return cell
-        }
+//        else if row == 1 {
+//            let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
+//            let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
+//            bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
+//            for view in cell.contentView.subviews {
+//                if view.isMember(of: GADBannerView.self) {
+//                    view.removeFromSuperview() // Make sure that the cell does not have any previously added GADBanner view as it would be reused
+//                }
+//            }
+//
+//            cell.addSubview(bannerView)
+//
+//            DispatchQueue.global(qos: .background).async() { // Get the request in the background thread
+//                let request = GADRequest()
+//                request.testDevices = [kGADSimulatorID]
+//                DispatchQueue.main.async() {
+//                    bannerView.load(request)
+//                }
+//            }
+//
+//            return cell
+//        }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-            if let name = songs[row - 2]["Name"], let artist = songs[row - 2]["Artist"], let url = songs[row - 2]["Image"] {
+            if let name = songs[row - 1 /*2*/]["Name"], let artist = songs[row - 1 /*2*/]["Artist"], let url = songs[row - 1 /*2*/]["Image"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
                 cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)

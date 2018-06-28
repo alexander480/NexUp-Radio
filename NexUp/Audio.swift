@@ -116,6 +116,9 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
                 metadata["URL"] = String(describing: (item.asset as! AVURLAsset).url)
             }
         }
+        
+        if metadata.count == 0 { self.skip(didFinish: true) }
+        
         print("[INFO] Fetched \(metadata.count) Metadata Items")
         
         return metadata
@@ -211,18 +214,28 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
     func skip(didFinish: Bool) {
         avWorker.async {
             if self.player.items().isEmpty { self.shouldDisplayAd = true; self.needQueueReload = true; }
-            if let item = self.player.currentItem { self.player.remove(item) }
             print("[INFO] Skipping To Next Song")
             
             if self.needQueueReload {
-                if didFinish || account.isPremium { self.reloadQueue() }
-                else if account.skipCount > 0 { account.updateSkipCount(To: account.skipCount - 1); self.reloadQueue() }
+                if didFinish || account.isPremium {
+                    if let item = self.player.currentItem { self.player.remove(item) };
+                    self.reloadQueue();
+                }
+                else if account.skipCount > 0 {
+                    account.updateSkipCount(To: account.skipCount - 1);
+                    if let item = self.player.currentItem { self.player.remove(item) };
+                    self.reloadQueue();
+                }
                 else { print("[INFO] Skip Limit Reached") }
             }
             else {
-                if didFinish || account.isPremium { self.nextSong() }
+                if didFinish || account.isPremium {
+                    if let item = self.player.currentItem { self.player.remove(item) };
+                    self.nextSong()
+                }
                 else if account.skipCount > 0 {
                     account.updateSkipCount(To: account.skipCount - 1);
+                    if let item = self.player.currentItem { self.player.remove(item) }
                     self.nextSong()
                 }
                 else { print("[INFO] Skip Limit Reached") }
@@ -263,8 +276,13 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
 
     func nextSong() {
         // if let item = self.player.currentItem { self.player.remove(item) }
-        self.player.play()
-        self.metadata = self.fetchMetadata()
-        self.ccUpdate()
+        if account.isPremium || account.skipCount > 0 {
+            self.player.play()
+            self.metadata = self.fetchMetadata()
+            self.ccUpdate()
+        }
+        else {
+            print("[INFO] Skip Limit Reached")
+        }
     }
 }

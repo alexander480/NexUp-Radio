@@ -58,11 +58,11 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 215 } else if indexPath.row == 1 { return 90.5 } else { return 100 }
+        if indexPath.row == 0 { return 215 } /*else if indexPath.row == 1 { return 90.5 }*/ else { return 100 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count + 2
+        return options.count + 1 /*2*/
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,7 +76,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             return cell
         }
-        else if row == 1 {
+      /*  else if row == 1 {
             let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
             let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
             bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
@@ -92,10 +92,10 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             
             return cell
-        }
+        } */
         else {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountCell") as! AccountCell
-            cell.cellTitle.text = options[row - 2]
+            cell.cellTitle.text = options[row - 1 /*2*/]
             cell.selectionStyle = .none
             
             return cell
@@ -113,7 +113,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 { if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
 }
-        if indexPath.row == 2 {
+        if indexPath.row == 1/*2*/ {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
@@ -126,7 +126,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 }
             }
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 2 /*3*/ {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
@@ -135,7 +135,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "DislikeVC") { present(vc, animated: true, completion: nil) }
             }
         }
-        else if indexPath.row == 4 {
+        else if indexPath.row == 3 /*4*/ {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
@@ -144,7 +144,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecentVC") { present(vc, animated: true, completion: nil) }
             }
         }
-        else if indexPath.row == 5 {
+        else if indexPath.row == 4 /*5*/ {
             if auth.currentUser == nil {
                 self.alert(Title: "Please Login or Sign up", Description: nil)
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }

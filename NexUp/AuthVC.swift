@@ -39,6 +39,7 @@ class AuthVC: UIViewController {
                     print("[INFO] User \(user.uid) Account Created")
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserAccountVC") { self.present(vc, animated: true, completion: nil) }
                     else { print("Error Initalizing ArtistVC") }
+                    account.syncSkipCount()
                 }
                 else if let error = err {
                     print("[WARNING] Could Not Register User")
@@ -57,6 +58,9 @@ class AuthVC: UIViewController {
                     print("[INFO] User \(user.uid) Signed In")
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserAccountVC") { self.present(vc, animated: true, completion: nil) }
                     else { print("Error Initalizing ArtistVC") }
+                    
+                    account.syncSkipCount()
+                    account.syncPremiumStatus()
                 }
                 else if let error = err {
                     print("[WARNING] Could Not Sign In User")
