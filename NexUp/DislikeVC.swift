@@ -40,11 +40,13 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { return 185 } else if indexPath.row == 1 { return 90.5 } else { return 100 }
+        if account.isPremium { if indexPath.row == 0 { return 185 } else { return 100 } }
+        else { if indexPath.row == 0 { return 185 } else if indexPath.row == 1 { return 90.5 } else { return 100 } }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if songs.isEmpty { return 1 } else { return songs.count + 2 }
+        if account.isPremium { if songs.isEmpty { return 1 } else { return self.songs.count + 1 } }
+        else { if songs.isEmpty { return 2 } else { return self.songs.count + 2 } }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +58,7 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-        else if row == 1 {
+        else if row == 1 && account.isPremium == false {
             let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
             let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
             bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
@@ -69,18 +71,16 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.addSubview(bannerView)
             
             DispatchQueue.global(qos: .background).async() { // Get the request in the background thread
-                let request = GADRequest()
-                request.testDevices = [kGADSimulatorID]
-                DispatchQueue.main.async() {
-                    bannerView.load(request)
-                }
+                let request = GADRequest(); request.testDevices = [kGADSimulatorID]
+                DispatchQueue.main.async() { bannerView.load(request) }
             }
             
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-            if let name = songs[row - 2]["Name"], let artist = songs[row - 2]["Artist"], let url = songs[row - 2]["Image"] {
+            var x = 2; if account.isPremium { x = 1 }
+            if let name = songs[row - x]["Name"], let artist = songs[row - x]["Artist"], let url = songs[row - x]["Image"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
                 cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
@@ -96,13 +96,9 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     private func updateUserInterface() {
-        if let info = audio.metadata {
-            if let image = info["Image"] as? UIImage {
-                self.circleButton.setImage(image, for: .normal)
-            }
-        }
-        if let item = audio.player.currentItem {
-            self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
+        if let info = audio.metadata { if let image = info["Image"] as? UIImage {
+            self.circleButton.setImage(image, for: .normal) }
+            if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
         }
     }
     

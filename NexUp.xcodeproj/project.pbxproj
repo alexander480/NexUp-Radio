@@ -18,10 +18,10 @@
 		1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */; };
 		14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E26A151F4CBE5200FFC55D /* Audio.swift */; };
 		53E366EF20059EEA0086C82F /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E366EE20059EEA0086C82F /* CustomCells.swift */; };
-		561D869DD46E6F8A05F306D6 /* Pods_NexUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */; };
 		E51B22AB200316DC009F09A1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B22AA200316DC009F09A1 /* Account.swift */; };
 		E5263C7B20D35DAF007039BE /* SlideFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5263C7A20D35DAF007039BE /* SlideFromLeft.swift */; };
 		E5263C7D20D35FDC007039BE /* SlideFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5263C7C20D35FDB007039BE /* SlideFromRight.swift */; };
+		E5384D2520E74B890085AF0E /* Pods_NexUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654ED2B9B900B0585705BDEF /* Pods_NexUp.framework */; };
 		E53C4A2D2001C1BB00D38465 /* UserAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2C2001C1BB00D38465 /* UserAccountVC.swift */; };
 		E53C4A2F2001C1D500D38465 /* ArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A2E2001C1D500D38465 /* ArtistVC.swift */; };
 		E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */; };
@@ -95,7 +95,7 @@
 				144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */,
 				E59BA253202D17700050588D /* StoreKit.framework in Frameworks */,
 				E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */,
-				561D869DD46E6F8A05F306D6 /* Pods_NexUp.framework in Frameworks */,
+				E5384D2520E74B890085AF0E /* Pods_NexUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

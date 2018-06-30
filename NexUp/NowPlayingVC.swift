@@ -19,11 +19,12 @@ let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
 
 class NowPlayingVC: UIViewController, GADInterstitialDelegate {
+    
     let bannerID = "ca-app-pub-3940256099942544/2934735716"
     let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
     
-    var interstitial: GADInterstitial!
     var timer = Timer()
+    var interstitial: GADInterstitial!
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var controlCircleConstraint: NSLayoutConstraint!
@@ -46,34 +47,42 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         // account.shouldRefreshSkipCount()
         
         if auth.currentUser == nil {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") { present(vc, animated: true, completion: nil) }
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
+                present(vc, animated: true, completion: nil)
+            }
         }
         
-        self.circleButton.setImage(#imageLiteral(resourceName: "iTunesArtwork"), for: .normal)
         self.progressBar.progress = 0.0
+        self.circleButton.setImage(#imageLiteral(resourceName: "iTunesArtwork"), for: .normal)
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
+    
+    // MARK: UPDATE UI //
     
     private func updateUserInterface() {
         if let info = audio.metadata {
             if let image = info["Image"] as? UIImage, let background = self.backgroundImage {
-                self.circleButton.setImage(image, for: .normal)
-                background.image = image; background.isHidden = false;
+                background.image = image
+                background.isHidden = false
                 if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
+                self.circleButton.setImage(image, for: .normal)
             }
             self.toggleLoading(isLoading: false)
         }
         else { self.toggleLoading(isLoading: true) }
-        if audio.shouldDisplayAd { interstitial = self.createInterstitial(); audio.shouldDisplayAd = false }
+        
+        if audio.shouldDisplayAd {
+            interstitial = self.createInterstitial();
+            audio.shouldDisplayAd = false
+        }
     }
     
-    // MARK: Toggle Loading
+    // MARK: TOGGLE LOADING //
     
     func toggleLoading(isLoading: Bool) {
         if isLoading {
             self.loadingView?.isHidden = false
             self.loadingSpinner?.startAnimating()
-            
             self.controlCircleConstraint?.constant = 750
             self.loadingConstraint?.constant = -27.5
             
@@ -87,7 +96,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
             self.loadingView?.isHidden = true
             self.loadingSpinner?.stopAnimating()
             self.loadingConstraint?.constant = 750
-            
             self.controlCircleConstraint?.constant = 0
             
             UIView.animate(withDuration: 0.5, animations: {
@@ -98,12 +106,11 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         }
     }
     
-    // MARK: Toggle Sidebar //
+    // MARK: TOGGLE SIDEBAR //
     
     func toggleSidebar() {
         let sOrigin = self.sidebar.frame.origin
         let sSize = self.sidebar.frame.size
-        
         let bOrigin = self.revealSidebarButton.frame.origin
         let bSize = self.revealSidebarButton.frame.size
         
@@ -122,19 +129,20 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
             })
         }
     }
+    
+    // MARK: TOGGLE CIRCLE //
 
     private func toggleCircle() {
         if self.controlCircleConstraint?.constant == 0 { self.controlCircleConstraint?.constant = 750 }
         else if self.controlCircleConstraint?.constant == 750 { self.controlCircleConstraint?.constant = 0 }
-        
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }
-    
+
     private func createInterstitial() -> GADInterstitial {
         let interstitial = GADInterstitial(adUnitID: fullScreenID)
-        interstitial.delegate = self
-        interstitial.load(GADRequest())
-        
+            interstitial.delegate = self
+            interstitial.load(GADRequest())
+    
         return interstitial
     }
     
