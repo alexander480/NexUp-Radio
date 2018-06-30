@@ -30,6 +30,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
     var player = AVQueuePlayer()
     var playlist = [URL]()
     var metadata: [String: Any]?
+    var previousSong: AVPlayerItem?
     
     var currentPlaylist = ""
     var shouldDisplayAd = false
@@ -89,6 +90,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
     // MARK: SONG FINISHED LISTENER //
     
     @objc func playerDidFinishPlaying() {
+        if let finishedSong = self.player.currentItem { self.previousSong = finishedSong }
         print("[INFO] Player Finished Playing")
         account.addSongToRecents()
         self.skip(didFinish: true)

@@ -10,12 +10,15 @@ import Foundation
 import UIKit
 
 class CircleControls: UIViewController {
+    
     var timer = Timer()
     
     @IBOutlet weak var songName: UILabel!
     @IBOutlet weak var songArtist: UILabel!
+    
     @IBOutlet weak var pauseButton: UIButton!
     @IBAction func pauseAction(_ sender: Any) { self.togglePlaybackIcon(); audio.togglePlayback() }
+    
     @IBOutlet weak var dislikeButton: UIButton!
     @IBAction func dislikeAction(_ sender: Any) {
         self.dislikeButton.setImage(#imageLiteral(resourceName: "thumbs-down-red"), for: .normal)
@@ -24,18 +27,22 @@ class CircleControls: UIViewController {
     }
     
     @IBOutlet weak var favoriteButton: UIButton!
-    @IBAction func favoriteAction(_ sender: Any) {
-        account.addSongToFavorites()
-    }
+    @IBAction func favoriteAction(_ sender: Any) { account.addSongToFavorites() }
     
+    @IBOutlet weak var skipsRemaining: UILabel!
     @IBOutlet weak var skipButton: UIButton!
     @IBAction func skipAction(_ sender: Any) {
-        if let vc = self.parent as? NowPlayingVC {
-            vc.toggleLoading(isLoading: true) }
+        if let vc = self.parent as? NowPlayingVC { vc.toggleLoading(isLoading: true) }
         audio.skip(didFinish: false)
     }
     
-    @IBOutlet weak var skipsRemaining: UILabel!
+    @IBOutlet weak var replayButton: UIButton!
+    @IBAction func replayAction(_ sender: Any) {
+        if let prev = audio.previousSong, let current = audio.player.currentItem {
+            audio.player.insert(prev, after: current)
+            audio.player.advanceToNextItem()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +60,17 @@ class CircleControls: UIViewController {
                     else { self.favoriteButton.setImage(#imageLiteral(resourceName: "thumbs-up-white"), for: .normal) }
                 }
             }
+            if account.isPremium {
+                self.skipsRemaining?.isHidden = true
+                self.replayButton?.isHidden = false
+            }
+            else {
+                self.replayButton?.isHidden = true
+                self.skipsRemaining?.isHidden = false
+                self.skipsRemaining?.text = "\(account.skipCount) Skips Remaining"
+            }
             
-            if account.isPremium { self.skipsRemaining?.text = "Unlimited Skips" }
-            else { self.skipsRemaining?.text = "\(account.skipCount) Skips Remaining" }
-            
-            if audio.player.isPlaying { self.pauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal) }
-            else { self.pauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal) }
+            if audio.player.isPlaying { self.pauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal) } else { self.pauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal) }
         }
     }
     

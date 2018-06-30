@@ -73,8 +73,8 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
             self.toggleLoading(isLoading: false)
         }
         else { self.toggleLoading(isLoading: true) }
-        
-        if audio.shouldDisplayAd {
+
+        if account.isPremium == false && audio.shouldDisplayAd {
             interstitial = self.createInterstitial();
             audio.shouldDisplayAd = false
         }
