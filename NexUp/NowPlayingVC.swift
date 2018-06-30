@@ -41,6 +41,9 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     @IBOutlet weak var circleButton: ButtonClass!
     @IBOutlet weak var progressBar: UIProgressView!
     
+    @IBAction func rightSwipe(_ sender: Any) { self.toggleSidebar() }
+    @IBAction func leftSwipe(_ sender: Any) { self.toggleSidebar() }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -146,7 +149,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         return interstitial
     }
     
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) { ad.present(fromRootViewController: self) }
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) { if account.isPremium == false { ad.present(fromRootViewController: self) } }
     
     deinit { self.timer.invalidate() }
 }

@@ -161,6 +161,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xaS-b5-g4y" firstAttribute="leading" secondItem="yVf-sN-xgG" secondAttribute="leading" id="0cP-Pi-iAJ"/>
                             <constraint firstItem="Qu5-S7-i1h" firstAttribute="centerX" secondItem="yVf-sN-xgG" secondAttribute="centerX" id="C3P-69-tBl"/>
@@ -183,6 +184,10 @@
                             <constraint firstAttribute="bottom" secondItem="hgs-V6-HdD" secondAttribute="bottom" id="yrh-OV-nin"/>
                             <constraint firstItem="YF8-en-tbC" firstAttribute="centerX" secondItem="yVf-sN-xgG" secondAttribute="centerX" id="yyw-RO-bWm"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="S2X-QW-KTN" appends="YES" id="g4y-t1-wN0"/>
+                            <outletCollection property="gestureRecognizers" destination="7ui-9b-nO0" appends="YES" id="pao-DA-wi1"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icons8-clock-80" id="bYL-AK-ekG"/>
                     <connections>
@@ -199,6 +204,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYu-WP-Ydk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="S2X-QW-KTN">
+                    <connections>
+                        <action selector="rightSwipe:" destination="KUe-Fm-HTD" id="6Tb-ng-3Yp"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="7ui-9b-nO0">
+                    <connections>
+                        <action selector="leftSwipe:" destination="KUe-Fm-HTD" id="pqQ-QU-cv7"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1138" y="1140"/>
         </scene>
