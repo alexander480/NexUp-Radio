@@ -1139,7 +1139,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sv9-i3-cb7">
-                                <rect key="frame" x="0.0" y="28" width="375" height="575"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="584"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1253,7 +1253,7 @@
                             <constraint firstItem="sv9-i3-cb7" firstAttribute="leading" secondItem="9ZS-tl-Ymn" secondAttribute="leading" id="ChT-ay-HCs"/>
                             <constraint firstItem="Evk-wl-o6r" firstAttribute="top" secondItem="9Sh-7t-EIa" secondAttribute="bottom" id="WiL-vk-EPj"/>
                             <constraint firstItem="Evk-wl-o6r" firstAttribute="top" secondItem="JzO-4R-eCP" secondAttribute="bottom" constant="20" id="hCL-2r-Yha"/>
-                            <constraint firstItem="9Sh-7t-EIa" firstAttribute="top" secondItem="sv9-i3-cb7" secondAttribute="bottom" constant="9" id="hJg-Tw-p2s"/>
+                            <constraint firstItem="9Sh-7t-EIa" firstAttribute="top" secondItem="sv9-i3-cb7" secondAttribute="bottom" id="hJg-Tw-p2s"/>
                             <constraint firstAttribute="trailing" secondItem="9Sh-7t-EIa" secondAttribute="trailing" id="i9G-KC-eIE"/>
                             <constraint firstItem="JzO-4R-eCP" firstAttribute="centerX" secondItem="9ZS-tl-Ymn" secondAttribute="centerX" id="ltm-mk-f2d"/>
                             <constraint firstItem="sv9-i3-cb7" firstAttribute="top" secondItem="hUl-a4-fOy" secondAttribute="bottom" constant="8" id="yGJ-2E-gZj"/>
@@ -1877,7 +1877,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xbD-DO-CV1"/>
-        <segue reference="YsA-7a-O8A"/>
-        <segue reference="L5G-QA-YK6"/>
+        <segue reference="4y7-n7-rnr"/>
+        <segue reference="9uQ-PT-oVn"/>
     </inferredMetricsTieBreakers>
 </document>
