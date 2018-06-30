@@ -15,21 +15,21 @@ class Sidebar: UIViewController {
     @IBOutlet weak var hipHopButton: UIButton!
     @IBAction func hipHopAction(_ sender: Any) {
         audio.player.removeAllItems()
-        audio.fetchPlaylist(Name: "Hip Hop");
+        audio.startPlaylist(Name: "Hip Hop");
         self.hide()
     }
     
     @IBOutlet weak var rbButton: UIButton!
     @IBAction func rbAction(_ sender: Any) {
         audio.player.removeAllItems()
-        audio.fetchPlaylist(Name: "R&B");
+        audio.startPlaylist(Name: "R&B");
         self.hide()
     }
     
     @IBOutlet weak var jazzButton: UIButton!
     @IBAction func jazzAction(_ sender: Any) {
         audio.player.removeAllItems()
-        audio.fetchPlaylist(Name: "Jazz");
+        audio.startPlaylist(Name: "Jazz");
         self.hide()
         
     }
@@ -37,28 +37,28 @@ class Sidebar: UIViewController {
     @IBOutlet weak var gospelButton: UIButton!
     @IBAction func gospelAction(_ sender: Any) {
         audio.player.removeAllItems()
-        audio.fetchPlaylist(Name: "Gospel");
+        audio.startPlaylist(Name: "Gospel");
         self.hide()
     }
     
     @IBOutlet weak var topTenButton: UIButton!
     @IBAction func topTenAction(_ sender: Any) {
         audio.player.removeAllItems()
-        audio.fetchPlaylist(Name: "Top Ten");
+        audio.startPlaylist(Name: "Top Ten");
         self.hide()
     }
     
     @IBOutlet weak var djButton: UIButton!
     @IBAction func djActions(_ sender: Any) {
         audio.player.removeAllItems()
-        audio.fetchPlaylist(Name: "DJ");
+        audio.startPlaylist(Name: "DJ");
         self.hide()
     }
     
     @IBOutlet weak var favoritesButton: UIButton!
     @IBAction func favoritesAction(_ sender: Any) {
         audio.player.removeAllItems()
-        audio.fetchFavorites();
+        audio.startFavorites();
         self.hide()
     }
     
