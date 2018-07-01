@@ -281,8 +281,8 @@
                                     <constraint firstItem="aSQ-43-aov" firstAttribute="leading" secondItem="Omi-O9-iwC" secondAttribute="leading" id="y5J-YG-E99"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-o5-KUQ">
-                                <rect key="frame" x="24.418370796870931" y="411.00000000000045" width="325.00000000000045" height="81.999999999999545"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-o5-KUQ">
+                                <rect key="frame" x="16" y="367" width="342" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gmX-o5-KUQ" secondAttribute="height" multiplier="343:90" id="f9h-rO-wNH"/>
                                 </constraints>
@@ -296,8 +296,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Jay-Z" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcW-Uf-jno">
-                                <rect key="frame" x="24.418370796870931" y="375.00000000000045" width="325.00000000000045" height="29.999999999999545"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jay-Z" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcW-Uf-jno">
+                                <rect key="frame" x="16" y="329" width="334" height="32"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -326,7 +326,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hMb-zf-Fzc" customClass="ImageViewClass" customModule="NexUp" customModuleProvider="target">
-                                <rect key="frame" x="24" y="128" width="231" height="231"/>
+                                <rect key="frame" x="16" y="82" width="231" height="231"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hMb-zf-Fzc" secondAttribute="height" multiplier="1:1" id="Jzu-is-K5V"/>
                                     <constraint firstAttribute="width" constant="231" id="icp-6D-s58"/>
@@ -342,26 +342,27 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gmX-o5-KUQ" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" id="06h-vs-YM3"/>
-                            <constraint firstItem="DcW-Uf-jno" firstAttribute="leading" secondItem="jfe-YB-uBB" secondAttribute="leadingMargin" constant="8.4199999999999999" id="7Ce-cT-qD5"/>
+                            <constraint firstItem="DcW-Uf-jno" firstAttribute="leading" secondItem="jfe-YB-uBB" secondAttribute="leadingMargin" id="7Ce-cT-qD5"/>
                             <constraint firstItem="gpZ-FI-7VU" firstAttribute="top" secondItem="jfe-YB-uBB" secondAttribute="top" id="A4Y-zM-sfI"/>
                             <constraint firstItem="ubx-vR-1td" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" constant="-1" id="DHP-MI-7JL"/>
                             <constraint firstItem="Omi-O9-iwC" firstAttribute="leading" secondItem="jfe-YB-uBB" secondAttribute="leading" id="HRZ-7c-99N"/>
-                            <constraint firstItem="DcW-Uf-jno" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" id="HUh-Do-Us9"/>
+                            <constraint firstItem="DcW-Uf-jno" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" constant="-4.5" id="HUh-Do-Us9"/>
                             <constraint firstAttribute="trailing" secondItem="gpZ-FI-7VU" secondAttribute="trailing" id="OXM-RD-LsO"/>
-                            <constraint firstItem="hMb-zf-Fzc" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" constant="-48" id="QNr-bD-XzQ"/>
+                            <constraint firstItem="hMb-zf-Fzc" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" constant="-56" id="QNr-bD-XzQ"/>
                             <constraint firstItem="ubx-vR-1td" firstAttribute="top" secondItem="jfe-YB-uBB" secondAttribute="top" id="ZQB-cG-GjG"/>
                             <constraint firstItem="YO2-kR-mKC" firstAttribute="top" secondItem="Omi-O9-iwC" secondAttribute="bottom" id="aaO-Oy-agq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DcW-Uf-jno" secondAttribute="trailing" constant="9.5800000000000001" id="beK-jG-H11"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="DcW-Uf-jno" secondAttribute="trailing" id="beK-jG-H11"/>
                             <constraint firstItem="hMb-zf-Fzc" firstAttribute="top" secondItem="Ubi-25-g05" secondAttribute="bottom" constant="82" id="ko8-kS-tM1">
-                                <variation key="widthClass=compact" constant="108"/>
+                                <variation key="widthClass=compact" constant="62"/>
                             </constraint>
+                            <constraint firstItem="DcW-Uf-jno" firstAttribute="top" secondItem="hMb-zf-Fzc" secondAttribute="bottom" constant="16" id="o7C-4b-SgA"/>
                             <constraint firstItem="gmX-o5-KUQ" firstAttribute="leading" secondItem="jfe-YB-uBB" secondAttribute="leadingMargin" id="pI8-W9-Xkh"/>
                             <constraint firstItem="gpZ-FI-7VU" firstAttribute="leading" secondItem="jfe-YB-uBB" secondAttribute="leading" id="pkH-fZ-HRh"/>
                             <constraint firstItem="scw-Da-PcX" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" id="rS4-Xh-th7"/>
+                            <constraint firstItem="ubx-vR-1td" firstAttribute="top" secondItem="jfe-YB-uBB" secondAttribute="top" id="rgz-z9-c87"/>
                             <constraint firstItem="gmX-o5-KUQ" firstAttribute="top" secondItem="DcW-Uf-jno" secondAttribute="bottom" constant="6" id="tC7-T5-fSY"/>
                             <constraint firstAttribute="trailing" secondItem="Omi-O9-iwC" secondAttribute="trailing" id="uDA-pz-Mqg"/>
                             <constraint firstItem="YO2-kR-mKC" firstAttribute="top" secondItem="scw-Da-PcX" secondAttribute="bottom" constant="20" id="yLv-6P-Adi"/>
-                            <constraint firstItem="gmX-o5-KUQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jfe-YB-uBB" secondAttribute="trailingMargin" id="zWf-mu-DXp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
