@@ -27,6 +27,8 @@ let main = DispatchQueue.main
 let background = DispatchQueue.global()
 
 class Audio: NSObject, AVAssetResourceLoaderDelegate {
+    let imageCache = NSCache<NSString, UIImage>()
+    
     var player = AVQueuePlayer()
     var playlist = [URL]()
     var metadata: [String: Any]?
@@ -90,7 +92,6 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
     // MARK: SONG FINISHED LISTENER //
     
     @objc func playerDidFinishPlaying() {
-        if let finishedSong = self.player.currentItem { self.previousSong = finishedSong }
         print("[INFO] Player Finished Playing")
         account.addSongToRecents()
         self.skip(didFinish: true)
@@ -104,7 +105,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         avWorker.async {
             if self.player.items().isEmpty {
                 self.shouldDisplayAd = true;
-                if didFinish || account.isPremium || account.skipCount > 0 { self.reloadQueue(); }
+                if didFinish || account.isPremium || account.skipCount > 0 { self.reloadQueue() }
                 else { print("[INFO] Skip Limit Reached") }
             }
             else {
@@ -157,6 +158,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         
         metadataWorker.sync {
             if let item = self.player.currentItem {
+                metadata["URL"] = String(describing: (item.asset as! AVURLAsset).url)
                 for property in item.asset.commonMetadata as [AVMetadataItem] {
                     if property.commonKey == AVMetadataKey.commonKeyTitle  {
                         if let songName = property.stringValue { print("[INFO] Song Name: \(songName)"); metadata["Name"] = songName }
@@ -167,11 +169,15 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
                         else { print("[ERROR] Song Artist: nil"); self.skip(didFinish: true) }
                     }
                     else if property.commonKey == AVMetadataKey.commonKeyArtwork {
-                        if let rawImage = property.dataValue { if let songImage = UIImage(data: rawImage) { metadata["Image"] = songImage } }
+                        if let rawImage = property.dataValue {
+                            if let songImage = UIImage(data: rawImage) {
+                                self.imageCache.setObject(songImage, forKey: metadata["URL"] as! NSString)
+                                metadata["Image"] = songImage
+                            }
+                        }
                         else { print("[WARNING] Song Image: nil"); metadata["Image"] = #imageLiteral(resourceName: "J3Ent375") }
                     }
                 }
-                metadata["URL"] = String(describing: (item.asset as! AVURLAsset).url)
             }
         }
         if metadata.count == 0 { self.skip(didFinish: true) }

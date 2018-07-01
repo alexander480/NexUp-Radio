@@ -46,7 +46,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.progressBar.progress = 0.0
         // account.shouldRefreshSkipCount()
         
         if auth.currentUser == nil {
@@ -55,20 +55,27 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
             }
         }
         
-        self.progressBar.progress = 0.0
-        self.circleButton.setImage(#imageLiteral(resourceName: "iTunesArtwork"), for: .normal)
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
+        self.toggleLoading(isLoading: true)
+        
+        if let info = audio.metadata {
+            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
+                backgroundImage.image = image
+                self.circleButton.setImage(image, for: .normal)
+                self.toggleLoading(isLoading: false)
+            }
+        }
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
     // MARK: UPDATE UI //
     
     private func updateUserInterface() {
         if let info = audio.metadata {
-            if let image = info["Image"] as? UIImage, let background = self.backgroundImage {
-                background.image = image
-                background.isHidden = false
-                if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
+            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
+                backgroundImage.image = image
                 self.circleButton.setImage(image, for: .normal)
+                if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
             }
             self.toggleLoading(isLoading: false)
         }

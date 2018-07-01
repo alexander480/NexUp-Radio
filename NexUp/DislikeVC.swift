@@ -32,8 +32,13 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if account.dislikes.isEmpty { account.fetchDislikedSongs() }
         
-        if let image = audio.metadata?["Image"] as? UIImage { self.backgroundImage?.image = image; self.backgroundImage?.blur() }
-        else { self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork"); self.backgroundImage?.blur() }
+        if let info = audio.metadata {
+            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
+                backgroundImage.image = image
+                backgroundImage.blur()
+                self.circleButton.setImage(image, for: .normal)
+            }
+        }
         
         self.tableTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateTableData() })
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in self.updateUserInterface() })
@@ -83,7 +88,7 @@ class DislikeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if let name = songs[row - x]["Name"], let artist = songs[row - x]["Artist"], let url = songs[row - x]["Image"] {
                 cell.cellTitle.text = name
                 cell.cellDetail.text = artist
-                cell.cellImage.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
+                cell.cellImage.imageFrom(urlString: url)
             }
             else {
                 cell.cellTitle.text = "Loading"

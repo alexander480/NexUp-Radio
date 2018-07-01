@@ -36,15 +36,12 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        if let image = audio.metadata?["Image"] as? UIImage {
-            self.backgroundImage?.image = image
-            self.backgroundImage?.blur()
-            self.circleButton.setImage(image, for: .normal)
-        }
-        else {
-            self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
-            self.backgroundImage?.blur()
-            self.circleButton.setImage(#imageLiteral(resourceName: "iTunesArtwork"), for: .normal)
+        if let info = audio.metadata {
+            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
+                backgroundImage.image = image
+                backgroundImage.blur()
+                self.circleButton.setImage(image, for: .normal)
+            }
         }
         
         self.progressBar.progress = 0.0

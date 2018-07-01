@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreMedia
 import UIKit
 
 class CircleControls: UIViewController {
@@ -38,10 +39,8 @@ class CircleControls: UIViewController {
     
     @IBOutlet weak var replayButton: UIButton!
     @IBAction func replayAction(_ sender: Any) {
-        if let prev = audio.previousSong, let current = audio.player.currentItem {
-            audio.player.insert(prev, after: current)
-            audio.player.advanceToNextItem()
-        }
+        let beginning = CMTime(seconds: 0.0, preferredTimescale: 1)
+        audio.player.seek(to: beginning)
     }
     
     override func viewDidLoad() {
@@ -69,7 +68,6 @@ class CircleControls: UIViewController {
                 self.skipsRemaining?.isHidden = false
                 self.skipsRemaining?.text = "\(account.skipCount) Skips Remaining"
             }
-            
             if audio.player.isPlaying { self.pauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal) } else { self.pauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal) }
         }
     }

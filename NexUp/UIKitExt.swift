@@ -49,8 +49,28 @@ extension UIViewController: GADBannerViewDelegate {
 
 // MARK: UIImageView Extensions
 
-extension UIImageView
-{
+let imageCache = NSCache<NSString, UIImage>()
+
+extension UIImageView {
+    public func imageFrom(urlString: String) {
+        if let url = URL(string: urlString) {
+            self.image = nil
+            if let cachedImage = imageCache.object(forKey: urlString as NSString) { self.image = cachedImage; return }
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+                if let err = error?.localizedDescription { print(err); return }
+                DispatchQueue.main.async(execute: { () -> Void in
+                    if let image = UIImage(data: data!) {
+                        imageCache.setObject(image, forKey: urlString as NSString)
+                        self.image = image
+                    }
+                })
+            }).resume()
+        }
+    }
+}
+
+extension UIImageView {
+/*
     public func imageFromServerURL(urlString: String, tableView: UITableView, indexpath: IndexPath) {
         imageURLString = urlString
         
@@ -74,7 +94,7 @@ extension UIImageView
             }).resume()
         }
     }
-    
+*/
     public func imageFromURL(urlString: String) {
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
             if error != nil { print(error!.localizedDescription); return }
@@ -110,9 +130,6 @@ extension UIImageView
 }
 
 // MARK: UIImage Extensions
-
-let imageCache = NSCache<AnyObject, AnyObject>()
-var imageURLString: String?
 
 extension UIImage {
     

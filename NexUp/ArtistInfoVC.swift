@@ -37,6 +37,12 @@ class ArtistInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let info = audio.metadata {
+            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
+                self.circleButton.setImage(image, for: .normal)
+            }
+        }
+        
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     

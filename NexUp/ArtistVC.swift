@@ -43,16 +43,15 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
+        if let info = audio.metadata {
+            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
+                backgroundImage.image = image
+                backgroundImage.blur()
+                self.circleButton.setImage(image, for: .normal)
+            }
+        }
         
-        if let image = audio.metadata?["Image"] as? UIImage {
-            self.backgroundImage?.image = image
-            self.backgroundImage?.blur()
-        }
-        else {
-            self.backgroundImage?.image = #imageLiteral(resourceName: "iTunesArtwork")
-            self.backgroundImage?.blur()
-        }
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
     
     private func updateUserInterface() {
@@ -109,7 +108,7 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCell") as! ArtistCell
             if let name = artists[row - 1 /*2*/]["Name"], let url = artists[row - 1 /*2*/]["ImageURL"] {
                 cell.artistName?.text = name
-                cell.artistImage?.imageFromServerURL(urlString: url, tableView: self.tableView, indexpath: indexPath)
+                cell.artistImage?.imageFrom(urlString: url)
             }
             else {
                 cell.artistName?.text = "Loading"

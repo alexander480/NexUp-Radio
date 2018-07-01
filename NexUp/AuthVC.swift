@@ -64,6 +64,13 @@ class AuthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        if let info = audio.metadata {
+            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
+                self.circleButton.setImage(image, for: .normal)
+            }
+        }
+        
         self.timer = Timer(timeInterval: 1.0, repeats: true, block: { (timer) in
             if let info = audio.metadata, let image = info["Image"] as? UIImage {
                 if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
