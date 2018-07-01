@@ -51,8 +51,8 @@ class ArtistInfoVC: UIViewController {
         if self.artist.isEmpty == false {
             self.artistName?.text = artist["Name"]
             self.artistBio?.text = artist["Bio"]
-            self.artistImage?.imageFromURL(urlString: artist["ImageURL"]!)
-            self.artistCircleImage?.imageFromURL(urlString: artist["ImageURL"]!)
+            self.artistImage?.imageFrom(urlString: artist["ImageURL"]!)
+            self.artistCircleImage?.imageFrom(urlString: artist["ImageURL"]!)
             
             self.artistImage?.blur()
         }
