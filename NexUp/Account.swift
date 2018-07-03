@@ -56,13 +56,18 @@ class Account: NSObject {
             let comparison = calendar.compare(savedDate, to: Date(), toGranularity: .day)
             if comparison == ComparisonResult.orderedSame { return; }
             else {
-                if let user = auth.currentUser {
-                    db.reference(withPath: "users/\(user.uid)/skipCount").setValue(10)
-                    UserDefaults.setValue(Date(), forKey: "date");
+                UserDefaults.standard.setValue(Date(), forKey: "date");
+                if let uid = auth.currentUser?.uid {
+                    db.reference(withPath: "users/\(uid)/skipCount").setValue(10)
                 }
             }
         }
-        else { UserDefaults.setValue(Date(), forKey: "date") }
+        else {
+            UserDefaults.standard.set(Date(), forKey: "date")
+            if let uid = auth.currentUser?.uid {
+                db.reference(withPath: "users/\(uid)/skipCount").setValue(10)
+            }
+        }
     }
     
     func syncSkipCount() {

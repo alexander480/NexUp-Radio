@@ -34,6 +34,10 @@ class ArtistInfoVC: UIViewController {
     @IBOutlet weak var artistCircleImage: ImageViewClass!
     @IBOutlet weak var artistBio: UILabel!
     
+    @IBAction func fbAction(_ sender: Any) { if let fbLink = self.artist["Facebook"] { UIApplication.shared.open(URL(string : fbLink)!) } }
+    @IBAction func twitterAction(_ sender: Any) { if let twitterLink = self.artist["Twitter"] { UIApplication.shared.open(URL(string : twitterLink)!) } }
+    @IBAction func instaAction(_ sender: Any) { if let instaLink = self.artist["Instagram"] { UIApplication.shared.open(URL(string : instaLink)!) } }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

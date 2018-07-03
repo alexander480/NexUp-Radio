@@ -58,6 +58,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
     func startPlaylist(Name: String) {
         var buf = [URL]()
         let reference = db.reference(withPath: "/audio/\(Name)")
+        self.currentPlaylist = Name
         reference.observeSingleEvent(of: .value) { (snap) in
             let songs = snap.children.allObjects as! [DataSnapshot]
             if songs.isEmpty == false {

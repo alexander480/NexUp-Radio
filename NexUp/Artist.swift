@@ -37,6 +37,9 @@ class Artists: NSObject {
             for property in artist.children.allObjects as! [DataSnapshot] {
                 if property.key == "Bio" { artistData["Bio"] = (property.value! as! String) }
                 else if property.key == "Image" { artistData["ImageURL"] = (property.value! as! String) }
+                else if property.key == "Facebook" { artistData["Facebook"] = (property.value! as! String) }
+                else if property.key == "Twitter" { artistData["Twitter"] = (property.value! as! String) }
+                else if property.key == "Instagram" { artistData["Instagram"] = (property.value! as! String) }
             }
             array.append(artistData)
         }

@@ -73,10 +73,12 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     
     private func updateUserInterface() {
         if let info = audio.metadata {
-            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
-                backgroundImage.image = image
-                self.circleButton.setImage(image, for: .normal)
-                if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
+            if let url = info["URL"] as? NSString {
+                if let image = audio.imageCache.object(forKey: url) {
+                    backgroundImage.image = image
+                    self.circleButton.setImage(image, for: .normal)
+                    if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
+                }
             }
             self.toggleLoading(isLoading: false)
         }
