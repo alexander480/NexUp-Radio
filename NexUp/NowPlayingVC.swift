@@ -47,7 +47,8 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.progressBar.progress = 0.0
-        // account.shouldRefreshSkipCount()
+        
+        account.shouldRefreshSkipCount()
         
         if auth.currentUser == nil {
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
