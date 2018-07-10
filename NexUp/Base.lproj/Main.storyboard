@@ -452,7 +452,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="M9C-Cf-9Dq">
-                                <rect key="frame" x="35" y="263" width="105" height="1"/>
+                                <rect key="frame" x="35" y="253" width="105" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="Ick-Ea-pGl"/>
                                     <constraint firstAttribute="height" constant="1" id="YOQ-Oz-aQn"/>
@@ -460,7 +460,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctm-zN-VAZ">
-                                <rect key="frame" x="0.0" y="40" width="175" height="50"/>
+                                <rect key="frame" x="0.0" y="30" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KY0-Bd-n4O"/>
                                 </constraints>
@@ -473,7 +473,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0z-HH-1zG">
-                                <rect key="frame" x="0.0" y="94" width="175" height="50"/>
+                                <rect key="frame" x="0.0" y="84" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="g6X-wX-DkY"/>
                                 </constraints>
@@ -486,7 +486,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fna-LK-1Uv">
-                                <rect key="frame" x="0.0" y="149" width="175" height="50"/>
+                                <rect key="frame" x="0.0" y="139" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gCU-N8-LiQ"/>
                                 </constraints>
@@ -499,7 +499,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weZ-R2-JjW">
-                                <rect key="frame" x="0.0" y="203" width="175" height="50"/>
+                                <rect key="frame" x="0.0" y="193" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7sK-3t-ihv"/>
                                 </constraints>
@@ -512,7 +512,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWj-fY-HQQ">
-                                <rect key="frame" x="0.0" y="272" width="175" height="50"/>
+                                <rect key="frame" x="0.0" y="262" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ndT-ii-fqd"/>
                                 </constraints>
@@ -525,7 +525,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Psz-aZ-NQ1">
-                                <rect key="frame" x="0.0" y="326" width="175" height="50"/>
+                                <rect key="frame" x="0.0" y="316" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="K7S-iD-1kJ"/>
                                 </constraints>
@@ -538,7 +538,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32T-PP-Pbd">
-                                <rect key="frame" x="0.0" y="381" width="175" height="50"/>
+                                <rect key="frame" x="0.0" y="371" width="175" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lvi-1Z-E4N"/>
                                 </constraints>
@@ -576,7 +576,7 @@
                             <constraint firstItem="Psz-aZ-NQ1" firstAttribute="leading" secondItem="LaO-fn-8kK" secondAttribute="leading" id="tQd-rg-3nL"/>
                             <constraint firstAttribute="trailing" secondItem="Psz-aZ-NQ1" secondAttribute="trailing" id="vS9-tU-5mt"/>
                             <constraint firstItem="ctm-zN-VAZ" firstAttribute="leading" secondItem="LaO-fn-8kK" secondAttribute="leading" id="xIR-7o-6oq"/>
-                            <constraint firstItem="ctm-zN-VAZ" firstAttribute="top" secondItem="qZS-of-Ex3" secondAttribute="bottom" constant="20" id="ym3-ww-msV"/>
+                            <constraint firstItem="ctm-zN-VAZ" firstAttribute="top" secondItem="qZS-of-Ex3" secondAttribute="bottom" constant="10" id="ym3-ww-msV"/>
                         </constraints>
                     </view>
                     <connections>
