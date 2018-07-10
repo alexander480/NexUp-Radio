@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-V6-HdD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nexup00" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-V6-HdD">
                                 <rect key="frame" x="-161" y="0.0" width="697" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hgs-V6-HdD" secondAttribute="height" multiplier="305:292" id="uBP-Lt-sjy"/>
@@ -887,7 +887,7 @@
                                             <outlet property="cellTitle" destination="Mvd-xE-A1m" id="ceD-cI-X1S"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="obu-yV-Cxv" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="obu-yV-Cxv" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="298" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="obu-yV-Cxv" id="eCM-0a-bn1">
@@ -1442,7 +1442,7 @@
                                             <outlet property="cellTitle" destination="2iZ-PQ-tW5" id="dSK-PI-VPA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="mZh-my-B4Y" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="mZh-my-B4Y" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZh-my-B4Y" id="6qk-xo-eau">
@@ -1645,7 +1645,7 @@
                                             <outlet property="cellTitle" destination="jtt-Uw-d3B" id="dGd-59-L4l"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="4tg-q2-Xbg" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="4tg-q2-Xbg" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4tg-q2-Xbg" id="iVP-aO-Pm9">
@@ -1848,7 +1848,7 @@
                                             <outlet property="cellTitle" destination="Ism-0j-k6p" id="h7g-NB-PK0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="CBY-nG-4l1" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="CBY-nG-4l1" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBY-nG-4l1" id="dYI-a4-bmB">
@@ -1963,13 +1963,14 @@
         <image name="icons8-replay-48" width="48" height="48"/>
         <image name="jay-z Image" width="311" height="311"/>
         <image name="line" width="62" height="1"/>
+        <image name="nexup00" width="1676" height="1886"/>
         <image name="pause" width="25" height="30"/>
         <image name="thumbs-down-white" width="28" height="36"/>
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xbD-DO-CV1"/>
-        <segue reference="YsA-7a-O8A"/>
+        <segue reference="UHD-Ui-JjU"/>
+        <segue reference="sYD-UE-MfO"/>
         <segue reference="L5G-QA-YK6"/>
     </inferredMetricsTieBreakers>
 </document>
