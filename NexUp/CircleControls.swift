@@ -53,7 +53,6 @@ class CircleControls: UIViewController {
             if let name = (info["Name"] as? String), let artist = info["Artist"] as? String {
                 self.songName?.text = name
                 self.songArtist?.text = artist
-                
                 account.isFavoriteSong(Name: name) { (isFavorite) in
                     if isFavorite { self.favoriteButton.setImage(#imageLiteral(resourceName: "thumbs-up-red"), for: .normal) }
                     else { self.favoriteButton.setImage(#imageLiteral(resourceName: "thumbs-up-white"), for: .normal) }

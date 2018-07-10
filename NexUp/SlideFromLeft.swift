@@ -8,8 +8,10 @@
 import UIKit
 
 class FromLeftSegue: UIStoryboardSegue {
-    override func perform() { self.slide() }
-    func slide() {
+    override func perform() {
+        self.slide()
+    }
+    private func slide() {
         let src = self.source
         let dst = self.destination
         

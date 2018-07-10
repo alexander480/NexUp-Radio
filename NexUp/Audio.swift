@@ -29,13 +29,13 @@ let background = DispatchQueue.global()
 class Audio: NSObject, AVAssetResourceLoaderDelegate {
     let imageCache = NSCache<NSString, UIImage>()
     
+    var currentPlaylist = ""
+    var shouldDisplayAd = false
+    
     var player = AVQueuePlayer()
     var playlist = [URL]()
     var metadata: [String: Any]?
     var previousSong: AVPlayerItem?
-    
-    var currentPlaylist = ""
-    var shouldDisplayAd = false
     
     let avWorker = DispatchQueue.init(label: "AVWorker", qos: DispatchQoS.userInteractive)
     let metadataWorker = DispatchQueue.init(label: "MetadataWorker", qos: DispatchQoS.userInteractive)
@@ -48,9 +48,9 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
     init(PlaylistName: String) {
         super.init()
         self.currentPlaylist = PlaylistName
+        self.sessionSetup()
         if PlaylistName == "Favorites" { self.startFavorites() }
         else { self.startPlaylist(Name: PlaylistName) }
-        self.sessionSetup()
     }
     
     // MARK: START PLAYLIST //

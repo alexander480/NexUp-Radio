@@ -9,7 +9,7 @@ import UIKit
 
 class FromRightSegue: UIStoryboardSegue {
     override func perform() { self.slide() }
-    func slide() {
+    private func slide() {
         let src = self.source
         let dst = self.destination
         

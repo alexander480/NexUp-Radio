@@ -50,18 +50,5 @@ class AdCell: UITableViewCell {
         bannerView.adSize = kGADAdSizeBanner
         
         return bannerView
-        
     }
-
 }
-
-
-/*
-class GenreCell: UITableViewCell {
-    @IBOutlet weak var cellTitle: UILabel!
-}
-
-class AdCell: UITableViewCell {
-    @IBOutlet weak var view: UIView!
-}
-*/
