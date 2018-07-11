@@ -49,8 +49,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         super.init()
         self.currentPlaylist = PlaylistName
         self.sessionSetup()
-        if PlaylistName == "Favorites" { self.startFavorites() }
-        else { self.startPlaylist(Name: PlaylistName) }
+        if PlaylistName == "Favorites" { self.startFavorites() } else { self.startPlaylist(Name: PlaylistName) }
     }
     
     // MARK: START PLAYLIST //

@@ -49,13 +49,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         self.progressBar.progress = 0.0
         
         account.shouldRefreshSkipCount()
-        
-        if auth.currentUser == nil {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
-                present(vc, animated: true, completion: nil)
-            }
-        }
-        
         self.toggleLoading(isLoading: true)
         
         if let info = audio.metadata {
@@ -72,21 +65,25 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
     // MARK: UPDATE UI //
     
     private func updateUserInterface() {
-        if let info = audio.metadata {
-            if let url = info["URL"] as? NSString {
-                if let image = audio.imageCache.object(forKey: url) {
-                    backgroundImage.image = image
-                    self.circleButton.setImage(image, for: .normal)
-                    if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
-                }
+        if auth.currentUser == nil {
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") {
+                self.present(vc, animated: true, completion: nil)
             }
-            self.toggleLoading(isLoading: false)
         }
-        else { self.toggleLoading(isLoading: true) }
+        else {
+            if let info = audio.metadata {
+                if let url = info["URL"] as? NSString {
+                    if let image = audio.imageCache.object(forKey: url) {
+                        backgroundImage.image = image
+                        self.circleButton.setImage(image, for: .normal)
+                        if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
+                    }
+                }
+                self.toggleLoading(isLoading: false)
+            }
+            else { self.toggleLoading(isLoading: true) }
 
-        if account.isPremium == false && audio.shouldDisplayAd {
-            interstitial = self.createInterstitial();
-            audio.shouldDisplayAd = false
+            if account.isPremium == false && audio.shouldDisplayAd { interstitial = self.createInterstitial(); audio.shouldDisplayAd = false }
         }
     }
     
