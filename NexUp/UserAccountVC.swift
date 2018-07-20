@@ -17,9 +17,8 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    let bannerID = "ca-app-pub-3940256099942544/2934735716"
-    let fullScreenID = "ca-app-pub-3940256099942544/4411468910"
+    let bannerID = "ca-app-pub-6543648439575950/8381413905"
+    let fullScreenID = "ca-app-pub-6543648439575950/9063940183"
     
     let options = ["Favorites", "Dislikes", "Recently Played", "Premium"]
     var timer = Timer()

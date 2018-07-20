@@ -7,24 +7,16 @@
 //
 
 import Foundation
-
 import UIKit
 import GoogleMobileAds
 import AVFoundation
-
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-//  TODO
-// ----------------------------------------------
-//
-
 class ArtistInfoVC: UIViewController {
     var timer = Timer()
     var artist = artistSelected
-    
-    @IBOutlet weak var banner: GADBannerView!
     
     @IBOutlet weak var circleButton: ButtonClass!
     @IBOutlet weak var progressBar: UIProgressView!
