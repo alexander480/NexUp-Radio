@@ -13,10 +13,16 @@ class PremiumVC: UIViewController {
     let sub = SubscriptionHandler()
     
     @IBAction func purchaseAction(_ sender: Any) {
-        sub.purchase { (success) in
-            if success { self.alert(Title: "Success!", Description: "Welcome To NexUp Premium.") }
-            else { self.alert(Title: "Error", Description: "Sorry, Something Went Wrong. Please Try Again.") }
-        }
+        let alert = UIAlertController(title: "We Will Charge $1.99 To Your iTunes Account On A Monthly Basis", message: "For More Information Click On 'Learn More Below'", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (alertAction) in
+            self.sub.purchase { (success) in
+                if success { self.alert(Title: "Success!", Description: "Welcome To NexUp Premium.") }
+                else { self.alert(Title: "Error", Description: "Sorry, Something Went Wrong. Please Try Again.") }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (alertAction) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
     }
     
     @IBAction func restoreAction(_ sender: Any) {
