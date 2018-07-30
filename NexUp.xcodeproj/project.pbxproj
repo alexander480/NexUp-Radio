@@ -41,6 +41,7 @@
 		E5B87E1C20196CC600777E67 /* DislikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1B20196CC600777E67 /* DislikeVC.swift */; };
 		E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1D20196CE300777E67 /* RecentVC.swift */; };
 		E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */; };
+		E5EA45F1210FA2D1006FDC69 /* PremiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		E5B87E1B20196CC600777E67 /* DislikeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikeVC.swift; sourceTree = "<group>"; };
 		E5B87E1D20196CE300777E67 /* RecentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentVC.swift; sourceTree = "<group>"; };
 		E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingVC.swift; sourceTree = "<group>"; };
+		E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
 		E66128AB9646E79A24F019ED /* Pods-NexUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.release.xcconfig"; sourceTree = "<group>"; };
 		EA4CBFB232D7B01B5292ACF1 /* Pods-NexUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +236,7 @@
 				E5B87E1920196CAF00777E67 /* FavoriteVC.swift */,
 				E5B87E1B20196CC600777E67 /* DislikeVC.swift */,
 				E5B87E1D20196CE300777E67 /* RecentVC.swift */,
+				E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */,
 			);
 			name = "User Account";
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */,
 				E569F389200590A300E5F07D /* Artist.swift in Sources */,
 				E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */,
+				E5EA45F1210FA2D1006FDC69 /* PremiumVC.swift in Sources */,
 				14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */,
 				E553162020132C77006EA053 /* CircleControls.swift in Sources */,
 				E53C4A392001C22C00D38465 /* AuthVC.swift in Sources */,

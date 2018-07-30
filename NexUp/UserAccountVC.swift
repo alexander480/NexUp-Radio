@@ -142,9 +142,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         else if indexPath.row == 4 + x {
             if auth.currentUser == nil { self.alert(Title: "Please Login or Sign up", Description: nil); self.present(vcid: "AuthVC") }
             else {
-                let subscriptions = SubscriptionHandler()
-                subscriptions.getInfo()
-                subscriptions.showAlert(ViewController: self)
+                self.present(vcid: "PremiumVC")
             }
         }
     }

@@ -411,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj0-NS-HEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3156" y="1932.6836581709147"/>
+            <point key="canvasLocation" x="-2580" y="1936"/>
         </scene>
         <!--Sidebar-->
         <scene sceneID="CRi-gR-1KO">
@@ -960,7 +960,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzu-XU-Pq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="1135.6821589205399"/>
+            <point key="canvasLocation" x="-55" y="1139"/>
         </scene>
         <!--Circle Controls-->
         <scene sceneID="ffR-fB-QEU">
@@ -1314,7 +1314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Poy-Br-7GC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3156" y="1135.6821589205399"/>
+            <point key="canvasLocation" x="-2580" y="1139"/>
         </scene>
         <!--Favorite Songs-->
         <scene sceneID="rOy-9q-T7G">
@@ -1520,12 +1520,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yde-Yq-clz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="1807.6461769115444"/>
+            <point key="canvasLocation" x="-55" y="1811"/>
         </scene>
         <!--Disliked Songs-->
         <scene sceneID="4NK-Oj-NYA">
             <objects>
-                <viewController storyboardIdentifier="DislikeVC" title="Favorited Songs" id="sZ9-vc-ZyJ" userLabel="Disliked Songs" customClass="DislikeVC" customModule="NexUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DislikeVC" title="Disliked Songs" id="sZ9-vc-ZyJ" userLabel="Disliked Songs" customClass="DislikeVC" customModule="NexUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kzf-5t-mHb"/>
                         <viewControllerLayoutGuide type="bottom" id="aJz-VN-NbK"/>
@@ -1723,12 +1723,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNo-WJ-ZnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="2476.9115442278862"/>
+            <point key="canvasLocation" x="-55" y="2481"/>
         </scene>
         <!--Recently Played-->
         <scene sceneID="hz9-wO-x9N">
             <objects>
-                <viewController storyboardIdentifier="RecentVC" title="Favorited Songs" id="oIH-Pn-bYn" userLabel="Recently Played" customClass="RecentVC" customModule="NexUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecentVC" title="Recent Songs" id="oIH-Pn-bYn" userLabel="Recently Played" customClass="RecentVC" customModule="NexUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mej-aD-FKn"/>
                         <viewControllerLayoutGuide type="bottom" id="7rz-t4-hvf"/>
@@ -1926,7 +1926,121 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBw-yb-Qvd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="3159.6701649175416"/>
+            <point key="canvasLocation" x="-55" y="3163"/>
+        </scene>
+        <!--Premium Info-->
+        <scene sceneID="jnT-Fy-Jff">
+            <objects>
+                <viewController storyboardIdentifier="PremiumVC" title="Premium Info" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bHr-Wx-Bsc" customClass="PremiumVC" customModule="NexUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uaG-li-1Cg"/>
+                        <viewControllerLayoutGuide type="bottom" id="bVn-UV-Wrd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qbh-A2-MXx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-mY-HYF">
+                                <rect key="frame" x="0.0" y="176" width="375" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Purchase Premium Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-iu-LlE">
+                                        <rect key="frame" x="0.0" y="31" width="375" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$1.99/Month For NexUp's Premium Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cch-9U-pJo">
+                                        <rect key="frame" x="0.0" y="59" width="375" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unlimited Skips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3r-su-CTk">
+                                        <rect key="frame" x="0.0" y="107" width="375" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Replay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-6z-3VJ">
+                                        <rect key="frame" x="0.0" y="130" width="375" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Absolutely No Ads!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-jC-nFc">
+                                        <rect key="frame" x="0.0" y="153" width="375" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92S-TO-dN2">
+                                <rect key="frame" x="0.0" y="387" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Purchase Now"/>
+                                <connections>
+                                    <action selector="purchaseAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="49Z-9L-jV3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ver-mJ-tQL">
+                                <rect key="frame" x="0.0" y="442" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1176470588" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Restore"/>
+                                <connections>
+                                    <action selector="restoreAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="fBU-h5-2RE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-BL-Rr5">
+                                <rect key="frame" x="0.0" y="506" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Terms &amp; Conditions"/>
+                                <connections>
+                                    <action selector="termsAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="TVw-U7-MEr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-bA-5nN">
+                                <rect key="frame" x="0.0" y="530" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Privacy Policy"/>
+                                <connections>
+                                    <action selector="privacyAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="fqI-Rl-h6N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsn-av-6Hx">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.79883024817763892" green="0.11385449437846612" blue="0.13201936948949466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="YB2-4P-96G"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="t5F-ye-ELt">
+                                <rect key="frame" x="125" y="40" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MGK-WD-4es" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-55.200000000000003" y="3868.5157421289359"/>
         </scene>
     </scenes>
     <resources>
@@ -1948,8 +2062,8 @@
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I3Q-Aj-ED4"/>
+        <segue reference="UHD-Ui-JjU"/>
         <segue reference="MQP-vZ-AIf"/>
-        <segue reference="Lmk-7r-Zvj"/>
+        <segue reference="9uQ-PT-oVn"/>
     </inferredMetricsTieBreakers>
 </document>
