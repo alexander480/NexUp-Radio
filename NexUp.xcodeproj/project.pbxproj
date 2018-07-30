@@ -33,7 +33,6 @@
 		E57675D42015C2330093C820 /* UIKitExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D32015C2330093C820 /* UIKitExt.swift */; };
 		E57675D62015C24E0093C820 /* AVFoundationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D52015C24E0093C820 /* AVFoundationExt.swift */; };
 		E57675DE2015C2A40093C820 /* FoundationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* FoundationExt.swift */; };
-		E586293720D1C01600242A74 /* SwiftStyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = E586293620D1C01600242A74 /* SwiftStyleSettings.plist */; };
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
 		E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */; };
 		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
@@ -76,7 +75,6 @@
 		E57675D32015C2330093C820 /* UIKitExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExt.swift; sourceTree = "<group>"; };
 		E57675D52015C24E0093C820 /* AVFoundationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationExt.swift; sourceTree = "<group>"; };
 		E57675DD2015C2A40093C820 /* FoundationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExt.swift; sourceTree = "<group>"; };
-		E586293620D1C01600242A74 /* SwiftStyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SwiftStyleSettings.plist; sourceTree = "<group>"; };
 		E58A2FB620203E4400A22C55 /* NexUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NexUp.entitlements; sourceTree = SOURCE_ROOT; };
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHandler.swift; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 		E59BA42D20D347F300637F47 /* Project Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E586293620D1C01600242A74 /* SwiftStyleSettings.plist */,
 				E54AEA2020D07476006D0329 /* GoogleService-Info.plist */,
 				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
 				E58A2FB620203E4400A22C55 /* NexUp.entitlements */,
@@ -401,7 +398,6 @@
 				E54AEA2120D07477006D0329 /* GoogleService-Info.plist in Resources */,
 				1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */,
 				1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */,
-				E586293720D1C01600242A74 /* SwiftStyleSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

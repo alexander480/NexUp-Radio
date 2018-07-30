@@ -26,6 +26,10 @@ class ArtistInfoVC: UIViewController {
     @IBOutlet weak var artistCircleImage: ImageViewClass!
     @IBOutlet weak var artistBio: UILabel!
     
+    @IBOutlet weak var artistFacebook: UIButton!
+    @IBOutlet weak var artistTwitter: UIButton!
+    @IBOutlet weak var artistInsta: UIButton!
+    
     @IBAction func fbAction(_ sender: Any) { if let fbLink = self.artist["Facebook"] { UIApplication.shared.open(URL(string : fbLink)!) } }
     @IBAction func twitterAction(_ sender: Any) { if let twitterLink = self.artist["Twitter"] { UIApplication.shared.open(URL(string : twitterLink)!) } }
     @IBAction func instaAction(_ sender: Any) { if let instaLink = self.artist["Instagram"] { UIApplication.shared.open(URL(string : instaLink)!) } }
@@ -49,8 +53,11 @@ class ArtistInfoVC: UIViewController {
             self.artistBio?.text = artist["Bio"]
             self.artistImage?.imageFrom(urlString: artist["ImageURL"]!)
             self.artistCircleImage?.imageFrom(urlString: artist["ImageURL"]!)
-            
             self.artistImage?.blur()
+            
+            if self.artist["Facebook"] == nil { self.artistFacebook.isHidden = true }
+            if self.artist["Twitter"] == nil { self.artistTwitter.isHidden = true }
+            if self.artist["Instagram"] == nil { self.artistInsta.isHidden = true }
         }
         
         if let info = audio.metadata {
