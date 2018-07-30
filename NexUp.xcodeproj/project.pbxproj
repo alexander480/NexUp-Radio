@@ -42,6 +42,9 @@
 		E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1D20196CE300777E67 /* RecentVC.swift */; };
 		E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */; };
 		E5EA45F1210FA2D1006FDC69 /* PremiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */; };
+		E5EA45F3210FAC85006FDC69 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EA45F2210FAC85006FDC69 /* TermsVC.swift */; };
+		E5EA45F5210FAC8D006FDC69 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EA45F4210FAC8D006FDC69 /* PrivacyVC.swift */; };
+		E5EA45F7210FAC9D006FDC69 /* LearnMoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EA45F6210FAC9D006FDC69 /* LearnMoreVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,9 @@
 		E5B87E1D20196CE300777E67 /* RecentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentVC.swift; sourceTree = "<group>"; };
 		E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingVC.swift; sourceTree = "<group>"; };
 		E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
+		E5EA45F2210FAC85006FDC69 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		E5EA45F4210FAC8D006FDC69 /* PrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
+		E5EA45F6210FAC9D006FDC69 /* LearnMoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreVC.swift; sourceTree = "<group>"; };
 		E66128AB9646E79A24F019ED /* Pods-NexUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.release.xcconfig"; sourceTree = "<group>"; };
 		EA4CBFB232D7B01B5292ACF1 /* Pods-NexUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NexUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NexUp/Pods-NexUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,9 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				E5CBC9D9200D6A8C0018023A /* NowPlayingVC.swift */,
-				E59BA42A20D3479100637F47 /* Artists */,
-				E59BA42920D3476800637F47 /* User Account */,
-				E5D5F324201009B00071C9B2 /* Containers */,
+				E59BA42A20D3479100637F47 /* Artist Views */,
+				E59BA42920D3476800637F47 /* User Account Views */,
+				E5D5F324201009B00071C9B2 /* Container Views */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -228,7 +234,7 @@
 			name = "Custom Segues";
 			sourceTree = "<group>";
 		};
-		E59BA42920D3476800637F47 /* User Account */ = {
+		E59BA42920D3476800637F47 /* User Account Views */ = {
 			isa = PBXGroup;
 			children = (
 				E53C4A382001C22C00D38465 /* AuthVC.swift */,
@@ -236,18 +242,18 @@
 				E5B87E1920196CAF00777E67 /* FavoriteVC.swift */,
 				E5B87E1B20196CC600777E67 /* DislikeVC.swift */,
 				E5B87E1D20196CE300777E67 /* RecentVC.swift */,
-				E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */,
+				E5EA45F8210FACAA006FDC69 /* Premium Views */,
 			);
-			name = "User Account";
+			name = "User Account Views";
 			sourceTree = "<group>";
 		};
-		E59BA42A20D3479100637F47 /* Artists */ = {
+		E59BA42A20D3479100637F47 /* Artist Views */ = {
 			isa = PBXGroup;
 			children = (
 				E53C4A2E2001C1D500D38465 /* ArtistVC.swift */,
 				E53C4A302001C1F600D38465 /* ArtistInfoVC.swift */,
 			);
-			name = Artists;
+			name = "Artist Views";
 			sourceTree = "<group>";
 		};
 		E59BA42B20D347A800637F47 /* Storyboard */ = {
@@ -282,13 +288,24 @@
 			name = "Project Resources";
 			sourceTree = "<group>";
 		};
-		E5D5F324201009B00071C9B2 /* Containers */ = {
+		E5D5F324201009B00071C9B2 /* Container Views */ = {
 			isa = PBXGroup;
 			children = (
 				E553161F20132C77006EA053 /* CircleControls.swift */,
 				E553162120132C81006EA053 /* Sidebar.swift */,
 			);
-			name = Containers;
+			name = "Container Views";
+			sourceTree = "<group>";
+		};
+		E5EA45F8210FACAA006FDC69 /* Premium Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */,
+				E5EA45F2210FAC85006FDC69 /* TermsVC.swift */,
+				E5EA45F4210FAC8D006FDC69 /* PrivacyVC.swift */,
+				E5EA45F6210FAC9D006FDC69 /* LearnMoreVC.swift */,
+			);
+			name = "Premium Views";
 			sourceTree = "<group>";
 		};
 		E5F311E720BF916A00E9163A /* User Interface */ = {
@@ -446,11 +463,13 @@
 			files = (
 				E51B22AB200316DC009F09A1 /* Account.swift in Sources */,
 				E53C4A2F2001C1D500D38465 /* ArtistVC.swift in Sources */,
+				E5EA45F5210FAC8D006FDC69 /* PrivacyVC.swift in Sources */,
 				E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */,
 				E57675D42015C2330093C820 /* UIKitExt.swift in Sources */,
 				E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */,
 				E569F389200590A300E5F07D /* Artist.swift in Sources */,
 				E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */,
+				E5EA45F7210FAC9D006FDC69 /* LearnMoreVC.swift in Sources */,
 				E5EA45F1210FA2D1006FDC69 /* PremiumVC.swift in Sources */,
 				14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */,
 				E553162020132C77006EA053 /* CircleControls.swift in Sources */,
@@ -464,6 +483,7 @@
 				53E366EF20059EEA0086C82F /* CustomCells.swift in Sources */,
 				E553162220132C81006EA053 /* Sidebar.swift in Sources */,
 				E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */,
+				E5EA45F3210FAC85006FDC69 /* TermsVC.swift in Sources */,
 				E5263C7D20D35FDC007039BE /* SlideFromRight.swift in Sources */,
 				E57675DE2015C2A40093C820 /* FoundationExt.swift in Sources */,
 				E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */,
