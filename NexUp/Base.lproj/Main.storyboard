@@ -1952,13 +1952,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-mY-HYF">
                                 <rect key="frame" x="0.0" y="168" width="375" height="205"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Purchase Premium Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-iu-LlE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase Premium Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-iu-LlE">
                                         <rect key="frame" x="0.0" y="40" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$1.99/Month For NexUp's Premium Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cch-9U-pJo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99/Month For NexUp's Premium Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cch-9U-pJo">
                                         <rect key="frame" x="0.0" y="64.5" width="375" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1970,7 +1970,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Song Replay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-6z-3VJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Replay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-6z-3VJ">
                                         <rect key="frame" x="0.0" y="132" width="375" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1987,14 +1987,20 @@
                                 <constraints>
                                     <constraint firstItem="erk-iu-LlE" firstAttribute="top" secondItem="1Hz-mY-HYF" secondAttribute="top" constant="40" id="18h-jd-aJq"/>
                                     <constraint firstItem="C3v-jC-nFc" firstAttribute="top" secondItem="IF5-6z-3VJ" secondAttribute="bottom" constant="6" id="73x-b4-At3"/>
+                                    <constraint firstItem="cch-9U-pJo" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" id="BMZ-ve-Xyf"/>
                                     <constraint firstItem="M3r-su-CTk" firstAttribute="top" secondItem="cch-9U-pJo" secondAttribute="bottom" constant="27.5" id="EzQ-Pv-ay2"/>
                                     <constraint firstAttribute="trailing" secondItem="M3r-su-CTk" secondAttribute="trailing" id="FnX-mv-ebm"/>
                                     <constraint firstAttribute="width" secondItem="1Hz-mY-HYF" secondAttribute="height" multiplier="75:41" id="Kmp-Wr-30O"/>
+                                    <constraint firstItem="IF5-6z-3VJ" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" id="UfT-rb-Ax7"/>
                                     <constraint firstItem="M3r-su-CTk" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" id="Uxh-p8-fvy"/>
                                     <constraint firstItem="IF5-6z-3VJ" firstAttribute="top" secondItem="M3r-su-CTk" secondAttribute="bottom" constant="6" id="VYB-B3-IUk"/>
+                                    <constraint firstItem="erk-iu-LlE" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" id="VaF-4h-jZE"/>
                                     <constraint firstItem="C3v-jC-nFc" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" id="YSa-6h-cas"/>
                                     <constraint firstAttribute="trailing" secondItem="C3v-jC-nFc" secondAttribute="trailing" id="ZwQ-8I-SNc"/>
+                                    <constraint firstAttribute="trailing" secondItem="cch-9U-pJo" secondAttribute="trailing" id="aQc-TO-po1"/>
+                                    <constraint firstAttribute="trailing" secondItem="IF5-6z-3VJ" secondAttribute="trailing" id="bBq-1i-EcU"/>
                                     <constraint firstItem="cch-9U-pJo" firstAttribute="top" secondItem="erk-iu-LlE" secondAttribute="bottom" constant="4" id="qdO-Vc-ok3"/>
+                                    <constraint firstAttribute="trailing" secondItem="erk-iu-LlE" secondAttribute="trailing" id="vMO-jM-llJ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92S-TO-dN2">
@@ -2130,10 +2136,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="25b-KS-9CQ">
-                                        <rect key="frame" x="8" y="74" width="359" height="10976"/>
+                                        <rect key="frame" x="8" y="74" width="359" height="488"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="10976" id="Ubx-ZC-PsG"/>
+                                            <constraint firstAttribute="height" constant="488" id="Ubx-ZC-PsG"/>
                                         </constraints>
                                         <mutableString key="text">MOBILE APP TERMS AND
 CONDITIONS TEMPLATE
@@ -2914,6 +2920,7 @@ regarding use of the Site, please contact us at:
                                 </subviews>
                                 <color key="backgroundColor" red="0.1176470588" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="25b-KS-9CQ" secondAttribute="bottom" constant="8" id="01G-3V-Dw3"/>
                                     <constraint firstItem="25b-KS-9CQ" firstAttribute="top" secondItem="bGd-4B-YdU" secondAttribute="bottom" constant="9" id="JQJ-ZY-9qn"/>
                                     <constraint firstItem="25b-KS-9CQ" firstAttribute="leading" secondItem="m42-9r-nI9" secondAttribute="leading" constant="8" id="OXX-Bg-NA2"/>
                                     <constraint firstItem="25b-KS-9CQ" firstAttribute="centerX" secondItem="m42-9r-nI9" secondAttribute="centerX" id="aDy-tM-xz6"/>
@@ -2959,7 +2966,7 @@ regarding use of the Site, please contact us at:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9Q-pq-xFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-918" y="3850"/>
+            <point key="canvasLocation" x="-919.20000000000005" y="3849.6251874062973"/>
         </scene>
         <!--Premium Info-->
         <scene sceneID="jke-jE-Qfo">
@@ -2989,45 +2996,37 @@ regarding use of the Site, please contact us at:
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Uv6-Pd-d2O">
-                                        <rect key="frame" x="8" y="74" width="359" height="10976"/>
+                                        <rect key="frame" x="8" y="74" width="359" height="488"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="10976" id="3Ay-yB-yE0"/>
+                                            <constraint firstAttribute="height" constant="488" id="3Ay-yB-yE0"/>
                                         </constraints>
-                                        <mutableString key="text">Privacy Policy
-
-Effective date: August 02, 2018
+                                        <mutableString key="text">Effective date: August 02, 2018
 
 J3 Entertainment, LLC ("us", "we", or"our") operates the website and the
 NexUp Radio mobile application (the "Service").
-
 This page informs you of our policies
 regarding the collection, use, and
 disclosure of personal data when you
 use our Service and the choices you
 have associated with that data.
-
 We use your data to provide and
 improve the Service. By using the
 Service, you agree to the collection and
 use of information in accordance with
 this policy. Unless otherwise defined
-in this Privacy Policy, terms used in
-
-this Privacy Policy have the same
+in this Privacy Policy, terms used in this Privacy Policy have the same
 meanings as in our Terms and
 Conditions.
 
 Definitions
 
-Service
-
+Service:
 Service means the website and the
 NexUp Radio mobile application
 operated by J3 Entertainment, LLC
 
-Personal Data
-
+Personal Data:
 Personal Data means data about a
 living individual who can be
 identified from those data (or from
@@ -3035,30 +3034,22 @@ those and other information either in
 our possession or likely to come into
 our possession).
 
-Usage Data
-
-Usage Data is data collected
+Usage Data: Usage Data is data collected
 automatically either generated by
 the use of the Service or from the
 Service infrastructure itself (for
 example, the duration of a page
 visit).
 
-Cookies
-
-Cookies are small pieces of data
+Cookies: Cookies are small pieces of data
 stored on your device (computer or
 mobile device).
 
-Data Controller
-
-Data Controller means the natural or
+Data Controller: Data Controller means the natural or
 legal person who (either alone or
 jointly or in common with other
 persons) determines the purposes
-for which and the manner in which
-
-any personal information are, or are
+for which and the manner in which any personal information are, or are
 to be, processed.
 
 For the purpose of this Privacy
@@ -3066,37 +3057,26 @@ Policy, we are a Data Controller of
 your Personal Data.
 
 Data Processors (or Service
-Providers)
-
-Data Processor (or Service Provider)
+Providers): Data Processor (or Service Provider)
 means any natural or legal person
 who processes the data on behalf of
-the Data Controller.
-
-We may use the services of various
+the Data Controller. We may use the services of various
 Service Providers in order to process
 your data more effectively.
 
-Data Subject (or User)
-
-Data Subject is any living individual
-
+Data Subject (or User): Data Subject is any living individual
 who is using our Service and is the
 subject of Personal Data.
 
 Information Collection
-and Use
-
-We collect several different types of
+and Use: We collect several different types of
 information for various purposes to
 provide and improve our Service to
 you.
 
 Types of Data Collected
 
-Personal Data
-
-While using our Service, we may ask
+Personal Data: While using our Service, we may ask
 you to provide us with certain
 personally identifiable information
 that can be used to contact or identify
@@ -3105,11 +3085,9 @@ you ("Personal Data"). Personally
 identifiable information may include,
 but is not limited to:
 
-Email address
-Cookies and Usage Data
+Email address, Cookies and Usage Data
 
-Usage Data
-
+Usage Data:
 We may also collect information that
 your browser sends whenever you visit
 our Service or when you access the
@@ -3587,21 +3565,6 @@ practices of Facebook, please visit
 Facebook's Data Policy:
 https://www.facebook.com/privacy/explanation
 
-Links to Other Sites
-
-Our Service may contain links to other
-sites that are not operated by us. If you
-click on a third party link, you will be
-
-directed to that third party's site. We
-strongly advise you to review the
-Privacy Policy of every site you visit.
-
-We have no control over and assume
-no responsibility for the content,
-privacy policies or practices of any
-third party sites or services.
-
 Children's Privacy
 
 Our Service does not address anyone
@@ -3619,27 +3582,6 @@ collected Personal Data from children
 without verification of parental
 consent, we take steps to remove that
 information from our servers.
-
-Changes to This Privacy
-Policy
-
-We may update our Privacy Policy
-from time to time. We will notify you
-of any changes by posting the new
-Privacy Policy on this page.
-
-We will let you know via email and/or
-a prominent notice on our Service,
-prior to the change becoming effective
-and update the "effective date" at the
-top of this Privacy Policy.
-
-You are advised to review this Privacy
-Policy periodically for any changes.
-
-Changes to this Privacy Policy are
-effective when they are posted on this
-page.
 
 Contact Us
 
@@ -3666,6 +3608,7 @@ By phone number: 2489432463</mutableString>
                                     <constraint firstAttribute="trailing" secondItem="Uv6-Pd-d2O" secondAttribute="trailing" constant="8" id="ptj-Ir-CSH"/>
                                     <constraint firstAttribute="trailing" secondItem="99u-Zs-J2s" secondAttribute="trailing" id="qJP-6C-dci"/>
                                     <constraint firstAttribute="trailing" secondItem="3X1-5d-0w4" secondAttribute="trailing" id="ras-iL-e7b"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uv6-Pd-d2O" secondAttribute="bottom" constant="8" id="sa4-W1-Yr8"/>
                                     <constraint firstItem="99u-Zs-J2s" firstAttribute="top" secondItem="5z8-L2-SEj" secondAttribute="top" constant="21" id="vF9-4k-NTN"/>
                                     <constraint firstItem="Uv6-Pd-d2O" firstAttribute="top" secondItem="3X1-5d-0w4" secondAttribute="bottom" constant="5" id="wea-2O-ihu"/>
                                     <constraint firstItem="Uv6-Pd-d2O" firstAttribute="top" secondItem="99u-Zs-J2s" secondAttribute="bottom" constant="34" id="zGq-J3-Flv"/>
@@ -3795,7 +3738,7 @@ By phone number: 2489432463</mutableString>
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A8Q-Sl-P1d"/>
+        <segue reference="qdQ-mg-14a"/>
         <segue reference="I3Q-Aj-ED4"/>
         <segue reference="MQP-vZ-AIf"/>
         <segue reference="Lmk-7r-Zvj"/>
