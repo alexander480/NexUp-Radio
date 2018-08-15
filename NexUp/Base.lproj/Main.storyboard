@@ -2028,25 +2028,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-BL-Rr5">
-                                <rect key="frame" x="76" y="506" width="223" height="26"/>
+                                <rect key="frame" x="76" y="508" width="223" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6xw-BL-Rr5" secondAttribute="height" multiplier="103:12" id="BDw-Df-r0B"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Terms &amp; Conditions"/>
                                 <connections>
-                                    <segue destination="k6e-oy-g86" kind="show" id="IPg-K4-Kl1"/>
+                                    <action selector="termsAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="Jmo-kG-wQI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-bA-5nN">
-                                <rect key="frame" x="108.5" y="532" width="158" height="26"/>
+                                <rect key="frame" x="108.5" y="534" width="158" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oid-bA-5nN" secondAttribute="height" multiplier="73:12" id="sn8-9x-pgo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Privacy Policy"/>
                                 <connections>
-                                    <segue destination="uLw-GA-nko" kind="show" id="XZ7-ZI-Z0a"/>
+                                    <action selector="privacyAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="dpX-7w-29w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsn-av-6Hx">
@@ -2062,15 +2062,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY7-Cf-atd">
-                                <rect key="frame" x="122.5" y="558" width="130" height="26"/>
+                                <rect key="frame" x="122.5" y="560" width="130" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QY7-Cf-atd" secondAttribute="height" multiplier="5:1" id="PDE-zf-3R0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Learn More"/>
-                                <connections>
-                                    <segue destination="wdu-NV-E8C" kind="show" id="L4T-4E-nRb"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2086,7 +2083,7 @@
                             <constraint firstItem="oid-bA-5nN" firstAttribute="top" secondItem="6xw-BL-Rr5" secondAttribute="bottom" id="DZq-0s-46G"/>
                             <constraint firstItem="t5F-ye-ELt" firstAttribute="leading" secondItem="qbh-A2-MXx" secondAttribute="leadingMargin" constant="109" id="G4j-7l-Y0J"/>
                             <constraint firstItem="gsn-av-6Hx" firstAttribute="leading" secondItem="qbh-A2-MXx" secondAttribute="leading" id="GNL-7i-Kwx"/>
-                            <constraint firstItem="6xw-BL-Rr5" firstAttribute="top" secondItem="Ver-mJ-tQL" secondAttribute="bottom" constant="11" id="WJe-NW-5Lh"/>
+                            <constraint firstItem="6xw-BL-Rr5" firstAttribute="top" secondItem="Ver-mJ-tQL" secondAttribute="bottom" constant="13" id="WJe-NW-5Lh"/>
                             <constraint firstItem="92S-TO-dN2" firstAttribute="centerX" secondItem="qbh-A2-MXx" secondAttribute="centerX" id="WiX-L3-MU2"/>
                             <constraint firstItem="1Hz-mY-HYF" firstAttribute="centerX" secondItem="qbh-A2-MXx" secondAttribute="centerX" id="XxF-8D-0xg"/>
                             <constraint firstItem="6xw-BL-Rr5" firstAttribute="centerX" secondItem="qbh-A2-MXx" secondAttribute="centerX" id="bcy-Nu-rp6"/>
@@ -2107,10 +2104,11 @@
             </objects>
             <point key="canvasLocation" x="884" y="3849.6251874062973"/>
         </scene>
-        <!--Terms & Conditions-->
+        <!--TermsVC-->
         <scene sceneID="uiW-oo-kFV">
             <objects>
-                <viewController storyboardIdentifier="TermsVC" title="Terms &amp; Conditions" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k6e-oy-g86" customClass="TermsVC" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B9Q-pq-xFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="TermsVC" title="TermsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k6e-oy-g86" customClass="TermsVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ogn-zj-gF8"/>
                         <viewControllerLayoutGuide type="bottom" id="ktb-KG-2Fv"/>
@@ -2118,19 +2116,18 @@
                     <view key="view" contentMode="scaleToFill" id="zD1-MI-4of">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B9Q-pq-xFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-55" y="3850"/>
         </scene>
-        <!--Premium Info-->
+        <!--PrivacyVC-->
         <scene sceneID="jke-jE-Qfo">
             <objects>
-                <viewController storyboardIdentifier="PrivacyVC" title="Premium Info" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uLw-GA-nko" customClass="PrivacyVC" customModule="NexUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyVC" title="PrivacyVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uLw-GA-nko" customClass="PrivacyVC" customModule="NexUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aio-b4-4PA"/>
                         <viewControllerLayoutGuide type="bottom" id="cm1-iV-CP5"/>
@@ -2138,7 +2135,7 @@
                     <view key="view" contentMode="scaleToFill" id="s8U-gb-f73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
@@ -2236,7 +2233,6 @@
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L4T-4E-nRb"/>
         <segue reference="I3Q-Aj-ED4"/>
         <segue reference="MQP-vZ-AIf"/>
         <segue reference="Lmk-7r-Zvj"/>

@@ -33,11 +33,11 @@ class PremiumVC: UIViewController {
     }
     
     @IBAction func termsAction(_ sender: Any) {
-        if let url = URL(string: "https://designsbylagb.com/nexup-terms.html") { UIApplication.shared.open(url) }
+        self.present(TermsVC(), animated: true, completion: nil)
     }
     
     @IBAction func privacyAction(_ sender: Any) {
-        if let url = URL(string: "https://designsbylagb.com/nexup-terms.html") { UIApplication.shared.open(url) }
+        self.present(PrivacyVC(), animated: true, completion: nil)
     }
     
     @IBAction func cancelAction(_ sender: Any) { self.dismiss(animated: true, completion: nil) }
