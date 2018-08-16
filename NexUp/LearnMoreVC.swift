@@ -7,10 +7,36 @@
 //
 
 import Foundation
+import WebKit
 import UIKit
 
-class LearnMoreVC: UIViewController {
+class LearnMoreVC: UIViewController, WKUIDelegate {
+    var webView: WKWebView!
+    var doneButton: UIButton!
+    
+    override func loadView() {
+        super.loadView()
+        
+        let webViewFrame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height - 60.0)
+        self.webView = WKWebView(frame: webViewFrame, configuration: WKWebViewConfiguration())
+        self.webView.uiDelegate = self
+        
+        let doneButtonFrame = CGRect(x: 0.0, y: self.view.frame.size.height - 60.0, width: self.view.frame.size.width, height: 60.0)
+        self.doneButton = UIButton(frame: doneButtonFrame)
+        self.doneButton.backgroundColor = .red
+        self.doneButton.setTitle("Done", for: .normal)
+        self.doneButton.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
+        
+        self.view.addSubview(self.webView)
+        self.view.addSubview(self.doneButton)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let url = URL(string: "https://designsbylagb.com/documents/Learn-1.pdf") {
+            self.webView.load(URLRequest(url: url))
+        }
     }
+    
+    @objc private func doneAction(sender: UIButton!) { dismiss(animated: true, completion: nil) }
 }

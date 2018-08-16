@@ -40,6 +40,10 @@ class PremiumVC: UIViewController {
         self.present(PrivacyVC(), animated: true, completion: nil)
     }
     
+    @IBAction func learnAction(_ sender: Any) {
+        self.present(LearnMoreVC(), animated: true, completion: nil)
+    }
+    
     @IBAction func cancelAction(_ sender: Any) { self.dismiss(animated: true, completion: nil) }
     
     override func viewDidLoad() {

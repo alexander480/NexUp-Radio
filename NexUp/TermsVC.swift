@@ -23,7 +23,7 @@ class TermsVC: UIViewController, WKUIDelegate {
         
         let doneButtonFrame = CGRect(x: 0.0, y: self.view.frame.size.height - 60.0, width: self.view.frame.size.width, height: 60.0)
             self.doneButton = UIButton(frame: doneButtonFrame)
-            self.doneButton.backgroundColor = .blue
+            self.doneButton.backgroundColor = .red
             self.doneButton.setTitle("Done", for: .normal)
             self.doneButton.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
         
