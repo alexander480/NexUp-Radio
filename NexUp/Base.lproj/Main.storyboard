@@ -1059,7 +1059,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgZ-fw-sxt">
-                                        <rect key="frame" x="157" y="211" width="31" height="31"/>
+                                        <rect key="frame" x="157" y="214" width="31" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vgZ-fw-sxt" secondAttribute="height" multiplier="1:1" id="AbO-GO-wKa"/>
                                             <constraint firstAttribute="width" constant="31" id="LvK-5C-NCJ"/>
@@ -1081,7 +1081,7 @@
                                     <constraint firstItem="vgZ-fw-sxt" firstAttribute="centerX" secondItem="EE2-FO-ivQ" secondAttribute="centerX" id="Clc-cB-Qs3"/>
                                     <constraint firstItem="IiY-CQ-gb9" firstAttribute="centerY" secondItem="EE2-FO-ivQ" secondAttribute="centerY" constant="-0.75" id="Exw-xt-DaI"/>
                                     <constraint firstItem="2x9-eP-57k" firstAttribute="top" secondItem="EE2-FO-ivQ" secondAttribute="top" id="GuA-9k-5HG"/>
-                                    <constraint firstItem="Fqv-W4-U5k" firstAttribute="top" secondItem="vgZ-fw-sxt" secondAttribute="bottom" constant="36" id="I8s-ti-mts"/>
+                                    <constraint firstItem="Fqv-W4-U5k" firstAttribute="top" secondItem="vgZ-fw-sxt" secondAttribute="bottom" constant="33" id="I8s-ti-mts"/>
                                     <constraint firstAttribute="trailing" secondItem="2x9-eP-57k" secondAttribute="trailing" id="LZZ-W7-FP4"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uRf-8m-Iv9" secondAttribute="trailing" constant="7" id="PHO-ie-fHI"/>
                                     <constraint firstItem="uRf-8m-Iv9" firstAttribute="top" secondItem="qXT-Ic-kcX" secondAttribute="bottom" constant="5" id="RZT-o9-NPQ"/>
@@ -1093,7 +1093,7 @@
                                     <constraint firstItem="2x9-eP-57k" firstAttribute="leading" secondItem="EE2-FO-ivQ" secondAttribute="leading" id="bwc-4b-Lhg"/>
                                     <constraint firstItem="qXT-Ic-kcX" firstAttribute="top" secondItem="EE2-FO-ivQ" secondAttribute="top" constant="67" id="ciY-TB-sDI"/>
                                     <constraint firstItem="IiY-CQ-gb9" firstAttribute="leading" secondItem="rgc-vt-Knf" secondAttribute="trailing" constant="28" id="dCM-UT-tJb"/>
-                                    <constraint firstItem="vgZ-fw-sxt" firstAttribute="top" secondItem="rgc-vt-Knf" secondAttribute="bottom" constant="16.5" id="e7p-xD-RaO"/>
+                                    <constraint firstItem="vgZ-fw-sxt" firstAttribute="top" secondItem="rgc-vt-Knf" secondAttribute="bottom" constant="19.5" id="e7p-xD-RaO"/>
                                     <constraint firstItem="qXT-Ic-kcX" firstAttribute="centerX" secondItem="EE2-FO-ivQ" secondAttribute="centerX" id="hOu-pc-E8O"/>
                                     <constraint firstItem="umg-pq-bLg" firstAttribute="centerX" secondItem="EE2-FO-ivQ" secondAttribute="centerX" id="kfT-js-xj4"/>
                                     <constraint firstItem="rgc-vt-Knf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uRf-8m-Iv9" secondAttribute="bottom" constant="30" id="tID-IJ-bOX"/>
