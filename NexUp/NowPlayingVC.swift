@@ -19,7 +19,6 @@ let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
 
 class NowPlayingVC: UIViewController, GADInterstitialDelegate {
-    
     let bannerID = "ca-app-pub-6543648439575950/8381413905"
     let fullScreenID = "ca-app-pub-6543648439575950/9063940183"
     

@@ -1944,14 +1944,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="EZG-kh-6VR">
-                                <rect key="frame" x="116" y="30" width="141" height="141"/>
+                                <rect key="frame" x="136.5" y="30" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EZG-kh-6VR" secondAttribute="height" multiplier="1:1" id="67B-p9-bq4"/>
-                                    <constraint firstAttribute="width" constant="141" id="N4I-jx-kIP"/>
+                                    <constraint firstAttribute="width" constant="100.00000000000004" id="N4I-jx-kIP"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-mY-HYF">
-                                <rect key="frame" x="0.0" y="162" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="137" width="375" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase Premium Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-iu-LlE">
                                         <rect key="frame" x="0.0" y="38" width="375" height="20.5"/>
@@ -2005,7 +2005,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92S-TO-dN2">
-                                <rect key="frame" x="0.0" y="367" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="342" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="92S-TO-dN2" secondAttribute="height" multiplier="15:2" constant="-75" id="NJC-r3-LCv"/>
@@ -2017,7 +2017,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ver-mJ-tQL">
-                                <rect key="frame" x="0.0" y="432" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="407" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ver-mJ-tQL" secondAttribute="height" multiplier="15:2" constant="-75" id="dNc-uK-ctx"/>
@@ -2029,7 +2029,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-BL-Rr5">
-                                <rect key="frame" x="0.0" y="500" width="375" height="26"/>
+                                <rect key="frame" x="0.0" y="475" width="375" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Terms &amp; Conditions"/>
                                 <connections>
@@ -2037,7 +2037,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-bA-5nN">
-                                <rect key="frame" x="0.0" y="527" width="375" height="26"/>
+                                <rect key="frame" x="0.0" y="502" width="375" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Privacy Policy"/>
                                 <connections>
@@ -2057,7 +2057,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY7-Cf-atd">
-                                <rect key="frame" x="0.0" y="555" width="375" height="26"/>
+                                <rect key="frame" x="0.0" y="530" width="375" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Learn More"/>
                                 <connections>
@@ -2094,7 +2094,7 @@
                             <constraint firstAttribute="trailing" secondItem="92S-TO-dN2" secondAttribute="trailing" id="pZS-Zi-zW6"/>
                             <constraint firstItem="oid-bA-5nN" firstAttribute="leading" secondItem="qbh-A2-MXx" secondAttribute="leading" id="qtK-41-RZE"/>
                             <constraint firstItem="QY7-Cf-atd" firstAttribute="top" secondItem="oid-bA-5nN" secondAttribute="bottom" constant="2" id="v8f-cO-Qlm"/>
-                            <constraint firstItem="1Hz-mY-HYF" firstAttribute="top" secondItem="EZG-kh-6VR" secondAttribute="bottom" constant="-9" id="vlg-GV-kMk"/>
+                            <constraint firstItem="1Hz-mY-HYF" firstAttribute="top" secondItem="EZG-kh-6VR" secondAttribute="bottom" constant="7" id="vlg-GV-kMk"/>
                             <constraint firstAttribute="trailing" secondItem="1Hz-mY-HYF" secondAttribute="trailing" id="ymA-qT-jKd"/>
                         </constraints>
                     </view>
