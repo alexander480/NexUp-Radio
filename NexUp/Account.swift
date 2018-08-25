@@ -83,9 +83,10 @@ class Account: NSObject {
     
     func syncPremiumStatus() {
         if let user = auth.currentUser {
-            let premiumRef = db.reference(withPath: "users/\(user.uid)/isPremium")
-            premiumRef.observe(.value) { (snapshot) in
-                if let result = snapshot.value as? Bool { self.isPremium = result } else { premiumRef.setValue(false) }
+            let ref = db.reference(withPath: "users/\(user.uid)/isPremium")
+            ref.observe(.value) { (snapshot) in
+                if let result = snapshot.value as? Bool { self.isPremium = result }
+                else { ref.setValue(false) }
             }
         }
     }

@@ -34,7 +34,6 @@
 		E57675D62015C24E0093C820 /* AVFoundationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675D52015C24E0093C820 /* AVFoundationExt.swift */; };
 		E57675DE2015C2A40093C820 /* FoundationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* FoundationExt.swift */; };
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
-		E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */; };
 		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
 		E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1920196CAF00777E67 /* FavoriteVC.swift */; };
 		E5B87E1C20196CC600777E67 /* DislikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1B20196CC600777E67 /* DislikeVC.swift */; };
@@ -77,7 +76,6 @@
 		E57675DD2015C2A40093C820 /* FoundationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExt.swift; sourceTree = "<group>"; };
 		E58A2FB620203E4400A22C55 /* NexUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NexUp.entitlements; sourceTree = SOURCE_ROOT; };
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionHandler.swift; sourceTree = "<group>"; };
 		E59BA252202D17700050588D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E5B87E1920196CAF00777E67 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		E5B87E1B20196CC600777E67 /* DislikeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikeVC.swift; sourceTree = "<group>"; };
@@ -214,11 +212,20 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		E5872E472130F9B40043AB26 /* Information Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5EA45F2210FAC85006FDC69 /* TermsVC.swift */,
+				E5EA45F4210FAC8D006FDC69 /* PrivacyVC.swift */,
+				E5EA45F6210FAC9D006FDC69 /* LearnMoreVC.swift */,
+			);
+			name = "Information Views";
+			sourceTree = "<group>";
+		};
 		E59BA24F202D0EF10050588D /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				E51B22AA200316DC009F09A1 /* Account.swift */,
-				E59BA24D202D0D2B0050588D /* SubscriptionHandler.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -298,9 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				E5EA45F0210FA2D1006FDC69 /* PremiumVC.swift */,
-				E5EA45F2210FAC85006FDC69 /* TermsVC.swift */,
-				E5EA45F4210FAC8D006FDC69 /* PrivacyVC.swift */,
-				E5EA45F6210FAC9D006FDC69 /* LearnMoreVC.swift */,
+				E5872E472130F9B40043AB26 /* Information Views */,
 			);
 			name = "Premium Views";
 			sourceTree = "<group>";
@@ -462,7 +467,6 @@
 				E5EA45F5210FAC8D006FDC69 /* PrivacyVC.swift in Sources */,
 				E53C4A312001C1F600D38465 /* ArtistInfoVC.swift in Sources */,
 				E57675D42015C2330093C820 /* UIKitExt.swift in Sources */,
-				E59BA24E202D0D2B0050588D /* SubscriptionHandler.swift in Sources */,
 				E569F389200590A300E5F07D /* Artist.swift in Sources */,
 				E5B87E1E20196CE300777E67 /* RecentVC.swift in Sources */,
 				E5EA45F7210FAC9D006FDC69 /* LearnMoreVC.swift in Sources */,

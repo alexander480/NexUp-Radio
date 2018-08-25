@@ -9,51 +9,71 @@
 import Foundation
 import UIKit
 
+import FirebaseAuth
+import SwiftyStoreKit
+
 class PremiumVC: UIViewController {
-    let sub = SubscriptionHandler()
     
-    @IBAction func purchaseAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Charge $1.99 To Your iTunes Account Monthly", message: "For More Information Click On 'Learn More Below'", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (alertAction) in
-            self.sub.purchase { (success) in
-                if success { self.alert(Title: "Success!", Description: "Welcome To NexUp Premium.") }
-                else { self.alert(Title: "Error", Description: "Sorry, Something Went Wrong. Please Try Again.") }
+    @IBAction func purchaseAction(_ sender: Any) { self.fullService() }
+    @IBAction func restoreAction(_ sender: Any) { self.restore() }
+    @IBAction func termsAction(_ sender: Any) { self.present(TermsVC(), animated: true, completion: nil) }
+    @IBAction func privacyAction(_ sender: Any) { self.present(PrivacyVC(), animated: true, completion: nil) }
+    @IBAction func learnAction(_ sender: Any) { self.present(LearnMoreVC(), animated: true, completion: nil) }
+    @IBAction func cancelAction(_ sender: Any) { self.dismiss(animated: true, completion: nil) }
+
+    // MARK: Purchase Premium Subscription
+    private func fullService() {
+        SwiftyStoreKit.retrieveProductsInfo(Set(["com.lagbtech.nexup_radio.premium"])) { (result) in
+            if result.retrievedProducts.isEmpty == false {
+                print("[INFO] Retrieved \(result.retrievedProducts.count) StoreKit Products");
+                if let product = result.retrievedProducts.first {
+                    SwiftyStoreKit.purchaseProduct(product) { (result) in
+                        if case .success(let purchase) = result {
+                            if purchase.needsFinishTransaction { SwiftyStoreKit.finishTransaction(purchase.transaction) }
+                            let validator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
+                            SwiftyStoreKit.verifyReceipt(using: validator, completion: { (receiptResult) in
+                                if case .success(let receipt) = receiptResult {
+                                    let verify = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable, productId: "com.lagbtech.nexup_radio.premium", inReceipt: receipt)
+                                    switch verify {
+                                    case .purchased(let expiryDate, _):
+                                        self.alert(Title: "Success", Description: "Subscription is valid until \(expiryDate)")
+                                        self.premify()
+                                    case .expired(let expiryDate, _):
+                                        self.alert(Title: "Subscription Expired", Description: "Your subscription expired on \(expiryDate)")
+                                    case .notPurchased:
+                                        self.alert(Title: "Error", Description: "Purchase unsuccessful")
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
             }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (alertAction) in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func restoreAction(_ sender: Any) {
-        sub.restore { (success) in
-            if success { self.alert(Title: "Success!", Description: "Welcome Back To NexUp Premium.") }
-            else { self.alert(Title: "Error", Description: "Sorry, Something Went Wrong. Please Try Again.") }
+            else if result.invalidProductIDs.isEmpty == false {
+                print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)")
+                self.alert(Title: "Error", Description: "Please Try Again")
+            }
+            else if result.error != nil {
+                print("[ERROR] Unknown Error While Retrieving StoreKit Products")
+                self.alert(Title: "Error", Description: "Please Try Again")
+            }
         }
     }
     
-    @IBAction func termsAction(_ sender: Any) {
-        self.present(TermsVC(), animated: true, completion: nil)
+    // MARK: Make User Premium
+    private func premify() {
+        if let user = auth.currentUser {
+            db.reference(withPath: "users/\(user.uid)/isPremium").setValue(true)
+            account.isPremium = true
+        }
     }
     
-    @IBAction func privacyAction(_ sender: Any) {
-        self.present(PrivacyVC(), animated: true, completion: nil)
-    }
-    
-    @IBAction func learnAction(_ sender: Any) {
-        self.present(LearnMoreVC(), animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelAction(_ sender: Any) { self.dismiss(animated: true, completion: nil) }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if account.isPremium {
-            self.alert(Title: "You're Already A Premium User", Description: nil)
-            self.dismiss(animated: true, completion: nil)
+    // MARK: Restore Previous Purchases
+    private func restore() {
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+            if results.restoreFailedPurchases.count > 0 { self.alert(Title: "Error", Description: "Sorry, Something Went Wrong. Please Try Again.") }
+            else if results.restoredPurchases.count > 0 { self.alert(Title: "Success!", Description: "Welcome Back To NexUp Premium.") }
+            else { self.alert(Title: "Nothing To Restore", Description: nil) }
         }
     }
 }
