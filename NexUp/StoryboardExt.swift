@@ -17,18 +17,7 @@ import UIKit
     @IBInspectable var shadowRadius: CGFloat = 10 { didSet { layer.shadowRadius = shadowRadius } }
 }
 
-@IBDesignable class TableClass: UITableView {
-    @IBInspectable var cornerRadius: CGFloat = 0 { didSet { layer.cornerRadius = cornerRadius } }
-}
-
-@IBDesignable class ButtonClass: UIButton {
-    @IBInspectable var cornerRadius: CGFloat = 0 { didSet { layer.cornerRadius = cornerRadius  } }
-}
-
-@IBDesignable class TextFieldClass: UIButton {
-    @IBInspectable var cornerRadius: CGFloat = 0 { didSet { layer.cornerRadius = cornerRadius  } }
-}
-
-@IBDesignable class ImageViewClass: UIImageView {
-    @IBInspectable var cornerRadius: CGFloat = CGFloat.init(exactly: NSNumber(value: 1))! { didSet { layer.cornerRadius = cornerRadius  } }
-}
+@IBDesignable class TableClass: UITableView { @IBInspectable var cornerRadius: CGFloat = 0 { didSet { layer.cornerRadius = cornerRadius } } }
+@IBDesignable class ButtonClass: UIButton { @IBInspectable var cornerRadius: CGFloat = 0 { didSet { layer.cornerRadius = cornerRadius  } } }
+@IBDesignable class TextFieldClass: UIButton { @IBInspectable var cornerRadius: CGFloat = 0 { didSet { layer.cornerRadius = cornerRadius  } } }
+@IBDesignable class ImageViewClass: UIImageView { @IBInspectable var cornerRadius: CGFloat = CGFloat.init(exactly: NSNumber(value: 1))! { didSet { layer.cornerRadius = cornerRadius } } }

@@ -95,11 +95,7 @@ class UserAccountVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
             let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
                 bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: view.bounds.size.width, height: 90))
-            for view in cell.contentView.subviews {
-                if view.isMember(of: GADBannerView.self) {
-                    view.removeFromSuperview()
-                }
-            }
+            for view in cell.contentView.subviews { if view.isMember(of: GADBannerView.self) { view.removeFromSuperview() } }
             cell.addSubview(bannerView)
             
             DispatchQueue.global(qos: .background).async() {

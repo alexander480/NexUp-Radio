@@ -89,7 +89,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         }
     }
     
-    // MARK: SONG FINISHED LISTENER //
+    // MARK: Song Finished Listener
     
     @objc func playerDidFinishPlaying() {
         print("[INFO] Player Finished Playing")
@@ -97,7 +97,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         self.skip(didFinish: true)
     }
 
-    // MARK: AUDIO CONTROLS //
+    // MARK: Audio Controls
 
     func togglePlayback() { if self.player.rate == 1.0 { self.player.pause() } else { self.player.play() } }
 
@@ -151,7 +151,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         }
     }
     
-    // MARK: METADATA FETCHER //
+    // MARK: Metadata Fetcher
     
     func fetchMetadata() -> [String: Any]? {
         var metadata = [String: Any]()
@@ -186,7 +186,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         return metadata
     }
     
-    // MARK: COMMAND CENTER SETUP //
+    // MARK: Command Center Setup
     
     private func ccSetup() {
         self.cc.playCommand.isEnabled = true
@@ -240,7 +240,7 @@ class Audio: NSObject, AVAssetResourceLoaderDelegate {
         }
     }
     
-    // MARK: AUDIO SESSION SETUP //
+    // MARK: Audio Session Setup
     
     private func sessionSetup() {
         do {

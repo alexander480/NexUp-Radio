@@ -43,13 +43,6 @@ class Account: NSObject {
         }
     }
     
-    func refreshSkipCount() {
-        if let uid = auth.currentUser?.uid {
-            db.reference(withPath: "users/\(uid)/skipCount").setValue(10)
-            self.skipCount = 10
-        }
-    }
-    
     func shouldRefreshSkipCount() {
         if let savedDate = UserDefaults.standard.object(forKey: "date") as? Date {
             let calendar = Calendar(identifier: .gregorian)
