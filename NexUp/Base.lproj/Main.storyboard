@@ -383,7 +383,7 @@
                             <constraint firstItem="gmX-o5-KUQ" firstAttribute="centerX" secondItem="jfe-YB-uBB" secondAttribute="centerX" id="VkA-v7-1kM"/>
                             <constraint firstItem="ubx-vR-1td" firstAttribute="top" secondItem="jfe-YB-uBB" secondAttribute="top" id="ZQB-cG-GjG"/>
                             <constraint firstItem="YO2-kR-mKC" firstAttribute="top" secondItem="Omi-O9-iwC" secondAttribute="bottom" id="aaO-Oy-agq"/>
-                            <constraint firstItem="gmX-o5-KUQ" firstAttribute="trailing" secondItem="jfe-YB-uBB" secondAttribute="trailingMargin" id="h3c-kg-O6q"/>
+                            <constraint firstItem="gmX-o5-KUQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jfe-YB-uBB" secondAttribute="trailingMargin" id="h3c-kg-O6q"/>
                             <constraint firstItem="hMb-zf-Fzc" firstAttribute="top" secondItem="Ubi-25-g05" secondAttribute="bottom" constant="82" id="ko8-kS-tM1">
                                 <variation key="widthClass=compact" constant="46"/>
                             </constraint>
@@ -808,7 +808,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountHeaderCell" rowHeight="200" id="cad-Oi-vRB" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountHeaderCell" rowHeight="200" id="cad-Oi-vRB" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cad-Oi-vRB" id="I5k-F0-Guv">
@@ -853,7 +853,7 @@
                                             <outlet property="cellTitle" destination="uq6-jZ-6B0" id="3AJ-Ze-fiu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="85" id="L74-tK-UGi" customClass="AccountCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="85" id="L74-tK-UGi" customClass="AccountCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L74-tK-UGi" id="3AB-wM-X4O">
@@ -878,7 +878,7 @@
                                             <outlet property="cellTitle" destination="Mvd-xE-A1m" id="ceD-cI-X1S"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="obu-yV-Cxv" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="obu-yV-Cxv" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="313" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="obu-yV-Cxv" id="eCM-0a-bn1">
@@ -1207,7 +1207,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistHeaderCell" rowHeight="175" id="FdB-Xd-LLG" customClass="ArtistHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistHeaderCell" rowHeight="175" id="FdB-Xd-LLG" customClass="ArtistHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FdB-Xd-LLG" id="1dz-4o-Vc4">
@@ -1241,7 +1241,7 @@
                                             <outlet property="cellTitle" destination="LDb-EQ-MsV" id="iDg-r2-IYT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="100" id="KEA-h7-8a0" customClass="ArtistCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="100" id="KEA-h7-8a0" customClass="ArtistCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KEA-h7-8a0" id="Q9e-P5-8HI">
@@ -1277,7 +1277,7 @@
                                             <outlet property="artistName" destination="HNI-7j-cRs" id="iO5-7B-Xlc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="vyt-7x-ht7" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="vyt-7x-ht7" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vyt-7x-ht7" id="91N-9S-BHa">
@@ -1358,7 +1358,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Jco-6R-AvN" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Jco-6R-AvN" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jco-6R-AvN" id="sKb-Za-ybf">
@@ -1394,7 +1394,7 @@
                                             <outlet property="cellTitle" destination="ua8-nK-Euj" id="stQ-g5-nQP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="okM-0R-wvd" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="okM-0R-wvd" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="okM-0R-wvd" id="HBZ-fA-AcS">
@@ -1440,7 +1440,7 @@
                                             <outlet property="cellTitle" destination="2iZ-PQ-tW5" id="dSK-PI-VPA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="mZh-my-B4Y" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="mZh-my-B4Y" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZh-my-B4Y" id="6qk-xo-eau">
@@ -1565,7 +1565,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Vl7-qB-KQL" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Vl7-qB-KQL" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vl7-qB-KQL" id="NgD-05-Szs">
@@ -1599,7 +1599,7 @@
                                             <outlet property="cellTitle" destination="kAl-tn-DGX" id="C9s-3Z-pLX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="GAv-sE-cml" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="GAv-sE-cml" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GAv-sE-cml" id="f2j-rd-6hm">
@@ -1644,7 +1644,7 @@
                                             <outlet property="cellTitle" destination="jtt-Uw-d3B" id="dGd-59-L4l"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="4tg-q2-Xbg" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="4tg-q2-Xbg" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4tg-q2-Xbg" id="iVP-aO-Pm9">
@@ -1769,7 +1769,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="rRk-4s-Aim" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="rRk-4s-Aim" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rRk-4s-Aim" id="7Rt-RP-fys">
@@ -1803,7 +1803,7 @@
                                             <outlet property="cellTitle" destination="gQz-2B-4YL" id="RnB-So-5vg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="a9y-zF-wg6" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="a9y-zF-wg6" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9y-zF-wg6" id="Ejk-Li-qvJ">
@@ -1848,7 +1848,7 @@
                                             <outlet property="cellTitle" destination="Ism-0j-k6p" id="h7g-NB-PK0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="CBY-nG-4l1" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="CBY-nG-4l1" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBY-nG-4l1" id="dYI-a4-bmB">
@@ -2097,15 +2097,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="QY7-Cf-atd" secondAttribute="trailing" id="1Hh-WC-Lna"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QY7-Cf-atd" secondAttribute="trailing" id="1Hh-WC-Lna"/>
                                     <constraint firstItem="1Hz-mY-HYF" firstAttribute="top" secondItem="EZG-kh-6VR" secondAttribute="bottom" constant="14" id="26b-ek-kFy"/>
                                     <constraint firstItem="EZG-kh-6VR" firstAttribute="centerX" secondItem="1Hz-mY-HYF" secondAttribute="centerX" id="3Rm-bz-iE7"/>
-                                    <constraint firstItem="92S-TO-dN2" firstAttribute="top" secondItem="1Hz-mY-HYF" secondAttribute="bottom" constant="8" id="3YC-YU-gbP"/>
                                     <constraint firstAttribute="trailing" secondItem="1Hz-mY-HYF" secondAttribute="trailing" id="3cM-eH-5mu"/>
                                     <constraint firstItem="oid-bA-5nN" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="9ct-hy-7g2"/>
                                     <constraint firstItem="Ver-mJ-tQL" firstAttribute="top" secondItem="92S-TO-dN2" secondAttribute="bottom" constant="8" id="9ge-Al-JnB"/>
                                     <constraint firstItem="QY7-Cf-atd" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="A2S-Q1-1zd"/>
-                                    <constraint firstAttribute="trailing" secondItem="92S-TO-dN2" secondAttribute="trailing" id="CLh-IO-Jqy"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="92S-TO-dN2" secondAttribute="trailing" id="CLh-IO-Jqy"/>
                                     <constraint firstItem="oid-bA-5nN" firstAttribute="top" secondItem="QY7-Cf-atd" secondAttribute="bottom" constant="5" id="GLu-Ef-nsR"/>
                                     <constraint firstItem="QY7-Cf-atd" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="HZB-UA-glY"/>
                                     <constraint firstItem="92S-TO-dN2" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="N0m-SW-w8R"/>
@@ -2113,7 +2112,7 @@
                                     <constraint firstItem="Ver-mJ-tQL" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="P4i-Va-ehD"/>
                                     <constraint firstItem="QY7-Cf-atd" firstAttribute="top" secondItem="Ver-mJ-tQL" secondAttribute="bottom" constant="12" id="Ref-OQ-Vp7"/>
                                     <constraint firstItem="oid-bA-5nN" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="RmN-Wa-VoV"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ver-mJ-tQL" secondAttribute="trailing" id="To3-hq-N6s"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ver-mJ-tQL" secondAttribute="trailing" id="To3-hq-N6s"/>
                                     <constraint firstItem="1Hz-mY-HYF" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="V9w-VV-SIk"/>
                                     <constraint firstItem="92S-TO-dN2" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="YhK-As-na5"/>
                                     <constraint firstItem="Ver-mJ-tQL" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="bZ8-iW-SGu"/>
@@ -2121,9 +2120,9 @@
                                     <constraint firstItem="1Hz-mY-HYF" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="jFh-G3-2j0"/>
                                     <constraint firstItem="6xw-BL-Rr5" firstAttribute="top" secondItem="oid-bA-5nN" secondAttribute="bottom" constant="5" id="kUR-uU-nXm"/>
                                     <constraint firstItem="EZG-kh-6VR" firstAttribute="top" secondItem="Txd-ao-ddW" secondAttribute="top" constant="46" id="msU-Mt-cVl"/>
-                                    <constraint firstAttribute="trailing" secondItem="6xw-BL-Rr5" secondAttribute="trailing" id="pVu-nS-ttp"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6xw-BL-Rr5" secondAttribute="trailing" id="pVu-nS-ttp"/>
                                     <constraint firstItem="6xw-BL-Rr5" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="sRy-v5-G9q"/>
-                                    <constraint firstAttribute="trailing" secondItem="oid-bA-5nN" secondAttribute="trailing" id="tFv-yC-gZK"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oid-bA-5nN" secondAttribute="trailing" id="tFv-yC-gZK"/>
                                     <constraint firstItem="6xw-BL-Rr5" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="xhh-VM-kaK"/>
                                 </constraints>
                             </scrollView>
@@ -2164,8 +2163,8 @@
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UC2-rE-M7x"/>
-        <segue reference="nWJ-rR-ggQ"/>
-        <segue reference="aod-6i-jBF"/>
+        <segue reference="I3Q-Aj-ED4"/>
+        <segue reference="MQP-vZ-AIf"/>
+        <segue reference="Lmk-7r-Zvj"/>
     </inferredMetricsTieBreakers>
 </document>
