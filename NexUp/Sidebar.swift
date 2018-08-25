@@ -33,7 +33,7 @@ class Sidebar: UIViewController {
     @IBOutlet weak var favoritesButton: UIButton!
     @IBAction func favoritesAction(_ sender: Any) { audio.player.removeAllItems(); audio.startFavorites(); self.hide() }
     
-    override func viewDidLoad() { super.viewDidLoad(); if account.isPremium { self.favoritesButton.isHidden = false } else { self.favoritesButton.isHidden = true } }
+    override func viewDidLoad() { super.viewDidLoad(); if account.isPremium { self.favoritesButton?.isHidden = false } else { self.favoritesButton?.isHidden = true } }
     
     private func hide() { if let vc = self.parent as? NowPlayingVC { vc.toggleSidebar(); vc.toggleLoading(isLoading: true) } }
 }

@@ -25,13 +25,13 @@ public extension UIViewController {
     func alert(Title: String, Description: String?) {
         if let description = Description {
             let alert = UIAlertController(title: Title, message: description, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .default) { action in alert.dismiss(animated: true, completion: nil) })
-            self.present(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default) { action in alert.dismiss(animated: true, completion: nil) })
+                self.present(alert, animated: true, completion: nil)
         }
         else {
             let alert = UIAlertController(title: Title, message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .default) { action in alert.dismiss(animated: true, completion: nil) })
-            self.present(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default) { action in alert.dismiss(animated: true, completion: nil) })
+                self.present(alert, animated: true, completion: nil)
         }
     }
 }
