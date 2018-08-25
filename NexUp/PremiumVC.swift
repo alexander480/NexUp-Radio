@@ -36,11 +36,14 @@ class PremiumVC: UIViewController {
                                     let verify = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable, productId: "com.lagbtech.nexup_radio.premium", inReceipt: receipt)
                                     switch verify {
                                     case .purchased(let expiryDate, _):
+                                        print("[INFO] Purchase Successful")
                                         self.alert(Title: "Success", Description: "Subscription is valid until \(expiryDate)")
                                         self.premify()
                                     case .expired(let expiryDate, _):
+                                        print("[INFO] Subscription Expired")
                                         self.alert(Title: "Subscription Expired", Description: "Your subscription expired on \(expiryDate)")
                                     case .notPurchased:
+                                        print("[ERROR] Unknown Error - Could Not Purchase")
                                         self.alert(Title: "Error", Description: "Purchase unsuccessful")
                                     }
                                 }
@@ -63,6 +66,7 @@ class PremiumVC: UIViewController {
     // MARK: Make User Premium
     private func premify() {
         if let user = auth.currentUser {
+            print("[INFO] User Is Now Premium")
             db.reference(withPath: "users/\(user.uid)/isPremium").setValue(true)
             account.isPremium = true
         }
@@ -71,9 +75,19 @@ class PremiumVC: UIViewController {
     // MARK: Restore Previous Purchases
     private func restore() {
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
-            if results.restoreFailedPurchases.count > 0 { self.alert(Title: "Error", Description: "Sorry, Something Went Wrong. Please Try Again.") }
-            else if results.restoredPurchases.count > 0 { self.alert(Title: "Success!", Description: "Welcome Back To NexUp Premium.") }
-            else { self.alert(Title: "Nothing To Restore", Description: nil) }
+            if results.restoreFailedPurchases.count > 0 {
+                print("[ERROR] Unknown Error - Failed To Restore Products")
+                self.alert(Title: "Error", Description: "Sorry, Something Went Wrong. Please Try Again.")
+            }
+            else if results.restoredPurchases.count > 0 {
+                print("[INFO] Restoration Successful")
+                self.alert(Title: "Success!", Description: "Welcome Back To NexUp Premium.")
+                self.premify()
+            }
+            else {
+                print("[INFO] Nothing To Restore")
+                self.alert(Title: "Nothing To Restore", Description: nil)
+            }
         }
     }
 }
