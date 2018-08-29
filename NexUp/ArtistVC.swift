@@ -84,9 +84,9 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "ArtistHeaderCell") as! ArtistHeaderCell
             cell.cellTitle?.text = "Browse Artists"
             cell.cellDetail?.text = "Check Out Featured Artists"
-            
             return cell
         }
+            
 //        if row == 1 {
 //            let cell: AdCell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as! AdCell
 //            let bannerView = cell.cellBannerView(rootVC: self, frame: cell.bounds)
@@ -104,17 +104,11 @@ class ArtistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //
 //            return cell
 //        }
+            
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ArtistCell") as! ArtistCell
-            if let name = artists[row - 1 /*2*/]["Name"], let url = artists[row - 1 /*2*/]["ImageURL"] {
-                cell.artistName?.text = name
-                cell.artistImage?.imageFrom(urlString: url)
-            }
-            else {
-                cell.artistName?.text = "Loading"
-                cell.artistImage?.image = nil
-            }
-            
+            if let name = artists[row - 1 /*2*/]["Name"], let url = artists[row - 1 /*2*/]["ImageURL"] { cell.artistName?.text = name; cell.artistImage?.imageFrom(urlString: url) }
+            else { cell.artistName?.text = "Loading"; cell.artistImage?.image = nil }
             return cell
         }
     }

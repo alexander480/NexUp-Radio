@@ -11,7 +11,6 @@
 		144B8A861F3BE81000CF749F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A851F3BE81000CF749F /* iAd.framework */; };
 		144B8A881F3BE88700CF749F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A871F3BE88700CF749F /* AVFoundation.framework */; };
 		145E5F6F1FF5830100C8E37C /* StoryboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E5F6E1FF5830100C8E37C /* StoryboardExt.swift */; };
-		145E5F711FF588AF00C8E37C /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */; };
 		1489A7B01F33CCFC00A6E404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */; };
 		1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1489A7B31F33CCFC00A6E404 /* Main.storyboard */; };
 		1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1489A7B61F33CCFC00A6E404 /* Assets.xcassets */; };
@@ -47,7 +46,6 @@
 		144B8A851F3BE81000CF749F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		144B8A871F3BE88700CF749F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		145E5F6E1FF5830100C8E37C /* StoryboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExt.swift; sourceTree = "<group>"; };
-		145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Light.otf"; sourceTree = "<group>"; };
 		1489A7AC1F33CCFC00A6E404 /* NexUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NexUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1489A7B41F33CCFC00A6E404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				1489A7AF1F33CCFC00A6E404 /* AppDelegate.swift */,
-				1489A7BB1F33CCFC00A6E404 /* Info.plist */,
 				E57675E12015C2FC0093C820 /* Extensions */,
 				E59BA42D20D347F300637F47 /* Project Resources */,
 			);
@@ -278,8 +275,8 @@
 		E59BA42D20D347F300637F47 /* Project Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1489A7BB1F33CCFC00A6E404 /* Info.plist */,
 				E54AEA2020D07476006D0329 /* GoogleService-Info.plist */,
-				145E5F701FF588AE00C8E37C /* AvenirLTStd-Light.otf */,
 				E58A2FB620203E4400A22C55 /* NexUp.entitlements */,
 			);
 			name = "Project Resources";
@@ -381,7 +378,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				145E5F711FF588AF00C8E37C /* AvenirLTStd-Light.otf in Resources */,
 				1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */,
 				E54AEA2120D07477006D0329 /* GoogleService-Info.plist in Resources */,
 				1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */,
