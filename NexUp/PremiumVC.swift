@@ -23,44 +23,52 @@ class PremiumVC: UIViewController {
 
     // MARK: Purchase Premium Subscription
     private func fullService() {
-        SwiftyStoreKit.retrieveProductsInfo(Set(["com.lagbtech.nexup_radio.premium"])) { (result) in
-            if result.retrievedProducts.isEmpty == false {
-                print("[INFO] Retrieved \(result.retrievedProducts.count) StoreKit Products");
-                if let product = result.retrievedProducts.first {
-                    SwiftyStoreKit.purchaseProduct(product) { (result) in
-                        if case .success(let purchase) = result {
-                            if purchase.needsFinishTransaction { SwiftyStoreKit.finishTransaction(purchase.transaction) }
-                            let validator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
-                            SwiftyStoreKit.verifyReceipt(using: validator, completion: { (receiptResult) in
-                                if case .success(let receipt) = receiptResult {
-                                    let verify = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable, productId: "com.lagbtech.nexup_radio.premium", inReceipt: receipt)
-                                    switch verify {
-                                    case .purchased(let expiryDate, _):
-                                        print("[INFO] Purchase Successful")
-                                        self.alert(Title: "Success", Description: "Subscription is valid until \(expiryDate)")
-                                        self.premify()
-                                    case .expired(let expiryDate, _):
-                                        print("[INFO] Subscription Expired")
-                                        self.alert(Title: "Subscription Expired", Description: "Your subscription expired on \(expiryDate)")
-                                    case .notPurchased:
-                                        print("[ERROR] Unknown Error - Could Not Purchase")
-                                        self.alert(Title: "Error", Description: "Purchase unsuccessful")
+        let infoAlert = UIAlertController(title: "Subscription Information", message: "Payment will be charged to iTunes Account at confirmation of purchase. Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal. Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user's Account Settings after purchase. Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable", preferredStyle: .alert)
+        infoAlert.addAction(UIAlertAction(title: "I Understand", style: .default, handler: { (action) in
+            SwiftyStoreKit.retrieveProductsInfo(Set(["com.lagbtech.nexup_radio.premium"])) { (result) in
+                if result.retrievedProducts.isEmpty == false {
+                    print("[INFO] Retrieved \(result.retrievedProducts.count) StoreKit Products");
+                    if let product = result.retrievedProducts.first {
+                        SwiftyStoreKit.purchaseProduct(product) { (result) in
+                            if case .success(let purchase) = result {
+                                if purchase.needsFinishTransaction { SwiftyStoreKit.finishTransaction(purchase.transaction) }
+                                let validator = AppleReceiptValidator(service: .production, sharedSecret: "28c35d969edc4f739e985dbe912a963d")
+                                SwiftyStoreKit.verifyReceipt(using: validator, completion: { (receiptResult) in
+                                    if case .success(let receipt) = receiptResult {
+                                        let verify = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable, productId: "com.lagbtech.nexup_radio.premium", inReceipt: receipt)
+                                        switch verify {
+                                        case .purchased(let expiryDate, _):
+                                            print("[INFO] Purchase Successful")
+                                            self.alert(Title: "Success", Description: "Subscription is valid until \(expiryDate)")
+                                            self.premify()
+                                        case .expired(let expiryDate, _):
+                                            print("[INFO] Subscription Expired")
+                                            self.alert(Title: "Subscription Expired", Description: "Your subscription expired on \(expiryDate)")
+                                        case .notPurchased:
+                                            print("[ERROR] Unknown Error - Could Not Purchase")
+                                            self.alert(Title: "Error", Description: "Purchase unsuccessful")
+                                        }
                                     }
-                                }
-                            })
+                                })
+                            }
                         }
                     }
                 }
+                else if result.invalidProductIDs.isEmpty == false {
+                    print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)")
+                    self.alert(Title: "Error", Description: "Please Try Again")
+                }
+                else if result.error != nil {
+                    print("[ERROR] Unknown Error While Retrieving StoreKit Products")
+                    self.alert(Title: "Error", Description: "Please Try Again")
+                }
             }
-            else if result.invalidProductIDs.isEmpty == false {
-                print("[ERROR] Invalid Product Identifiers: \(result.invalidProductIDs)")
-                self.alert(Title: "Error", Description: "Please Try Again")
-            }
-            else if result.error != nil {
-                print("[ERROR] Unknown Error While Retrieving StoreKit Products")
-                self.alert(Title: "Error", Description: "Please Try Again")
-            }
-        }
+        }))
+        infoAlert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) in
+            infoAlert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(infoAlert, animated: true, completion: nil)
     }
     
     // MARK: Make User Premium

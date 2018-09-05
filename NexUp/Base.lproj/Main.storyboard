@@ -296,7 +296,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jay-Z" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcW-Uf-jno">
-                                <rect key="frame" x="156.5" y="355" width="62.5" height="28"/>
+                                <rect key="frame" x="156.5" y="355" width="62" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="5n5-6U-8lQ"/>
                                 </constraints>
@@ -808,7 +808,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountHeaderCell" rowHeight="200" id="cad-Oi-vRB" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountHeaderCell" rowHeight="200" id="cad-Oi-vRB" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cad-Oi-vRB" id="I5k-F0-Guv">
@@ -853,7 +853,7 @@
                                             <outlet property="cellTitle" destination="uq6-jZ-6B0" id="3AJ-Ze-fiu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="85" id="L74-tK-UGi" customClass="AccountCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="85" id="L74-tK-UGi" customClass="AccountCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L74-tK-UGi" id="3AB-wM-X4O">
@@ -878,7 +878,7 @@
                                             <outlet property="cellTitle" destination="Mvd-xE-A1m" id="ceD-cI-X1S"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="obu-yV-Cxv" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="obu-yV-Cxv" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="313" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="obu-yV-Cxv" id="eCM-0a-bn1">
@@ -1207,7 +1207,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistHeaderCell" rowHeight="175" id="FdB-Xd-LLG" customClass="ArtistHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistHeaderCell" rowHeight="175" id="FdB-Xd-LLG" customClass="ArtistHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FdB-Xd-LLG" id="1dz-4o-Vc4">
@@ -1241,7 +1241,7 @@
                                             <outlet property="cellTitle" destination="LDb-EQ-MsV" id="iDg-r2-IYT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="100" id="KEA-h7-8a0" customClass="ArtistCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" rowHeight="100" id="KEA-h7-8a0" customClass="ArtistCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KEA-h7-8a0" id="Q9e-P5-8HI">
@@ -1277,7 +1277,7 @@
                                             <outlet property="artistName" destination="HNI-7j-cRs" id="iO5-7B-Xlc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="vyt-7x-ht7" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="vyt-7x-ht7" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vyt-7x-ht7" id="91N-9S-BHa">
@@ -1358,7 +1358,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Jco-6R-AvN" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Jco-6R-AvN" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jco-6R-AvN" id="sKb-Za-ybf">
@@ -1394,7 +1394,7 @@
                                             <outlet property="cellTitle" destination="ua8-nK-Euj" id="stQ-g5-nQP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="okM-0R-wvd" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="okM-0R-wvd" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="okM-0R-wvd" id="HBZ-fA-AcS">
@@ -1440,7 +1440,7 @@
                                             <outlet property="cellTitle" destination="2iZ-PQ-tW5" id="dSK-PI-VPA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="mZh-my-B4Y" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="mZh-my-B4Y" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZh-my-B4Y" id="6qk-xo-eau">
@@ -1565,7 +1565,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Vl7-qB-KQL" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="Vl7-qB-KQL" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vl7-qB-KQL" id="NgD-05-Szs">
@@ -1599,7 +1599,7 @@
                                             <outlet property="cellTitle" destination="kAl-tn-DGX" id="C9s-3Z-pLX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="GAv-sE-cml" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="GAv-sE-cml" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GAv-sE-cml" id="f2j-rd-6hm">
@@ -1644,7 +1644,7 @@
                                             <outlet property="cellTitle" destination="jtt-Uw-d3B" id="dGd-59-L4l"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="4tg-q2-Xbg" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="4tg-q2-Xbg" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4tg-q2-Xbg" id="iVP-aO-Pm9">
@@ -1769,7 +1769,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="rRk-4s-Aim" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteHeader" rowHeight="175" id="rRk-4s-Aim" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rRk-4s-Aim" id="7Rt-RP-fys">
@@ -1803,7 +1803,7 @@
                                             <outlet property="cellTitle" destination="gQz-2B-4YL" id="RnB-So-5vg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="a9y-zF-wg6" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="100" id="a9y-zF-wg6" customClass="SongCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9y-zF-wg6" id="Ejk-Li-qvJ">
@@ -1848,7 +1848,7 @@
                                             <outlet property="cellTitle" destination="Ism-0j-k6p" id="h7g-NB-PK0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="CBY-nG-4l1" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdCell" rowHeight="50" id="CBY-nG-4l1" customClass="AdCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="303" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBY-nG-4l1" id="dYI-a4-bmB">
@@ -1965,7 +1965,7 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.79883024817763892" green="0.11385449437846612" blue="0.13201936948949466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gsn-av-6Hx" secondAttribute="height" multiplier="15:2" constant="-75" id="jOR-Tr-A3A"/>
+                                    <constraint firstAttribute="width" secondItem="gsn-av-6Hx" secondAttribute="height" multiplier="15:2" constant="-73.75" id="jOR-Tr-A3A"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Cancel"/>
@@ -1977,14 +1977,90 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="EZG-kh-6VR">
-                                        <rect key="frame" x="137" y="46" width="100" height="100"/>
+                                        <rect key="frame" x="137" y="21" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="AkY-SV-aOM"/>
                                             <constraint firstAttribute="height" constant="100" id="NJS-hW-8cC"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-BL-Rr5">
+                                        <rect key="frame" x="0.0" y="757" width="375" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="DWa-2T-FKI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <state key="normal" title="Terms &amp; Conditions"/>
+                                        <connections>
+                                            <action selector="termsAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="Jmo-kG-wQI"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-mY-HYF">
+                                        <rect key="frame" x="0.0" y="117" width="375" height="320"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase NexUp Premium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-iu-LlE">
+                                                <rect key="frame" x="0.0" y="30" width="375" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99/Month For NexUp's Premium Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cch-9U-pJo">
+                                                <rect key="frame" x="0.0" y="56" width="375" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited Skips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3r-su-CTk">
+                                                <rect key="frame" x="0.0" y="89" width="375" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Replay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-6z-3VJ">
+                                                <rect key="frame" x="0.0" y="114" width="375" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Absolutely No Ads!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-jC-nFc">
+                                                <rect key="frame" x="0.0" y="139" width="375" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJ3-fa-L28">
+                                                <rect key="frame" x="24" y="172" width="327" height="118"/>
+                                                <string key="text">Subscriptions are charged monthly. Payment will be charged to your iTunes Account upon confirmation of purchase. Subscription will automatically renew unless auto-renew is turned off at least 24-hours before the end of the current period. Your subscription can be managed in your iTunes User Account’s Settings after purchase. Terms: https://designsbylagb.com/documents/Terms-1.pdf Privacy Policy: https://designsbylagb.com/documents/Privacy-1.pdf</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="IF5-6z-3VJ" firstAttribute="leading" secondItem="C3v-jC-nFc" secondAttribute="leading" id="026-EM-WSy"/>
+                                            <constraint firstAttribute="trailing" secondItem="erk-iu-LlE" secondAttribute="trailing" id="1Cb-wF-Dle"/>
+                                            <constraint firstItem="lJ3-fa-L28" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" constant="24" id="4QU-Er-8iK"/>
+                                            <constraint firstItem="cch-9U-pJo" firstAttribute="trailing" secondItem="M3r-su-CTk" secondAttribute="trailing" id="5qa-iS-o3g"/>
+                                            <constraint firstItem="C3v-jC-nFc" firstAttribute="top" secondItem="IF5-6z-3VJ" secondAttribute="bottom" constant="8" id="73x-b4-At3"/>
+                                            <constraint firstItem="M3r-su-CTk" firstAttribute="leading" secondItem="IF5-6z-3VJ" secondAttribute="leading" id="Bep-c9-8j7"/>
+                                            <constraint firstItem="M3r-su-CTk" firstAttribute="top" secondItem="cch-9U-pJo" secondAttribute="bottom" constant="15.5" id="EzQ-Pv-ay2"/>
+                                            <constraint firstItem="erk-iu-LlE" firstAttribute="trailing" secondItem="cch-9U-pJo" secondAttribute="trailing" id="JPr-2Y-ZfX"/>
+                                            <constraint firstItem="M3r-su-CTk" firstAttribute="trailing" secondItem="IF5-6z-3VJ" secondAttribute="trailing" id="P37-Uw-BEX"/>
+                                            <constraint firstItem="cch-9U-pJo" firstAttribute="leading" secondItem="M3r-su-CTk" secondAttribute="leading" id="RTi-Z9-Glo"/>
+                                            <constraint firstItem="IF5-6z-3VJ" firstAttribute="top" secondItem="M3r-su-CTk" secondAttribute="bottom" constant="8" id="VYB-B3-IUk"/>
+                                            <constraint firstItem="erk-iu-LlE" firstAttribute="top" secondItem="1Hz-mY-HYF" secondAttribute="top" constant="30" id="aAX-Hh-Pd5"/>
+                                            <constraint firstItem="IF5-6z-3VJ" firstAttribute="trailing" secondItem="C3v-jC-nFc" secondAttribute="trailing" id="gdq-Mj-72f"/>
+                                            <constraint firstItem="lJ3-fa-L28" firstAttribute="top" secondItem="C3v-jC-nFc" secondAttribute="bottom" constant="16" id="lx8-xv-wbc"/>
+                                            <constraint firstAttribute="bottom" secondItem="lJ3-fa-L28" secondAttribute="bottom" constant="30" id="mSz-fT-ev1"/>
+                                            <constraint firstAttribute="bottom" secondItem="C3v-jC-nFc" secondAttribute="bottom" constant="164" id="mYg-qX-0ph"/>
+                                            <constraint firstItem="cch-9U-pJo" firstAttribute="top" secondItem="erk-iu-LlE" secondAttribute="bottom" constant="5" id="qdO-Vc-ok3"/>
+                                            <constraint firstAttribute="trailing" secondItem="lJ3-fa-L28" secondAttribute="trailing" constant="24" id="qri-Ea-uxh"/>
+                                            <constraint firstItem="erk-iu-LlE" firstAttribute="leading" secondItem="cch-9U-pJo" secondAttribute="leading" id="tlz-rr-l91"/>
+                                            <constraint firstItem="erk-iu-LlE" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" id="xqY-8w-urn"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92S-TO-dN2">
-                                        <rect key="frame" x="0.0" y="369" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="437" width="375" height="60"/>
                                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="vrc-pk-ZcC"/>
@@ -1996,7 +2072,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ver-mJ-tQL">
-                                        <rect key="frame" x="0.0" y="437" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="497" width="375" height="60"/>
                                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="6ma-FB-Ha5"/>
@@ -2007,19 +2083,8 @@
                                             <action selector="restoreAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="fBU-h5-2RE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-BL-Rr5">
-                                        <rect key="frame" x="0.0" y="569" width="375" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="DWa-2T-FKI"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <state key="normal" title="Terms &amp; Conditions"/>
-                                        <connections>
-                                            <action selector="termsAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="Jmo-kG-wQI"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-bA-5nN">
-                                        <rect key="frame" x="0.0" y="539" width="375" height="25"/>
+                                        <rect key="frame" x="0.0" y="600" width="375" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="4GQ-df-dKl"/>
                                         </constraints>
@@ -2030,7 +2095,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY7-Cf-atd">
-                                        <rect key="frame" x="0.0" y="509" width="375" height="25"/>
+                                        <rect key="frame" x="0.0" y="570" width="375" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="RJ9-HD-Tsh"/>
                                         </constraints>
@@ -2040,86 +2105,32 @@
                                             <action selector="learnAction:" destination="bHr-Wx-Bsc" eventType="touchUpInside" id="6hc-Is-mnx"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-mY-HYF">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="201"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase Premium Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erk-iu-LlE">
-                                                <rect key="frame" x="0.0" y="38" width="375" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99/Month For NexUp's Premium Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cch-9U-pJo">
-                                                <rect key="frame" x="0.0" y="64" width="375" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited Skips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3r-su-CTk">
-                                                <rect key="frame" x="0.0" y="97" width="375" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Replay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-6z-3VJ">
-                                                <rect key="frame" x="0.0" y="122" width="375" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Absolutely No Ads!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-jC-nFc">
-                                                <rect key="frame" x="0.0" y="147" width="375" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="IF5-6z-3VJ" firstAttribute="leading" secondItem="C3v-jC-nFc" secondAttribute="leading" id="026-EM-WSy"/>
-                                            <constraint firstAttribute="trailing" secondItem="erk-iu-LlE" secondAttribute="trailing" id="1Cb-wF-Dle"/>
-                                            <constraint firstItem="cch-9U-pJo" firstAttribute="trailing" secondItem="M3r-su-CTk" secondAttribute="trailing" id="5qa-iS-o3g"/>
-                                            <constraint firstItem="C3v-jC-nFc" firstAttribute="top" secondItem="IF5-6z-3VJ" secondAttribute="bottom" constant="8" id="73x-b4-At3"/>
-                                            <constraint firstItem="M3r-su-CTk" firstAttribute="leading" secondItem="IF5-6z-3VJ" secondAttribute="leading" id="Bep-c9-8j7"/>
-                                            <constraint firstItem="M3r-su-CTk" firstAttribute="top" secondItem="cch-9U-pJo" secondAttribute="bottom" constant="15.5" id="EzQ-Pv-ay2"/>
-                                            <constraint firstItem="erk-iu-LlE" firstAttribute="trailing" secondItem="cch-9U-pJo" secondAttribute="trailing" id="JPr-2Y-ZfX"/>
-                                            <constraint firstItem="M3r-su-CTk" firstAttribute="trailing" secondItem="IF5-6z-3VJ" secondAttribute="trailing" id="P37-Uw-BEX"/>
-                                            <constraint firstItem="cch-9U-pJo" firstAttribute="leading" secondItem="M3r-su-CTk" secondAttribute="leading" id="RTi-Z9-Glo"/>
-                                            <constraint firstItem="IF5-6z-3VJ" firstAttribute="top" secondItem="M3r-su-CTk" secondAttribute="bottom" constant="8" id="VYB-B3-IUk"/>
-                                            <constraint firstItem="erk-iu-LlE" firstAttribute="top" secondItem="1Hz-mY-HYF" secondAttribute="top" constant="38" id="aAX-Hh-Pd5"/>
-                                            <constraint firstItem="IF5-6z-3VJ" firstAttribute="trailing" secondItem="C3v-jC-nFc" secondAttribute="trailing" id="gdq-Mj-72f"/>
-                                            <constraint firstAttribute="bottom" secondItem="C3v-jC-nFc" secondAttribute="bottom" constant="37" id="mYg-qX-0ph"/>
-                                            <constraint firstItem="cch-9U-pJo" firstAttribute="top" secondItem="erk-iu-LlE" secondAttribute="bottom" constant="5" id="qdO-Vc-ok3"/>
-                                            <constraint firstItem="erk-iu-LlE" firstAttribute="leading" secondItem="cch-9U-pJo" secondAttribute="leading" id="tlz-rr-l91"/>
-                                            <constraint firstItem="erk-iu-LlE" firstAttribute="leading" secondItem="1Hz-mY-HYF" secondAttribute="leading" id="xqY-8w-urn"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QY7-Cf-atd" secondAttribute="trailing" id="1Hh-WC-Lna"/>
-                                    <constraint firstItem="1Hz-mY-HYF" firstAttribute="top" secondItem="EZG-kh-6VR" secondAttribute="bottom" constant="14" id="26b-ek-kFy"/>
+                                    <constraint firstItem="1Hz-mY-HYF" firstAttribute="top" secondItem="EZG-kh-6VR" secondAttribute="bottom" constant="-4" id="26b-ek-kFy"/>
                                     <constraint firstItem="EZG-kh-6VR" firstAttribute="centerX" secondItem="1Hz-mY-HYF" secondAttribute="centerX" id="3Rm-bz-iE7"/>
                                     <constraint firstAttribute="trailing" secondItem="1Hz-mY-HYF" secondAttribute="trailing" id="3cM-eH-5mu"/>
                                     <constraint firstItem="oid-bA-5nN" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="9ct-hy-7g2"/>
-                                    <constraint firstItem="Ver-mJ-tQL" firstAttribute="top" secondItem="92S-TO-dN2" secondAttribute="bottom" constant="8" id="9ge-Al-JnB"/>
+                                    <constraint firstItem="Ver-mJ-tQL" firstAttribute="top" secondItem="92S-TO-dN2" secondAttribute="bottom" id="9ge-Al-JnB"/>
                                     <constraint firstItem="QY7-Cf-atd" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="A2S-Q1-1zd"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="92S-TO-dN2" secondAttribute="trailing" id="CLh-IO-Jqy"/>
                                     <constraint firstItem="oid-bA-5nN" firstAttribute="top" secondItem="QY7-Cf-atd" secondAttribute="bottom" constant="5" id="GLu-Ef-nsR"/>
                                     <constraint firstItem="QY7-Cf-atd" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="HZB-UA-glY"/>
                                     <constraint firstItem="92S-TO-dN2" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="N0m-SW-w8R"/>
-                                    <constraint firstAttribute="bottom" secondItem="6xw-BL-Rr5" secondAttribute="bottom" constant="13" id="NHc-6s-5PL"/>
+                                    <constraint firstAttribute="bottom" secondItem="6xw-BL-Rr5" secondAttribute="bottom" constant="-266.5" id="NHc-6s-5PL"/>
                                     <constraint firstItem="Ver-mJ-tQL" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="P4i-Va-ehD"/>
-                                    <constraint firstItem="QY7-Cf-atd" firstAttribute="top" secondItem="Ver-mJ-tQL" secondAttribute="bottom" constant="12" id="Ref-OQ-Vp7"/>
+                                    <constraint firstItem="QY7-Cf-atd" firstAttribute="top" secondItem="Ver-mJ-tQL" secondAttribute="bottom" constant="13" id="Ref-OQ-Vp7"/>
                                     <constraint firstItem="oid-bA-5nN" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="RmN-Wa-VoV"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ver-mJ-tQL" secondAttribute="trailing" id="To3-hq-N6s"/>
                                     <constraint firstItem="1Hz-mY-HYF" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="V9w-VV-SIk"/>
                                     <constraint firstItem="92S-TO-dN2" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="YhK-As-na5"/>
                                     <constraint firstItem="Ver-mJ-tQL" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="bZ8-iW-SGu"/>
-                                    <constraint firstItem="92S-TO-dN2" firstAttribute="top" secondItem="1Hz-mY-HYF" secondAttribute="bottom" constant="8" id="hCj-xU-7E8"/>
+                                    <constraint firstItem="92S-TO-dN2" firstAttribute="top" secondItem="1Hz-mY-HYF" secondAttribute="bottom" id="hCj-xU-7E8"/>
                                     <constraint firstItem="1Hz-mY-HYF" firstAttribute="leading" secondItem="Txd-ao-ddW" secondAttribute="leading" id="jFh-G3-2j0"/>
-                                    <constraint firstItem="6xw-BL-Rr5" firstAttribute="top" secondItem="oid-bA-5nN" secondAttribute="bottom" constant="5" id="kUR-uU-nXm"/>
-                                    <constraint firstItem="EZG-kh-6VR" firstAttribute="top" secondItem="Txd-ao-ddW" secondAttribute="top" constant="46" id="msU-Mt-cVl"/>
+                                    <constraint firstItem="6xw-BL-Rr5" firstAttribute="top" secondItem="oid-bA-5nN" secondAttribute="bottom" constant="132" id="kUR-uU-nXm"/>
+                                    <constraint firstItem="EZG-kh-6VR" firstAttribute="top" secondItem="Txd-ao-ddW" secondAttribute="top" constant="21" id="msU-Mt-cVl"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6xw-BL-Rr5" secondAttribute="trailing" id="pVu-nS-ttp"/>
                                     <constraint firstItem="6xw-BL-Rr5" firstAttribute="centerX" secondItem="Txd-ao-ddW" secondAttribute="centerX" id="sRy-v5-G9q"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oid-bA-5nN" secondAttribute="trailing" id="tFv-yC-gZK"/>
