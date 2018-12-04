@@ -30,6 +30,9 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
     @IBOutlet weak var controlCircleConstraint: NSLayoutConstraint!
     @IBOutlet weak var controlCircleView: UIView!
     
+    @IBOutlet weak var launchScreenCircleLogo: UIImageView!
+    @IBOutlet weak var launchScreenDeltaVel: UIImageView!
+    
     @IBOutlet weak var loadingView: ViewClass!
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var loadingConstraint: NSLayoutConstraint!
@@ -151,8 +154,16 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
     }
     
     private func toggleCircle() {
-        if self.controlCircleConstraint?.constant == 0 { self.controlCircleConstraint?.constant = 750 }
-        else if self.controlCircleConstraint?.constant == 750 { self.controlCircleConstraint?.constant = 0 }
+        if self.controlCircleConstraint?.constant == 0 {
+            self.controlCircleConstraint?.constant = 750
+            self.launchScreenCircleLogo.isHidden = false
+            self.launchScreenDeltaVel.isHidden = false
+        }
+        else if self.controlCircleConstraint?.constant == 750 {
+            self.controlCircleConstraint?.constant = 0
+            self.launchScreenCircleLogo.isHidden = true
+            self.launchScreenDeltaVel.isHidden = true
+        }
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }
 
