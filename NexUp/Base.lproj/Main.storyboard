@@ -21,6 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6s-xL-pJV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVr-eQ-bhE" customClass="ButtonClass" customModule="NexUp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="40" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -162,6 +165,15 @@
                                 <rect key="frame" x="50" y="142" width="275" height="275"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEt-qt-PoT">
+                                <rect key="frame" x="15" y="161" width="345" height="345"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CEt-qt-PoT" secondAttribute="height" multiplier="1:1" id="Dtk-gT-OjJ"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="HUH-ZV-1Jw" kind="embed" id="1r6-Id-fxu"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -171,14 +183,22 @@
                             <constraint firstItem="xaS-b5-g4y" firstAttribute="leading" secondItem="nmZ-lG-WAo" secondAttribute="trailing" id="Ix3-dQ-TOW"/>
                             <constraint firstItem="xaS-b5-g4y" firstAttribute="centerX" secondItem="YF8-en-tbC" secondAttribute="centerX" id="OKX-I7-rO5"/>
                             <constraint firstItem="GVr-eQ-bhE" firstAttribute="leading" secondItem="yVf-sN-xgG" secondAttribute="leadingMargin" id="PEC-E8-JMe"/>
+                            <constraint firstItem="CEt-qt-PoT" firstAttribute="leading" secondItem="nmZ-lG-WAo" secondAttribute="trailing" constant="15" id="Smk-6Q-gPu"/>
                             <constraint firstItem="zG5-2s-oCO" firstAttribute="top" secondItem="YF8-en-tbC" secondAttribute="bottom" constant="20" id="W4N-7Q-xZg"/>
                             <constraint firstAttribute="bottom" secondItem="nmZ-lG-WAo" secondAttribute="bottom" id="agD-TW-sbA"/>
                             <constraint firstItem="nmZ-lG-WAo" firstAttribute="top" secondItem="yVf-sN-xgG" secondAttribute="top" id="ay6-6Z-9IK"/>
                             <constraint firstItem="nmZ-lG-WAo" firstAttribute="centerY" secondItem="yVf-sN-xgG" secondAttribute="centerY" id="gdD-Z0-CFX"/>
                             <constraint firstItem="oL5-N6-wAc" firstAttribute="centerY" secondItem="yVf-sN-xgG" secondAttribute="centerY" constant="750" id="gek-8p-tT9"/>
                             <constraint firstAttribute="bottom" secondItem="xaS-b5-g4y" secondAttribute="bottom" id="jny-9i-ms1"/>
+                            <constraint firstItem="h6s-xL-pJV" firstAttribute="leading" secondItem="nmZ-lG-WAo" secondAttribute="trailing" id="lRv-UH-A9q"/>
+                            <constraint firstItem="CEt-qt-PoT" firstAttribute="centerX" secondItem="yVf-sN-xgG" secondAttribute="centerX" id="paX-nB-fdC"/>
+                            <constraint firstItem="h6s-xL-pJV" firstAttribute="top" secondItem="yVf-sN-xgG" secondAttribute="top" id="q1h-12-5RC"/>
+                            <constraint firstAttribute="trailing" secondItem="CEt-qt-PoT" secondAttribute="trailing" constant="15" id="vZl-zp-fE7"/>
+                            <constraint firstAttribute="trailing" secondItem="h6s-xL-pJV" secondAttribute="trailing" id="vxT-kR-zH6"/>
                             <constraint firstAttribute="trailing" secondItem="xaS-b5-g4y" secondAttribute="trailing" id="w64-1D-kva"/>
+                            <constraint firstItem="zG5-2s-oCO" firstAttribute="top" secondItem="h6s-xL-pJV" secondAttribute="bottom" id="xZg-Y8-1j7"/>
                             <constraint firstItem="YF8-en-tbC" firstAttribute="centerX" secondItem="yVf-sN-xgG" secondAttribute="centerX" id="yyw-RO-bWm"/>
+                            <constraint firstItem="CEt-qt-PoT" firstAttribute="centerY" secondItem="yVf-sN-xgG" secondAttribute="centerY" id="zhW-Vm-FCy"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="S2X-QW-KTN" appends="YES" id="g4y-t1-wN0"/>
@@ -187,7 +207,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icons8-clock-80" id="bYL-AK-ekG"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="h6s-xL-pJV" id="zdr-nC-Z7e"/>
                         <outlet property="circleButton" destination="YF8-en-tbC" id="KKB-mw-S5r"/>
+                        <outlet property="controlCircleConstraint" destination="zhW-Vm-FCy" id="pn8-IP-rgN"/>
+                        <outlet property="controlCircleView" destination="CEt-qt-PoT" id="CCB-uA-BP1"/>
                         <outlet property="loadingConstraint" destination="gek-8p-tT9" id="kpW-Pq-28M"/>
                         <outlet property="loadingSpinner" destination="TOo-Aa-Qqw" id="OFf-14-517"/>
                         <outlet property="loadingView" destination="oL5-N6-wAc" id="ncV-wf-YN9"/>
@@ -1152,7 +1175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QX-vm-0Ae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1209" y="2037"/>
+            <point key="canvasLocation" x="-1297" y="1808"/>
         </scene>
         <!--Artists-->
         <scene sceneID="vKp-Gw-v9f">

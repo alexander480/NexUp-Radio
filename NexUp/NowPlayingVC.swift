@@ -48,8 +48,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
         super.viewDidLoad()
         self.progressBar.progress = 0.0
         
-        
-        
         account.shouldRefreshSkipCount()
         self.toggleLoading(isLoading: true)
         
