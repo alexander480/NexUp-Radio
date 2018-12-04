@@ -18,10 +18,11 @@ import FirebaseStorage
 let account = Account()
 var audio = Audio(PlaylistName: "Hip Hop")
 
-class NowPlayingVC: UIViewController, GADInterstitialDelegate {
+class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
+    
     let bannerID = "ca-app-pub-6543648439575950/8381413905"
     let fullScreenID = "ca-app-pub-6543648439575950/9063940183"
-    
+
     var timer = Timer()
     var interstitial: GADInterstitial!
     
@@ -47,21 +48,21 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         super.viewDidLoad()
         self.progressBar.progress = 0.0
         
+        
+        
         account.shouldRefreshSkipCount()
         self.toggleLoading(isLoading: true)
         
         if let info = audio.metadata {
             if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
-                backgroundImage.image = image
                 self.circleButton.setImage(image, for: .normal)
                 self.toggleLoading(isLoading: false)
+                backgroundImage.image = image
             }
         }
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
-    
-    // MARK: UPDATE UI //
     
     private func updateUserInterface() {
         if auth.currentUser == nil {
@@ -75,18 +76,32 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
                     if let image = audio.imageCache.object(forKey: url) {
                         backgroundImage.image = image
                         self.circleButton.setImage(image, for: .normal)
-                        if let item = audio.player.currentItem { self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds) }
+                        if let item = audio.player.currentItem {
+                            self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
+        
+                        }
                     }
                 }
                 self.toggleLoading(isLoading: false)
             }
-            else { self.toggleLoading(isLoading: true) }
+            else {
+                self.toggleLoading(isLoading: true)
+            }
 
-            if account.isPremium == false && audio.shouldDisplayAd { interstitial = self.createInterstitial(); audio.shouldDisplayAd = false }
+            if account.isPremium == false && audio.shouldDisplayAd {
+                interstitial = self.createInterstitial()
+                audio.shouldDisplayAd = false
+            }
         }
     }
     
-    // MARK: TOGGLE LOADING //
+    func didReachLimit() {
+        print("[INFO] Skip Limit Reached")
+        let alert = UIAlertController(title: "Skip Limit Reached.", message: "Please wait", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func toggleLoading(isLoading: Bool) {
         if isLoading {
@@ -115,8 +130,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         }
     }
     
-    // MARK: TOGGLE SIDEBAR //
-    
     func toggleSidebar() {
         let sOrigin = self.sidebar.frame.origin
         let sSize = self.sidebar.frame.size
@@ -139,8 +152,6 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate {
         }
     }
     
-    // MARK: TOGGLE CIRCLE //
-
     private func toggleCircle() {
         if self.controlCircleConstraint?.constant == 0 { self.controlCircleConstraint?.constant = 750 }
         else if self.controlCircleConstraint?.constant == 750 { self.controlCircleConstraint?.constant = 0 }

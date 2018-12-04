@@ -141,19 +141,19 @@
 			isa = PBXGroup;
 			children = (
 				143C42851F33CE5800638D57 /* Main */,
-				14AF7D9A1F5A650A00B74133 /* Audio */,
+				14AF7D9A1F5A650A00B74133 /* External Libraries */,
 			);
 			path = NexUp;
 			sourceTree = "<group>";
 		};
-		14AF7D9A1F5A650A00B74133 /* Audio */ = {
+		14AF7D9A1F5A650A00B74133 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
 				E51B22AA200316DC009F09A1 /* Account.swift */,
 				E569F388200590A300E5F07D /* Artist.swift */,
 				14E26A151F4CBE5200FFC55D /* Audio.swift */,
 			);
-			name = Audio;
+			name = "External Libraries";
 			sourceTree = "<group>";
 		};
 		46301654B96E8327179189FA /* Frameworks */ = {
@@ -255,8 +255,8 @@
 		E59BA42B20D347A800637F47 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				1489A7B31F33CCFC00A6E404 /* Main.storyboard */,
 				1489A7B81F33CCFC00A6E404 /* LaunchScreen.storyboard */,
+				1489A7B31F33CCFC00A6E404 /* Main.storyboard */,
 				1489A7B61F33CCFC00A6E404 /* Assets.xcassets */,
 			);
 			name = Storyboard;

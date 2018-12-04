@@ -21,7 +21,7 @@ let storage = Storage.storage()
 let db = Database.database()
 
 class Account: NSObject {
-    var skipCount = -1
+    var skipCount = 0
     var isPremium = false
     
     var favorites = [[String: String]]()
