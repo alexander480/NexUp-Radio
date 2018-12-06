@@ -83,15 +83,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmZ-lG-WAo" userLabel="Sidebar Container">
-                                <rect key="frame" x="-175" y="0.0" width="175" height="667"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="9tT-Ui-GN8"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="eCO-Z2-GcY" kind="embed" id="7ep-a5-O4O"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaS-b5-g4y">
                                 <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                                 <subviews>
@@ -157,13 +148,15 @@
                                     <segue destination="KUe-Fm-HTD" kind="show" id="x5h-Si-X4c"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Delta Vel Circle Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uv8-H8-JeM">
-                                <rect key="frame" x="147" y="457" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Delta Vel Circle Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uv8-H8-JeM">
+                                <rect key="frame" x="147.5" y="457" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Pip-qM-a7h"/>
+                                    <constraint firstAttribute="height" constant="80" id="azM-SE-uWv"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Launch Screen Circle Logo" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-vV-wfH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Screen Circle Logo" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-vV-wfH">
                                 <rect key="frame" x="50" y="142" width="275" height="275"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEt-qt-PoT">
                                 <rect key="frame" x="15" y="161" width="345" height="345"/>
@@ -174,21 +167,36 @@
                                     <segue destination="HUH-ZV-1Jw" kind="embed" id="1r6-Id-fxu"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmZ-lG-WAo" userLabel="Sidebar Container">
+                                <rect key="frame" x="-175" y="0.0" width="175" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="9tT-Ui-GN8"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="eCO-Z2-GcY" kind="embed" id="7ep-a5-O4O"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="nrA-vV-wfH" firstAttribute="top" secondItem="GVr-eQ-bhE" secondAttribute="bottom" constant="42" id="2ED-f1-S5c"/>
+                            <constraint firstItem="nrA-vV-wfH" firstAttribute="leading" secondItem="nmZ-lG-WAo" secondAttribute="trailing" constant="50" id="6bZ-0a-kuF"/>
                             <constraint firstItem="oL5-N6-wAc" firstAttribute="centerX" secondItem="yVf-sN-xgG" secondAttribute="centerX" id="Fe2-si-uWg"/>
                             <constraint firstItem="GVr-eQ-bhE" firstAttribute="top" secondItem="WgP-gZ-XlA" secondAttribute="bottom" constant="20" id="H9T-Ne-oTI"/>
                             <constraint firstItem="xaS-b5-g4y" firstAttribute="leading" secondItem="nmZ-lG-WAo" secondAttribute="trailing" id="Ix3-dQ-TOW"/>
+                            <constraint firstItem="YF8-en-tbC" firstAttribute="top" secondItem="uv8-H8-JeM" secondAttribute="bottom" constant="25" id="OIb-MP-wbP"/>
                             <constraint firstItem="xaS-b5-g4y" firstAttribute="centerX" secondItem="YF8-en-tbC" secondAttribute="centerX" id="OKX-I7-rO5"/>
                             <constraint firstItem="GVr-eQ-bhE" firstAttribute="leading" secondItem="yVf-sN-xgG" secondAttribute="leadingMargin" id="PEC-E8-JMe"/>
                             <constraint firstItem="CEt-qt-PoT" firstAttribute="leading" secondItem="nmZ-lG-WAo" secondAttribute="trailing" constant="15" id="Smk-6Q-gPu"/>
+                            <constraint firstItem="nrA-vV-wfH" firstAttribute="centerX" secondItem="CEt-qt-PoT" secondAttribute="centerX" id="VhJ-G7-pij"/>
                             <constraint firstItem="zG5-2s-oCO" firstAttribute="top" secondItem="YF8-en-tbC" secondAttribute="bottom" constant="20" id="W4N-7Q-xZg"/>
                             <constraint firstAttribute="bottom" secondItem="nmZ-lG-WAo" secondAttribute="bottom" id="agD-TW-sbA"/>
                             <constraint firstItem="nmZ-lG-WAo" firstAttribute="top" secondItem="yVf-sN-xgG" secondAttribute="top" id="ay6-6Z-9IK"/>
+                            <constraint firstItem="uv8-H8-JeM" firstAttribute="top" secondItem="nrA-vV-wfH" secondAttribute="bottom" constant="40" id="gbl-85-BDQ"/>
                             <constraint firstItem="nmZ-lG-WAo" firstAttribute="centerY" secondItem="yVf-sN-xgG" secondAttribute="centerY" id="gdD-Z0-CFX"/>
                             <constraint firstItem="oL5-N6-wAc" firstAttribute="centerY" secondItem="yVf-sN-xgG" secondAttribute="centerY" constant="750" id="gek-8p-tT9"/>
+                            <constraint firstItem="uv8-H8-JeM" firstAttribute="centerX" secondItem="YF8-en-tbC" secondAttribute="centerX" id="hzk-r2-AQd"/>
                             <constraint firstAttribute="bottom" secondItem="xaS-b5-g4y" secondAttribute="bottom" id="jny-9i-ms1"/>
                             <constraint firstItem="h6s-xL-pJV" firstAttribute="leading" secondItem="nmZ-lG-WAo" secondAttribute="trailing" id="lRv-UH-A9q"/>
                             <constraint firstItem="CEt-qt-PoT" firstAttribute="centerX" secondItem="yVf-sN-xgG" secondAttribute="centerX" id="paX-nB-fdC"/>
@@ -211,6 +219,8 @@
                         <outlet property="circleButton" destination="YF8-en-tbC" id="KKB-mw-S5r"/>
                         <outlet property="controlCircleConstraint" destination="zhW-Vm-FCy" id="pn8-IP-rgN"/>
                         <outlet property="controlCircleView" destination="CEt-qt-PoT" id="CCB-uA-BP1"/>
+                        <outlet property="launchScreenCircleLogo" destination="nrA-vV-wfH" id="Y8a-Wo-A86"/>
+                        <outlet property="launchScreenDeltaVel" destination="uv8-H8-JeM" id="def-nR-cpZ"/>
                         <outlet property="loadingConstraint" destination="gek-8p-tT9" id="kpW-Pq-28M"/>
                         <outlet property="loadingSpinner" destination="TOo-Aa-Qqw" id="OFf-14-517"/>
                         <outlet property="loadingView" destination="oL5-N6-wAc" id="ncV-wf-YN9"/>
@@ -842,23 +852,23 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountHeaderCell" rowHeight="200" id="cad-Oi-vRB" customClass="AccountHeaderCell" customModule="NexUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cad-Oi-vRB" id="I5k-F0-Guv">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cad-Oi-vRB" id="I5k-F0-Guv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="User Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uq6-jZ-6B0">
-                                                    <rect key="frame" x="120" y="115" width="135" height="31"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uq6-jZ-6B0">
+                                                    <rect key="frame" x="120" y="115" width="135" height="30.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Please Login or Register" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-DH-kHB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Login or Register" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-DH-kHB">
                                                     <rect key="frame" x="92" y="143" width="191" height="25"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Image Account" translatesAutoresizingMaskIntoConstraints="NO" id="pQ0-QK-9XV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image Account" translatesAutoresizingMaskIntoConstraints="NO" id="pQ0-QK-9XV">
                                                     <rect key="frame" x="149" y="28" width="77" height="77"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="77" id="GD3-9x-0GH"/>
@@ -2235,8 +2245,8 @@
         <image name="thumbs-up-white" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UHD-Ui-JjU"/>
+        <segue reference="hFj-OX-5pM"/>
         <segue reference="sYD-UE-MfO"/>
-        <segue reference="Lmk-7r-Zvj"/>
+        <segue reference="3y9-2K-8vS"/>
     </inferredMetricsTieBreakers>
 </document>

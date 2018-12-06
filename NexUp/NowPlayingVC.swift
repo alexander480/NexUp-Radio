@@ -119,6 +119,8 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
         }
         else {
             self.loadingView?.isHidden = true
+            self.launchScreenCircleLogo.isHidden = true
+            self.launchScreenDeltaVel.isHidden = true
             self.loadingSpinner?.stopAnimating()
             self.loadingConstraint?.constant = 750
             self.controlCircleConstraint?.constant = 0
@@ -156,13 +158,9 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
     private func toggleCircle() {
         if self.controlCircleConstraint?.constant == 0 {
             self.controlCircleConstraint?.constant = 750
-            self.launchScreenCircleLogo.isHidden = false
-            self.launchScreenDeltaVel.isHidden = false
         }
         else if self.controlCircleConstraint?.constant == 750 {
             self.controlCircleConstraint?.constant = 0
-            self.launchScreenCircleLogo.isHidden = true
-            self.launchScreenDeltaVel.isHidden = true
         }
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }

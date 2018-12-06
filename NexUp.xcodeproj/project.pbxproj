@@ -29,6 +29,7 @@
 		E553162220132C81006EA053 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553162120132C81006EA053 /* Sidebar.swift */; };
 		E569F389200590A300E5F07D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569F388200590A300E5F07D /* Artist.swift */; };
 		E57675DE2015C2A40093C820 /* FoundationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* FoundationExt.swift */; };
+		E57DABB921B88E16002F1244 /* NexUp_Unit_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DABB821B88E16002F1244 /* NexUp_Unit_Test.swift */; };
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
 		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
 		E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1920196CAF00777E67 /* FavoriteVC.swift */; };
@@ -40,6 +41,16 @@
 		E5EA45F5210FAC8D006FDC69 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EA45F4210FAC8D006FDC69 /* PrivacyVC.swift */; };
 		E5EA45F7210FAC9D006FDC69 /* LearnMoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EA45F6210FAC9D006FDC69 /* LearnMoreVC.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E57DABBB21B88E16002F1244 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1489A7A41F33CCFC00A6E404 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1489A7AB1F33CCFC00A6E404;
+			remoteInfo = NexUp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		144B8A831F3BE7CD00CF749F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -66,6 +77,9 @@
 		E553162120132C81006EA053 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		E569F388200590A300E5F07D /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E57675DD2015C2A40093C820 /* FoundationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExt.swift; sourceTree = "<group>"; };
+		E57DABB621B88E16002F1244 /* NexUp Unit Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NexUp Unit Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E57DABB821B88E16002F1244 /* NexUp_Unit_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexUp_Unit_Test.swift; sourceTree = "<group>"; };
+		E57DABBA21B88E16002F1244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E58A2FB620203E4400A22C55 /* NexUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NexUp.entitlements; sourceTree = SOURCE_ROOT; };
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E59BA252202D17700050588D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -92,6 +106,13 @@
 				E59BA253202D17700050588D /* StoreKit.framework in Frameworks */,
 				E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */,
 				E5384D2520E74B890085AF0E /* Pods_NexUp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E57DABB321B88E16002F1244 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				1489A7AE1F33CCFC00A6E404 /* NexUp */,
+				E57DABB721B88E16002F1244 /* NexUp Unit Test */,
 				1489A7AD1F33CCFC00A6E404 /* Products */,
 				D3C59EAC0CD00A29F88298E6 /* Pods */,
 				9E13DDD962C84BC0D2881B30 /* Frameworks */,
@@ -133,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				1489A7AC1F33CCFC00A6E404 /* NexUp.app */,
+				E57DABB621B88E16002F1244 /* NexUp Unit Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +225,15 @@
 				145E5F6E1FF5830100C8E37C /* StoryboardExt.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E57DABB721B88E16002F1244 /* NexUp Unit Test */ = {
+			isa = PBXGroup;
+			children = (
+				E57DABB821B88E16002F1244 /* NexUp_Unit_Test.swift */,
+				E57DABBA21B88E16002F1244 /* Info.plist */,
+			);
+			path = "NexUp Unit Test";
 			sourceTree = "<group>";
 		};
 		E5872E472130F9B40043AB26 /* Information Views */ = {
@@ -323,13 +355,32 @@
 			productReference = 1489A7AC1F33CCFC00A6E404 /* NexUp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E57DABB521B88E16002F1244 /* NexUp Unit Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E57DABBF21B88E16002F1244 /* Build configuration list for PBXNativeTarget "NexUp Unit Test" */;
+			buildPhases = (
+				E57DABB221B88E16002F1244 /* Sources */,
+				E57DABB321B88E16002F1244 /* Frameworks */,
+				E57DABB421B88E16002F1244 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E57DABBC21B88E16002F1244 /* PBXTargetDependency */,
+			);
+			name = "NexUp Unit Test";
+			productName = "NexUp Unit Test";
+			productReference = E57DABB621B88E16002F1244 /* NexUp Unit Test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1489A7A41F33CCFC00A6E404 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "LAGB Technologies";
 				TargetAttributes = {
@@ -353,6 +404,11 @@
 							};
 						};
 					};
+					E57DABB521B88E16002F1244 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1489A7AB1F33CCFC00A6E404;
+					};
 				};
 			};
 			buildConfigurationList = 1489A7A71F33CCFC00A6E404 /* Build configuration list for PBXProject "NexUp" */;
@@ -369,6 +425,7 @@
 			projectRoot = "";
 			targets = (
 				1489A7AB1F33CCFC00A6E404 /* NexUp */,
+				E57DABB521B88E16002F1244 /* NexUp Unit Test */,
 			);
 		};
 /* End PBXProject section */
@@ -382,6 +439,13 @@
 				E54AEA2120D07477006D0329 /* GoogleService-Info.plist in Resources */,
 				1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */,
 				1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E57DABB421B88E16002F1244 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +530,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E57DABB221B88E16002F1244 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E57DABB921B88E16002F1244 /* NexUp_Unit_Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E57DABBC21B88E16002F1244 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1489A7AB1F33CCFC00A6E404 /* NexUp */;
+			targetProxy = E57DABBB21B88E16002F1244 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1489A7B31F33CCFC00A6E404 /* Main.storyboard */ = {
@@ -648,6 +728,51 @@
 			};
 			name = Release;
 		};
+		E57DABBD21B88E16002F1244 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "NexUp Unit Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.designsbylagb.NexUp-Unit-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NexUp.app/NexUp";
+			};
+			name = Debug;
+		};
+		E57DABBE21B88E16002F1244 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "NexUp Unit Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.designsbylagb.NexUp-Unit-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NexUp.app/NexUp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -665,6 +790,15 @@
 			buildConfigurations = (
 				1489A7BF1F33CCFC00A6E404 /* Debug */,
 				1489A7C01F33CCFC00A6E404 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E57DABBF21B88E16002F1244 /* Build configuration list for PBXNativeTarget "NexUp Unit Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E57DABBD21B88E16002F1244 /* Debug */,
+				E57DABBE21B88E16002F1244 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
