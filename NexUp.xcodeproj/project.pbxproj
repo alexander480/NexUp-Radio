@@ -31,7 +31,6 @@
 		E553162220132C81006EA053 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553162120132C81006EA053 /* Sidebar.swift */; };
 		E569F389200590A300E5F07D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569F388200590A300E5F07D /* Artist.swift */; };
 		E57675DE2015C2A40093C820 /* FoundationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57675DD2015C2A40093C820 /* FoundationExt.swift */; };
-		E57DABB921B88E16002F1244 /* NexUp_Unit_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DABB821B88E16002F1244 /* NexUp_Unit_Test.swift */; };
 		E58A2FB820203E4500A22C55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A2FB720203E4500A22C55 /* AudioToolbox.framework */; };
 		E59BA253202D17700050588D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BA252202D17700050588D /* StoreKit.framework */; };
 		E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B87E1920196CAF00777E67 /* FavoriteVC.swift */; };
@@ -82,8 +81,6 @@
 		E569F388200590A300E5F07D /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E57675DD2015C2A40093C820 /* FoundationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExt.swift; sourceTree = "<group>"; };
 		E57DABB621B88E16002F1244 /* NexUp Unit Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NexUp Unit Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E57DABB821B88E16002F1244 /* NexUp_Unit_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexUp_Unit_Test.swift; sourceTree = "<group>"; };
-		E57DABBA21B88E16002F1244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E58A2FB620203E4400A22C55 /* NexUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NexUp.entitlements; sourceTree = SOURCE_ROOT; };
 		E58A2FB720203E4500A22C55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E59BA252202D17700050588D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -148,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				1489A7AE1F33CCFC00A6E404 /* NexUp */,
-				E57DABB721B88E16002F1244 /* NexUp Unit Test */,
 				1489A7AD1F33CCFC00A6E404 /* Products */,
 				D3C59EAC0CD00A29F88298E6 /* Pods */,
 				9E13DDD962C84BC0D2881B30 /* Frameworks */,
@@ -231,15 +227,6 @@
 				145E5F6E1FF5830100C8E37C /* StoryboardExt.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		E57DABB721B88E16002F1244 /* NexUp Unit Test */ = {
-			isa = PBXGroup;
-			children = (
-				E57DABB821B88E16002F1244 /* NexUp_Unit_Test.swift */,
-				E57DABBA21B88E16002F1244 /* Info.plist */,
-			);
-			path = "NexUp Unit Test";
 			sourceTree = "<group>";
 		};
 		E5872E472130F9B40043AB26 /* Information Views */ = {
@@ -543,7 +530,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E57DABB921B88E16002F1244 /* NexUp_Unit_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
