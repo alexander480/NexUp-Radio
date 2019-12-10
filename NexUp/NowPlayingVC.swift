@@ -24,7 +24,9 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
     let fullScreenID = "ca-app-pub-6543648439575950/9063940183"
 
     var timer = Timer()
-    var interstitial: GADInterstitial!
+    
+    let metadata = MetadataHandler()
+    let ads = Advertisments()
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var controlCircleConstraint: NSLayoutConstraint!
@@ -51,16 +53,10 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
         super.viewDidLoad()
         self.progressBar.progress = 0.0
         
-        account.shouldRefreshSkipCount()
-        self.toggleLoading(isLoading: true)
         
-        if let info = audio.metadata {
-            if let image = audio.imageCache.object(forKey: info["URL"] as! NSString) {
-                self.circleButton.setImage(image, for: .normal)
-                self.toggleLoading(isLoading: false)
-                backgroundImage.image = image
-            }
-        }
+        account.shouldRefreshSkipCount()
+        
+        metadata.populateNowPlaying(npvc: self)
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true, block: { (timer) in self.updateUserInterface() })
     }
@@ -72,27 +68,8 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
             }
         }
         else {
-            if let info = audio.metadata {
-                if let url = info["URL"] as? NSString {
-                    if let image = audio.imageCache.object(forKey: url) {
-                        backgroundImage.image = image
-                        self.circleButton.setImage(image, for: .normal)
-                        if let item = audio.player.currentItem {
-                            self.progressBar.progress = Float(item.currentTime().seconds / item.duration.seconds)
-        
-                        }
-                    }
-                }
-                self.toggleLoading(isLoading: false)
-            }
-            else {
-                self.toggleLoading(isLoading: true)
-            }
-
-            if account.isPremium == false && audio.shouldDisplayAd {
-                interstitial = self.createInterstitial()
-                audio.shouldDisplayAd = false
-            }
+            metadata.updateInterface(npvc: self)
+            //ads.checkForInterstitial(Delegate: self)
         }
     }
     
@@ -106,7 +83,7 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
     
     func toggleLoading(isLoading: Bool) {
         if isLoading {
-            self.loadingView?.isHidden = false
+            self.loadingView?.isHidden = true
             self.loadingSpinner?.startAnimating()
             self.controlCircleConstraint?.constant = 750
             self.loadingConstraint?.constant = -27.5
@@ -164,16 +141,12 @@ class NowPlayingVC: UIViewController, GADInterstitialDelegate, AudioDelegate {
         }
         UIView.animate(withDuration: 0.3, animations: { self.view.layoutIfNeeded() })
     }
-
-    private func createInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: fullScreenID)
-            interstitial.delegate = self
-            interstitial.load(GADRequest())
     
-        return interstitial
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        if account.isPremium == false {
+            ad.present(fromRootViewController: self)
+        }
     }
-    
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) { if account.isPremium == false { ad.present(fromRootViewController: self) } }
     
     deinit { self.timer.invalidate() }
 }

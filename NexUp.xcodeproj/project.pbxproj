@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AEAF3F2239F0C8400D1B547 /* Advertisments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAF3F1239F0C8400D1B547 /* Advertisments.swift */; };
+		0AEAF3F4239F0EAA00D1B547 /* MetadataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAF3F3239F0EAA00D1B547 /* MetadataHandler.swift */; };
 		144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A831F3BE7CD00CF749F /* AdSupport.framework */; };
 		144B8A861F3BE81000CF749F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A851F3BE81000CF749F /* iAd.framework */; };
 		144B8A881F3BE88700CF749F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A871F3BE88700CF749F /* AVFoundation.framework */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AEAF3F1239F0C8400D1B547 /* Advertisments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisments.swift; sourceTree = "<group>"; };
+		0AEAF3F3239F0EAA00D1B547 /* MetadataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataHandler.swift; sourceTree = "<group>"; };
 		144B8A831F3BE7CD00CF749F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		144B8A851F3BE81000CF749F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		144B8A871F3BE88700CF749F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				E51B22AA200316DC009F09A1 /* Account.swift */,
+				0AEAF3F1239F0C8400D1B547 /* Advertisments.swift */,
+				0AEAF3F3239F0EAA00D1B547 /* MetadataHandler.swift */,
 				E569F388200590A300E5F07D /* Artist.swift */,
 				14E26A151F4CBE5200FFC55D /* Audio.swift */,
 			);
@@ -416,6 +422,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -476,7 +483,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -495,7 +502,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NexUp/Pods-NexUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -515,6 +522,7 @@
 				E5EA45F1210FA2D1006FDC69 /* PremiumVC.swift in Sources */,
 				14E26A161F4CBE5200FFC55D /* Audio.swift in Sources */,
 				E553162020132C77006EA053 /* CircleControls.swift in Sources */,
+				0AEAF3F4239F0EAA00D1B547 /* MetadataHandler.swift in Sources */,
 				E53C4A392001C22C00D38465 /* AuthVC.swift in Sources */,
 				E53C4A2D2001C1BB00D38465 /* UserAccountVC.swift in Sources */,
 				1489A7B01F33CCFC00A6E404 /* AppDelegate.swift in Sources */,
@@ -524,6 +532,7 @@
 				E553162220132C81006EA053 /* Sidebar.swift in Sources */,
 				E5B87E1A20196CAF00777E67 /* FavoriteVC.swift in Sources */,
 				E5EA45F3210FAC85006FDC69 /* TermsVC.swift in Sources */,
+				0AEAF3F2239F0C8400D1B547 /* Advertisments.swift in Sources */,
 				E5263C7D20D35FDC007039BE /* SlideSegues.swift in Sources */,
 				E57675DE2015C2A40093C820 /* FoundationExt.swift in Sources */,
 				E5CBC9DA200D6A8C0018023A /* NowPlayingVC.swift in Sources */,

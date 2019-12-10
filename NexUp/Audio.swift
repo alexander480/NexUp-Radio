@@ -29,8 +29,9 @@ class Audio: NSObject {
     var player = AVQueuePlayer()
     var playlist = [URL]()
     
+    var songCount = 0
+    
     var currentPlaylist = ""
-    var shouldDisplayAd = false
     var limitReached = false
     
     var delegate: AudioDelegate?
@@ -56,8 +57,6 @@ class Audio: NSObject {
         if PlaylistName == "Favorites" { self.startFavorites() }
         else { self.startPlaylist(Name: PlaylistName) }
     }
-    
-    
     
     private func refreshQueue() {
         print("[INFO] Refreshing Queue")
@@ -115,6 +114,8 @@ class Audio: NSObject {
     }
     
     @objc func playerDidFinishPlaying() {
+        songCount += 1
+        
         print("[INFO] Player Finished Playing")
         if account.skipCount < 1 {
             print("[INFO] Skip Limit Reached")
