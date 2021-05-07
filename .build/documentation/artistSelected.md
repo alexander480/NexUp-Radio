@@ -1,5 +1,0 @@
-# artistSelected
-
-``` swift
-var artistSelected 
-```
