@@ -379,7 +379,7 @@
 				TargetAttributes = {
 					1489A7AB1F33CCFC00A6E404 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = VWSMFUQHS2;
+						DevelopmentTeam = VZ4LX93GR9;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -399,6 +399,7 @@
 					};
 					E57DABB521B88E16002F1244 = {
 						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = VZ4LX93GR9;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1489A7AB1F33CCFC00A6E404;
 					};
@@ -688,10 +689,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = VWSMFUQHS2;
+				DEVELOPMENT_TEAM = VZ4LX93GR9;
 				INFOPLIST_FILE = "$(SRCROOT)/NexUp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lagbtech.nexup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deltavel.nexup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -710,10 +711,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VWSMFUQHS2;
+				DEVELOPMENT_TEAM = VZ4LX93GR9;
 				INFOPLIST_FILE = "$(SRCROOT)/NexUp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lagbtech.nexup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deltavel.nexup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -732,6 +733,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VZ4LX93GR9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "NexUp Unit Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -755,6 +757,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VZ4LX93GR9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "NexUp Unit Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
