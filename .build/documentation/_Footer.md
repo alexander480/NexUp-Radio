@@ -1,1 +1,1 @@
-Generated at 2021-05-07T06:51:01-0400 using [swift-doc](https://github.com/SwiftDocOrg/swift-doc) 1.0.0-beta.6.
+Generated at 2021-05-07T07:02:54-0400 using [swift-doc](https://github.com/SwiftDocOrg/swift-doc) 1.0.0-beta.6.

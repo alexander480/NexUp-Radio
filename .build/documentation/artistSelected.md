@@ -1,0 +1,5 @@
+# artistSelected
+
+``` swift
+var artistSelected 
+```
