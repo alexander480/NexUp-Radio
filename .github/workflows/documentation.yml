@@ -21,9 +21,8 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          BASE_BRANCH: master
-          BRANCH: gh-pages
-          FOLDER: docs
+          branch: gh-pages
+          folder: docs
           
 #       - name: Upload Documentation to Wiki
 #         uses: SwiftDocOrg/github-wiki-publish-action@v1
