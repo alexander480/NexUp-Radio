@@ -23,7 +23,7 @@ jobs:
         with:
           BASE_BRANCH: master
           BRANCH: gh-pages
-          FOLDER: docs/
+          FOLDER: docs
           
 #       - name: Upload Documentation to Wiki
 #         uses: SwiftDocOrg/github-wiki-publish-action@v1
