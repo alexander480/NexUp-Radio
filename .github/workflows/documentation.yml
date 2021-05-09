@@ -13,6 +13,7 @@ jobs:
         with:
           inputs: "./NexUp"
           module-name: NexUp
+          minimum-access-level: "internal"
           output: "./docs"
       - name: Upload Documentation to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
