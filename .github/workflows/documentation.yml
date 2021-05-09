@@ -12,22 +12,12 @@ jobs:
         uses: SwiftDocOrg/swift-doc@master
         with:
           inputs: "./NexUp"
-          format: "html"
-          base-url: "docs"
           module-name: NexUp
           minimum-access-level: "internal"
           output: "docs"
-          
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+      - name: Upload Documentation to Wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
-          branch: gh-pages
-          folder: docs
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          
-#       - name: Upload Documentation to Wiki
-#         uses: SwiftDocOrg/github-wiki-publish-action@v1
-#         with:
-#           path: "./docs"
+          path: "docs"
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
