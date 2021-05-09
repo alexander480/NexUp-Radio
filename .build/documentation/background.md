@@ -1,5 +1,0 @@
-# background
-
-``` swift
-let background 
-```

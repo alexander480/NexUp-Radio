@@ -1,5 +1,0 @@
-# imageCache
-
-``` swift
-let imageCache 
-```

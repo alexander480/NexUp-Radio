@@ -1,5 +1,0 @@
-# storage
-
-``` swift
-let storage 
-```

@@ -1,5 +1,0 @@
-# account
-
-``` swift
-let account 
-```

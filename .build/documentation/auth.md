@@ -1,5 +1,0 @@
-# auth
-
-``` swift
-let auth 
-```
