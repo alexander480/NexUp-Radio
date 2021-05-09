@@ -13,15 +13,15 @@ jobs:
         with:
           inputs: "./NexUp"
           format: "html"
-          base-url: "./docs"
+          base-url: "docs"
           module-name: NexUp
           minimum-access-level: "internal"
-          output: "./docs"
+          output: "docs"
           
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          branch: gh-pages # The branch the action should deploy to.
+          branch: master # The branch the action should deploy to.
           folder: docs # The folder the action should deploy.
           
 #       - name: Upload Documentation to Wiki
