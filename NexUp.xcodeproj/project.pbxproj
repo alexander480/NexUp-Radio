@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A9E47B3271A980E0084D6AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E47B2271A980E0084D6AA /* README.md */; };
 		0AEAF3F2239F0C8400D1B547 /* Advertisments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAF3F1239F0C8400D1B547 /* Advertisments.swift */; };
 		0AEAF3F4239F0EAA00D1B547 /* MetadataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEAF3F3239F0EAA00D1B547 /* MetadataHandler.swift */; };
 		144B8A841F3BE7CD00CF749F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B8A831F3BE7CD00CF749F /* AdSupport.framework */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A9E47B2271A980E0084D6AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		0AEAF3F1239F0C8400D1B547 /* Advertisments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisments.swift; sourceTree = "<group>"; };
 		0AEAF3F3239F0EAA00D1B547 /* MetadataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataHandler.swift; sourceTree = "<group>"; };
 		144B8A831F3BE7CD00CF749F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -144,6 +146,7 @@
 		1489A7A31F33CCFC00A6E404 = {
 			isa = PBXGroup;
 			children = (
+				0A9E47B2271A980E0084D6AA /* README.md */,
 				1489A7AE1F33CCFC00A6E404 /* NexUp */,
 				1489A7AD1F33CCFC00A6E404 /* Products */,
 				D3C59EAC0CD00A29F88298E6 /* Pods */,
@@ -432,6 +435,7 @@
 			files = (
 				1489A7BA1F33CCFC00A6E404 /* LaunchScreen.storyboard in Resources */,
 				E54AEA2120D07477006D0329 /* GoogleService-Info.plist in Resources */,
+				0A9E47B3271A980E0084D6AA /* README.md in Resources */,
 				1489A7B71F33CCFC00A6E404 /* Assets.xcassets in Resources */,
 				1489A7B51F33CCFC00A6E404 /* Main.storyboard in Resources */,
 			);

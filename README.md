@@ -1,3 +1,18 @@
-## NexUp Radio
+<img src="https://firebasestorage.googleapis.com/v0/b/delta-vel-development.appspot.com/o/Portfolio%2FApps%2FNexUp%20Radio%2FNexUp%20Preview%20Image.png?alt=media&token=8a45466f-741c-4665-8487-ac994abc466f" alt="NexUp Radio Screenshot" width="420"/>
 
-![NexUp Radio](https://firebasestorage.googleapis.com/v0/b/designs-by-lagb-1.appspot.com/o/Mockups%2FNexup.png?alt=media&token=6fa22283-5eb3-434a-9739-7163d56b7eb5 "NexUp Radio")
+# NexUp Radio
+
+NexUp Radio is a station-based music streaming app for Detroit artists.
+
+## Features
+- Queued Music Streaming.
+- Reads Metadata From MP3 Files.
+- Firebase Integration.
+- Google Cloud Functions.
+
+---
+
+<!--
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+-->
